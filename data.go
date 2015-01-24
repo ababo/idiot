@@ -1,10 +1,6 @@
 package main
 
-var predicates = map[string][]string{
-	"text": {
-		"{sentence} {text}",
-		"{sentence}",
-	},
+var nonterminals = map[string][]string{
 	"sentence": {
 		"{place_adverb} {part_of_speech=verb number=@2} {extended_objs case=@1 number=@2} {extended_participle case=@1 number=@2}.",
 	},
@@ -26,77 +22,72 @@ var predicates = map[string][]string{
 	},
 }
 
-var attributes = map[string]map[string][]string{
+var terminals = map[string][]Attribute{
 	"больничном": {
-		"case":           {"prepositional"},
-		"number":         {"single"},
-		"part_of_speech": {"adjective"},
+		{Name: "case", Values: []string{"prepositional"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"adjective"}},
 	},
 	"дворе": {
-		"case":           {"prepositional"},
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "case", Values: []string{"prepositional"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 	"стоит": {
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 	"небольшой": {
-		"case":           {"nominative"},
-		"number":         {"single"},
-		"part_of_speech": {"adjective"},
+		{Name: "case", Values: []string{"nominative"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"adjective"}},
 	},
 	"флигель": {
-		"case":           {"nominative"},
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "case", Values: []string{"nominative"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 	"окруженный": {
-		"case":           {"nominative"},
-		"number":         {"single"},
-		"part_of_speech": {"participle"},
+		{Name: "case", Values: []string{"nominative"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"participle"}},
 	},
 	"целым": {
-		"case":           {"instrumental"},
-		"number":         {"single"},
-		"part_of_speech": {"adjective"},
+		{Name: "case", Values: []string{"instrumental"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"adjective"}},
 	},
 	"лесом": {
-		"case":           {"instrumental"},
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "case", Values: []string{"instrumental"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 	"репейника": {
-		"case":           {"genetive"},
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "case", Values: []string{"genetive"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 	"крапивы": {
-		"case":           {"genetive"},
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "case", Values: []string{"genetive"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 	"дикой": {
-		"case":           {"genetive"},
-		"number":         {"single"},
-		"part_of_speech": {"adjective"},
+		{Name: "case", Values: []string{"genetive"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"adjective"}},
 	},
 	"конопли": {
-		"case":           {"genetive"},
-		"number":         {"single"},
-		"part_of_speech": {"noun"},
+		{Name: "case", Values: []string{"genetive"}},
+		{Name: "number", Values: []string{"single"}},
+		{Name: "part_of_speech", Values: []string{"noun"}},
 	},
 }
 
-func FindPredicateRules(predicate string) []string {
-	return predicates[predicate]
+func FindNonterminalRules(nonterminal string) []string {
+	return nonterminals[nonterminal]
 }
 
-func FindTerminalAttr(terminal string, attr string) ([]string, bool) {
-	attrs, ok := attributes[terminal]
-	if !ok {
-		return nil, false
-	}
-	val, ok := attrs[attr]
-	return val, ok
+func FindTerminalAttrs(terminal string) []Attribute {
+	return terminals[terminal]
 }
