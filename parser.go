@@ -7,7 +7,7 @@ import (
 
 type Attribute struct {
 	Name   string
-	Values []string
+	Value  string
 	token  string
 	export bool
 }
@@ -92,7 +92,7 @@ func parseNonterminal(rule string) (string, []Attribute, string) {
 			if split[1][0] == '@' {
 				attr.token = split[1][1:]
 			} else {
-				attr.Values = append(attr.Values, split[1])
+				attr.Value = split[1]
 			}
 		}
 
@@ -127,46 +127,30 @@ func (match *ParseMatch) findAttr(name string) (Attribute, bool) {
 }
 
 func (match *ParseMatch) checkAttrValue(attr Attribute, hypo *string) bool {
-	if attr2, ok := match.findAttr(attr.Name); ok {
-		for _, v := range attr2.Values {
-			if v == attr.Values[0] {
-				return true
-			}
+	attr2, ok := match.findAttr(attr.Name)
+	if ok {
+		if attr.Value == attr2.Value {
+			return true
 		}
 	}
 
-	*hypo = fmt.Sprintf("%s=%s", attr.Name, attr.Values[0])
+	*hypo = fmt.Sprintf("%s = %s", attr.Name, attr2.Value)
 	return false
-}
-
-func findIntersection(strs1, strs2 []string) []string {
-	inter := []string{}
-	for _, s1 := range strs1 {
-		for _, s2 := range strs2 {
-			if s1 == s2 {
-				inter = append(inter, s1)
-				break
-			}
-		}
-	}
-	return inter
 }
 
 func (match *ParseMatch) checkAttrToken(attr Attribute, hypo *string) bool {
 	for i := 0; i < len(match.Attributes); i++ {
 		a := &match.Attributes[i]
-		if a.Name == attr.Name && a.token == attr.token {
-			if attr.export {
+		if a.token == attr.token {
+			if a.Name == attr.Name && attr.export {
 				a.export = true
 			}
 
-			inter := findIntersection(a.Values, attr.Values)
-			if len(inter) > 0 {
-				a.Values = inter
+			if a.Value == attr.Value {
 				return true
 			}
 
-			*hypo = fmt.Sprintf("%s ∈ %v", a.Name, a.Values)
+			*hypo = fmt.Sprintf("%s = %s", attr.Name, a.Value)
 			return false
 		}
 	}
@@ -196,10 +180,10 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 		attr, _ := submatch.findAttr(a.Name)
 
 		if len(a.token) > 0 {
-			a.Values = attr.Values
+			a.Value = attr.Value
 		}
 
-		if (len(a.Values) > 0 && !submatch.checkAttrValue(a, &hypo)) ||
+		if (len(a.Value) > 0 && !submatch.checkAttrValue(a, &hypo)) ||
 			(len(a.token) > 0 && !match.checkAttrToken(a, &hypo)) {
 			if match.HypothesisCount+submatch.HypothesisCount >=
 				hypotheses_limit {
