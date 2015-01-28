@@ -2,7 +2,7 @@ package main
 
 var nonterminals = map[string][]string{
 	"sentence": {
-		"{place_adverb} {part_of_speech=verb number=@2} {extended_objs case=@1 number=@2} {extended_participle case=@1 number=@2}.",
+		"{place_adverb} {part_of_speech=verb number=@2} {extended_objs case=@1 number=@2}, {extended_participle case=@1 number=@2}.",
 	},
 	"place_adverb": {
 		"В {extended_objs case=prepositional}",
@@ -35,7 +35,7 @@ var terminals = map[string][]Attribute{
 	},
 	"стоит": {
 		{Name: "number", Values: []string{"single"}},
-		{Name: "part_of_speech", Values: []string{"noun"}},
+		{Name: "part_of_speech", Values: []string{"verb"}},
 	},
 	"небольшой": {
 		{Name: "case", Values: []string{"nominative"}},
@@ -88,6 +88,6 @@ func FindNonterminalRules(nonterminal string) []string {
 	return nonterminals[nonterminal]
 }
 
-func FindTerminalAttrs(terminal string) []Attribute {
-	return terminals[terminal]
+func FindTerminals(prefix string) []ParseMatch {
+	return []ParseMatch{{Text: prefix, Attributes: terminals[prefix]}}
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -21,30 +22,170 @@ type ParseMatch struct {
 	HypothesisCount uint
 }
 
-const TerminalSeparators = " "
+const TerminalSeparators = " ,."
 
 func parseTerminal(rule string) (string, string) {
-	return "", rule
+	var term string
+	found, unescape := false, false
+	for i := 0; i < len(rule); i++ {
+		escaped := i > 0 && rule[i-1] == '\\'
+		if escaped {
+			unescape = true
+		}
+		if rule[i] == '{' && !escaped {
+			term, rule = rule[:i], rule[i:]
+			found = true
+			break
+		}
+	}
+
+	if !found {
+		term, rule = rule, ""
+	}
+
+	if unescape {
+		term = strings.Replace(term, "\\{", "{", -1)
+	}
+
+	return term, rule
 }
 
 func parseNonterminal(rule string) (string, []Attribute, string) {
-	return "", nil, rule
+	attrs := []Attribute{}
+
+	if len(rule) == 0 || rule[0] != '{' {
+		return "", attrs, rule
+	}
+
+	var body string
+	if i := strings.Index(rule, "}"); i != -1 {
+		body, rule = rule[1:i], rule[i+1:]
+	} else {
+		body, rule = rule, ""
+	}
+
+	var nterm string
+	for i, a := range strings.Split(body, " ") {
+		if len(a) == 0 {
+			continue
+		}
+
+		var attr Attribute
+		split := strings.Split(a, "=")
+
+		if len(split[0]) == 0 {
+			continue
+		}
+		rvalue := len(split) > 1 && len(split[1]) > 0
+
+		if split[0][0] == '!' {
+			attr.Name = split[0][1:]
+			attr.export = true
+		} else if i > 0 || rvalue {
+			attr.Name = split[0]
+		} else {
+			nterm = split[0]
+			continue
+		}
+
+		if rvalue {
+			if split[1][0] == '@' {
+				attr.token = split[1][1:]
+			} else {
+				attr.Values = append(attr.Values, split[1])
+			}
+		}
+
+		attrs = append(attrs, attr)
+	}
+
+	return nterm, attrs, rule
 }
 
 func (match *ParseMatch) clone() ParseMatch {
-	return *match
+	nmatch := *match
+
+	nmatch.Attributes = make([]Attribute, len(match.Attributes))
+	copy(nmatch.Attributes, match.Attributes)
+
+	nmatch.Submatches = make([]ParseMatch, len(match.Submatches))
+	copy(nmatch.Submatches, match.Submatches)
+
+	nmatch.Hypotheses = make([]string, len(match.Hypotheses))
+	copy(nmatch.Hypotheses, match.Hypotheses)
+
+	return nmatch
 }
 
-func (match *ParseMatch) checkAttrValue(attr *Attribute, hypo *string) bool {
+func (match *ParseMatch) findAttr(name string) (Attribute, bool) {
+	for _, a := range match.Attributes {
+		if a.Name == name {
+			return a, true
+		}
+	}
+	return Attribute{}, false
+}
+
+func (match *ParseMatch) checkAttrValue(attr Attribute, hypo *string) bool {
+	if attr2, ok := match.findAttr(attr.Name); ok {
+		for _, v := range attr2.Values {
+			if v == attr.Values[0] {
+				return true
+			}
+		}
+	}
+
+	*hypo = fmt.Sprintf("%s=%s", attr.Name, attr.Values[0])
 	return false
 }
 
-func (match *ParseMatch) checkAttrToken(attr *Attribute, hypo *string) bool {
-	return false
+func findIntersection(strs1, strs2 []string) []string {
+	inter := []string{}
+	for _, s1 := range strs1 {
+		for _, s2 := range strs2 {
+			if s1 == s2 {
+				inter = append(inter, s1)
+				break
+			}
+		}
+	}
+	return inter
+}
+
+func (match *ParseMatch) checkAttrToken(attr Attribute, hypo *string) bool {
+	for i := 0; i < len(match.Attributes); i++ {
+		a := &match.Attributes[i]
+		if a.Name == attr.Name && a.token == attr.token {
+			if attr.export {
+				a.export = true
+			}
+
+			inter := findIntersection(a.Values, attr.Values)
+			if len(inter) > 0 {
+				a.Values = inter
+				return true
+			}
+
+			*hypo = fmt.Sprintf("%s ∈ %v", a.Name, a.Values)
+			return false
+		}
+	}
+
+	match.Attributes = append(match.Attributes, attr)
+	return true
 }
 
 func (match *ParseMatch) cleanExport() {
+	attrs := []Attribute{}
 
+	for _, a := range match.Attributes {
+		if len(a.token) == 0 || a.export {
+			a.token = ""
+			attrs = append(attrs, a)
+		}
+	}
+
+	match.Attributes = attrs
 }
 
 func (match *ParseMatch) checkSubmatch(attrs []Attribute,
@@ -52,22 +193,31 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 
 	var hypo string
 	for _, a := range attrs {
-		if (len(a.Values) > 0 && !submatch.checkAttrValue(&a, &hypo)) ||
-			(len(a.token) > 0 && !match.checkAttrToken(&a, &hypo)) {
+		attr, _ := submatch.findAttr(a.Name)
+
+		if len(a.token) > 0 {
+			a.Values = attr.Values
+		}
+
+		if (len(a.Values) > 0 && !submatch.checkAttrValue(a, &hypo)) ||
+			(len(a.token) > 0 && !match.checkAttrToken(a, &hypo)) {
 			if match.HypothesisCount+submatch.HypothesisCount >=
 				hypotheses_limit {
 				return false
 			}
 			match.HypothesisCount++
+			hypo = fmt.Sprintf(
+				"%d: %s", len(match.Submatches)+1, hypo)
 			match.Hypotheses = append(match.Hypotheses, hypo)
 		}
 
-		if a.export {
-			match.Attributes = append(match.Attributes, a)
+		if a.export && len(a.token) == 0 {
+			match.Attributes = append(match.Attributes, attr)
 		}
 	}
 
 	match.Text += submatch.Text
+	match.HypothesisCount += submatch.HypothesisCount
 	match.Submatches = append(match.Submatches, submatch)
 	return true
 }
@@ -93,10 +243,10 @@ func parseRulePart(text string, rule string, match ParseMatch,
 	output2 := make(chan []ParseMatch)
 	count := 0
 	for _, m := range Parse(text, pred, hypotheses_limit) {
-		match := match.clone()
-		if match.checkSubmatch(attrs, m, hypotheses_limit) {
-			go parseRulePart(text[len(match.Text):],
-				rule, match, hypotheses_limit, output2)
+		match2 := match.clone()
+		if match2.checkSubmatch(attrs, m, hypotheses_limit) {
+			go parseRulePart(text[len(m.Text):],
+				rule, match2, hypotheses_limit, output2)
 			count++
 		}
 	}
@@ -125,18 +275,28 @@ func parseRule(text string, match ParseMatch,
 func Parse(text string, nonterminal string,
 	hypotheses_limit uint) []ParseMatch {
 
+	matches := []ParseMatch{}
+
 	if len(nonterminal) == 0 {
+		var term string
 		if i := strings.IndexAny(text, TerminalSeparators); i != -1 {
-			text = text[:i]
+			term = text[:i]
+		} else {
+			term = text
 		}
-		return []ParseMatch{{Attributes: FindTerminalAttrs(text)}}
+
+		for _, m := range FindTerminals(term) {
+			if strings.HasPrefix(text, m.Text) {
+				matches = append(matches, m)
+			}
+		}
+	} else {
+		for _, r := range FindNonterminalRules(nonterminal) {
+			match := ParseMatch{Nonterminal: nonterminal, Rule: r}
+			matches = append(matches,
+				parseRule(text, match, hypotheses_limit)...)
+		}
 	}
 
-	matches := []ParseMatch{}
-	for _, r := range FindNonterminalRules(nonterminal) {
-		match := ParseMatch{Nonterminal: nonterminal, Rule: r}
-		matches = append(matches,
-			parseRule(text, match, hypotheses_limit)...)
-	}
 	return matches
 }
