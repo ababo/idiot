@@ -141,8 +141,8 @@ func (match *ParseMatch) checkAttrValue(attr Attribute, hypo *string) bool {
 func (match *ParseMatch) checkAttrToken(attr Attribute, hypo *string) bool {
 	for i := 0; i < len(match.Attributes); i++ {
 		a := &match.Attributes[i]
-		if a.token == attr.token {
-			if a.Name == attr.Name && attr.export {
+		if a.Name == attr.Name && a.token == attr.token {
+			if attr.export {
 				a.export = true
 			}
 
