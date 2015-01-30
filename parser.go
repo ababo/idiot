@@ -262,14 +262,14 @@ func Parse(text string, nonterminal string,
 	matches := []ParseMatch{}
 
 	if len(nonterminal) == 0 {
-		var term string
+		var pref, sep string
 		if i := strings.IndexAny(text, TerminalSeparators); i != -1 {
-			term = text[:i]
+			pref, sep = text[:i], text[i:i+1]
 		} else {
-			term = text
+			pref, sep = text, ""
 		}
 
-		for _, m := range FindTerminals(term) {
+		for _, m := range FindTerminals(pref, sep) {
 			if strings.HasPrefix(text, m.Text) {
 				matches = append(matches, m)
 			}

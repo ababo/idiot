@@ -67,6 +67,20 @@ var terminalAttrValues = map[string][2]string{
 	"PRED": {"pos", "pred"},
 	"NUMR": {"pos", "numr"},
 	"NPRO": {"pos", "npro"},
+
+	"sing": {"number", "sing"},
+	"plur": {"number", "plur"},
+
+	"nomn": {"case", "nomn"},
+	"gen1": {"case", "gen1"},
+	"gen2": {"case", "gen2"},
+	"datv": {"case", "datv"},
+	"accs": {"case", "accs"},
+	"ablt": {"case", "ablt"},
+	"loct": {"case", "loct"},
+	"loc1": {"case", "loc1"},
+	"loc2": {"case", "loc2"},
+	"voct": {"case", "voct"},
 }
 
 func loadTerminalTable(file *os.File) (skipped []string, err error) {
@@ -132,19 +146,7 @@ func buildTerminalData(txt_filename string) (skipped []string, err error) {
 	return skipped, nil
 }
 
-func FindTerminals(prefix string) []ParseMatch {
-	if db == nil {
-		return nil
-	}
-
-	rows, err := db.Query(
-		"SELECT * FROM terminal WHERE text LIKE '?%'", prefix)
-	if err != nil {
-		return nil
-	}
-	defer rows.Close()
-
-	matches := []ParseMatch{}
+func appendTerminalMatches(matches []ParseMatch, rows *sql.Rows) []ParseMatch {
 	for rows.Next() {
 		var text, pos, number, case_ string
 		rows.Scan(&text, &pos, &number, &case_)
@@ -168,6 +170,40 @@ func FindTerminals(prefix string) []ParseMatch {
 
 		matches = append(matches, match)
 	}
+
+	return matches
+}
+
+func FindTerminals(prefix, separator string) []ParseMatch {
+	if db == nil || len(prefix) == 0 {
+		return nil
+	}
+
+	matches := []ParseMatch{}
+
+	rows, err := db.Query(
+		"SELECT DISTINCT * FROM terminal WHERE text=?", prefix)
+	if err != nil {
+		return nil
+	}
+	defer rows.Close()
+	matches = appendTerminalMatches(matches, rows)
+
+	if len(separator) == 0 {
+		return matches
+	}
+
+	from := prefix + separator
+	to := from[:len(from)-1] + string(from[len(from)-1]+1)
+
+	rows2, err2 := db.Query(
+		"SELECT DISTINCT * FROM terminal WHERE text>=? AND text<?",
+		from, to)
+	if err2 != nil {
+		return nil
+	}
+	defer rows2.Close()
+	matches = appendTerminalMatches(matches, rows2)
 
 	return matches
 }

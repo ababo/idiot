@@ -27,12 +27,15 @@ func main() {
 		return
 	}
 	defer FinalizeData()
+	/*
+		skipped, err := buildTerminalData(path.Join(dir, "data.txt"))
+		if err != nil {
+			fmt.Printf("failed to build data: %s\n", err)
+			return
+		}
 
-	skipped, err := buildTerminalData(path.Join(dir, "data.txt"))
-	if err != nil {
-		fmt.Printf("failed to build data: %s\n", err)
-		return
-	}
+		fmt.Printf("Skipped values: %v\n", skipped)
+	*/
 
-	fmt.Printf("Skipped values: %v\n", skipped)
+	fmt.Printf("%v", FindTerminals("а", "."))
 }
