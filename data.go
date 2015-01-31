@@ -12,7 +12,8 @@ import (
 var db *sql.DB = nil
 
 func InitData(db_filename string) error {
-	db2, err := sql.Open("sqlite3", db_filename)
+	uri := fmt.Sprintf("file:%s?cache=shared", db_filename)
+	db2, err := sql.Open("sqlite3", uri)
 	if err != nil {
 		return err
 	}
@@ -72,6 +73,7 @@ var terminalAttrValues = map[string][2]string{
 	"plur": {"number", "plur"},
 
 	"nomn": {"case", "nomn"},
+	"gent": {"case", "gent"},
 	"gen1": {"case", "gen1"},
 	"gen2": {"case", "gen2"},
 	"datv": {"case", "datv"},
@@ -212,23 +214,23 @@ func FindTerminals(prefix, separator string) []ParseMatch {
 
 var nonterminals = map[string][]string{
 	"sentence": {
-		"{place_adverb} {part_of_speech=verb number=@2} {extended_objs case=@1 number=@2}, {extended_participle case=@1 number=@2}.",
+		"{in_adverbial_modifier} {pos=verb number=@2} {extended_objects case=@1 number=@2}, {participle_phrase case=@1 number=@2}.",
 	},
-	"place_adverb": {
-		"В {extended_objs case=prepositional}",
+	"in_adverbial_modifier": {
+		"в {extended_objects case=loct}",
 	},
-	"extended_objs": {
-		"{extended_obj !case !number}",
-		"@{number=plural}{extended_obj !case=@1}, {extended_objs case=@1}",
-		"@{number=plural}{extended_obj !case=@1} и {extended_objs case=@1}",
+	"extended_objects": {
+		"{extended_object !case !number}",
+		"@{number=plur}{extended_object !case=@1}, {extended_objects case=@1}",
+		"@{number=plur}{extended_object !case=@1} и {extended_objects case=@1}",
 	},
-	"extended_obj": {
-		"{part_of_speech=noun !case !number}",
-		"{part_of_speech=adjective case=@1 number=@2} {part_of_speech=noun !case=@1 !number=@2}",
-		"{part_of_speech=adjective case=@1 number=@2} {part_of_speech=noun !case=@1 !number=@2} {extended_objs case=genetive}",
+	"extended_object": {
+		"{pos=noun !case !number}",
+		"{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}",
+		"{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2} {extended_objects case=gent}",
 	},
-	"extended_participle": {
-		"{part_of_speech=participle !case !number} {extended_objs case=instrumental}",
+	"participle_phrase": {
+		"{pos=prtf !case !number} {extended_objects case=ablt}",
 	},
 }
 

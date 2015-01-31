@@ -175,9 +175,17 @@ func (match *ParseMatch) cleanExport() {
 func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 	submatch ParseMatch, hypotheses_limit uint) bool {
 
+	match.HypothesisCount += submatch.HypothesisCount
+	if match.HypothesisCount > hypotheses_limit {
+		return false
+	}
+
 	var hypo string
 	for _, a := range attrs {
-		attr, _ := submatch.findAttr(a.Name)
+		attr, ok := submatch.findAttr(a.Name)
+		if !ok {
+			attr.Name = a.Name
+		}
 
 		if len(a.token) > 0 {
 			a.Value = attr.Value
@@ -185,11 +193,10 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 
 		if (len(a.Value) > 0 && !submatch.checkAttrValue(a, &hypo)) ||
 			(len(a.token) > 0 && !match.checkAttrToken(a, &hypo)) {
-			if match.HypothesisCount+submatch.HypothesisCount >=
-				hypotheses_limit {
+			match.HypothesisCount++
+			if match.HypothesisCount > hypotheses_limit {
 				return false
 			}
-			match.HypothesisCount++
 			hypo = fmt.Sprintf(
 				"%d: %s", len(match.Submatches)+1, hypo)
 			match.Hypotheses = append(match.Hypotheses, hypo)
@@ -201,7 +208,6 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 	}
 
 	match.Text += submatch.Text
-	match.HypothesisCount += submatch.HypothesisCount
 	match.Submatches = append(match.Submatches, submatch)
 	return true
 }
