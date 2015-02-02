@@ -1,4 +1,4 @@
+*~
+*.mdb
 .DS_Store
-data.txt
-skipped.txt
-russian.db*
+dict.opcorpora.txt

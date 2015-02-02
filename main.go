@@ -14,24 +14,20 @@ func getDir() string {
 
 func main() {
 	dir := getDir()
-	if err := InitData(path.Join(dir, "russian.db")); err != nil {
-		fmt.Printf("failed to init data: %s\n", err)
-		return
-	}
-	defer FinalizeData()
-
-	text := "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли."
-	matches := Parse(text, "sentence", 0)
-	str, _ := json.Marshal(matches)
-	fmt.Printf("%s", str)
-
-	/*
-		skipped, err := buildTerminalData(path.Join(dir, "data.txt"))
-		if err != nil {
-			fmt.Printf("failed to build data: %s\n", err)
-			return
+	if true {
+		if err := InitMorph(path.Join(dir, "russian.mdb")); err != nil {
+			fmt.Printf("error calling InitMorph: %s", err)
 		}
+		defer FinalizeMorph()
 
-		fmt.Printf("Skipped values: %v\n", skipped)
-	*/
+		text := "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли."
+		var matches []ParseMatch
+		for i := 0; i < 100; i++ {
+			matches = Parse(text, "sentence", 1)
+		}
+		str, _ := json.Marshal(matches)
+		fmt.Printf("%s", str)
+	} else {
+		BuildMorphDb(path.Join(dir, "dict.opcorpora.txt"), path.Join(dir, "russian.mdb"))
+	}
 }
