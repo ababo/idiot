@@ -15,10 +15,17 @@ func getDir() string {
 func main() {
 	dir := getDir()
 	if true {
-		if err := InitMorph(path.Join(dir, "russian.mdb")); err != nil {
-			fmt.Printf("error calling InitMorph: %s", err)
+		err := InitMorph(path.Join(dir, "russian.morph"))
+		if err != nil {
+			fmt.Printf("%s\n", err)
 		}
 		defer FinalizeMorph()
+
+		err = InitRules(path.Join(dir, "russian.rules"))
+		if err != nil {
+			fmt.Printf("%s\n", err)
+		}
+		defer FinalizeRules()
 
 		text := "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли."
 		var matches []ParseMatch
@@ -26,8 +33,9 @@ func main() {
 			matches = Parse(text, "sentence", 1)
 		}
 		str, _ := json.Marshal(matches)
-		fmt.Printf("%s", str)
+		fmt.Printf("%s\n", str)
 	} else {
-		BuildMorphDb(path.Join(dir, "dict.opcorpora.txt"), path.Join(dir, "russian.mdb"))
+		BuildMorph(path.Join(dir, "dict.opcorpora.txt"),
+			path.Join(dir, "russian.morph"))
 	}
 }
