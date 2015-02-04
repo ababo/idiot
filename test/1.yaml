@@ -1,0 +1,628 @@
+- text: "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника,
+    крапивы и дикой конопли."
+  nonterminal: sentence
+  rule: '{in_adverbial_modifier} {pos=verb number=@2} {extended_objects case=@1 number=@2},
+    {participle_phrase case=@1 number=@2}.'
+  attributes: []
+  submatches:
+  - text: "в больничном дворе"
+    nonterminal: in_adverbial_modifier
+    rule: в {extended_objects case=loct}
+    attributes: []
+    submatches:
+    - text: "больничном дворе"
+      nonterminal: extended_objects
+      rule: '{extended_object !case !number}'
+      attributes:
+      - name: case
+        value: loct
+      - name: number
+        value: sing
+      submatches:
+      - text: "больничном дворе"
+        nonterminal: extended_object
+        rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}'
+        attributes:
+        - name: case
+          value: loct
+        - name: number
+          value: sing
+        submatches:
+        - text: больничном
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: adjf
+          - name: number
+            value: sing
+          - name: case
+            value: loct
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        - text: дворе
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: noun
+          - name: number
+            value: sing
+          - name: case
+            value: loct
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        hypotheses: []
+        hypothesiscount: 0
+      hypotheses: []
+      hypothesiscount: 0
+    hypotheses: []
+    hypothesiscount: 0
+  - text: стоит
+    nonterminal: ""
+    rule: ""
+    attributes:
+    - name: pos
+      value: verb
+    - name: number
+      value: sing
+    submatches: []
+    hypotheses: []
+    hypothesiscount: 0
+  - text: "небольшой флигель"
+    nonterminal: extended_objects
+    rule: '{extended_object !case !number}'
+    attributes:
+    - name: case
+      value: accs
+    - name: number
+      value: sing
+    submatches:
+    - text: "небольшой флигель"
+      nonterminal: extended_object
+      rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}'
+      attributes:
+      - name: case
+        value: accs
+      - name: number
+        value: sing
+      submatches:
+      - text: небольшой
+        nonterminal: ""
+        rule: ""
+        attributes:
+        - name: pos
+          value: adjf
+        - name: number
+          value: sing
+        - name: case
+          value: accs
+        submatches: []
+        hypotheses: []
+        hypothesiscount: 0
+      - text: флигель
+        nonterminal: ""
+        rule: ""
+        attributes:
+        - name: pos
+          value: noun
+        - name: number
+          value: sing
+        - name: case
+          value: accs
+        submatches: []
+        hypotheses: []
+        hypothesiscount: 0
+      hypotheses: []
+      hypothesiscount: 0
+    hypotheses: []
+    hypothesiscount: 0
+  - text: "окружённый целым лесом репейника, крапивы и дикой конопли"
+    nonterminal: participle_phrase
+    rule: '{pos=prtf !case !number} {extended_objects case=ablt}'
+    attributes:
+    - name: case
+      value: accs
+    - name: number
+      value: sing
+    submatches:
+    - text: окружённый
+      nonterminal: ""
+      rule: ""
+      attributes:
+      - name: pos
+        value: prtf
+      - name: number
+        value: sing
+      - name: case
+        value: accs
+      submatches: []
+      hypotheses: []
+      hypothesiscount: 0
+    - text: "целым лесом репейника, крапивы и дикой конопли"
+      nonterminal: extended_objects
+      rule: '{extended_object !case !number}'
+      attributes:
+      - name: case
+        value: ablt
+      - name: number
+        value: sing
+      submatches:
+      - text: "целым лесом репейника, крапивы и дикой конопли"
+        nonterminal: extended_object
+        rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2} {extended_objects
+          case=gent}'
+        attributes:
+        - name: case
+          value: ablt
+        - name: number
+          value: sing
+        submatches:
+        - text: целым
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: adjf
+          - name: number
+            value: sing
+          - name: case
+            value: ablt
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        - text: лесом
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: noun
+          - name: number
+            value: sing
+          - name: case
+            value: ablt
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        - text: "репейника, крапивы и дикой конопли"
+          nonterminal: extended_objects
+          rule: '@{number=plur}{extended_object !case=@1}, {extended_objects case=@1}'
+          attributes:
+          - name: number
+            value: plur
+          - name: case
+            value: gent
+          submatches:
+          - text: репейника
+            nonterminal: extended_object
+            rule: '{pos=noun !case !number}'
+            attributes:
+            - name: case
+              value: gent
+            - name: number
+              value: sing
+            submatches:
+            - text: репейника
+              nonterminal: ""
+              rule: ""
+              attributes:
+              - name: pos
+                value: noun
+              - name: number
+                value: sing
+              - name: case
+                value: gent
+              submatches: []
+              hypotheses: []
+              hypothesiscount: 0
+            hypotheses: []
+            hypothesiscount: 0
+          - text: "крапивы и дикой конопли"
+            nonterminal: extended_objects
+            rule: "@{number=plur}{extended_object !case=@1} и {extended_objects case=@1}"
+            attributes:
+            - name: number
+              value: plur
+            - name: case
+              value: gent
+            submatches:
+            - text: крапивы
+              nonterminal: extended_object
+              rule: '{pos=noun !case !number}'
+              attributes:
+              - name: case
+                value: gent
+              - name: number
+                value: sing
+              submatches:
+              - text: крапивы
+                nonterminal: ""
+                rule: ""
+                attributes:
+                - name: pos
+                  value: noun
+                - name: number
+                  value: sing
+                - name: case
+                  value: gent
+                submatches: []
+                hypotheses: []
+                hypothesiscount: 0
+              hypotheses: []
+              hypothesiscount: 0
+            - text: "дикой конопли"
+              nonterminal: extended_objects
+              rule: '{extended_object !case !number}'
+              attributes:
+              - name: case
+                value: gent
+              - name: number
+                value: sing
+              submatches:
+              - text: "дикой конопли"
+                nonterminal: extended_object
+                rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}'
+                attributes:
+                - name: case
+                  value: gent
+                - name: number
+                  value: sing
+                submatches:
+                - text: дикой
+                  nonterminal: ""
+                  rule: ""
+                  attributes:
+                  - name: pos
+                    value: adjf
+                  - name: number
+                    value: sing
+                  - name: case
+                    value: gent
+                  submatches: []
+                  hypotheses: []
+                  hypothesiscount: 0
+                - text: конопли
+                  nonterminal: ""
+                  rule: ""
+                  attributes:
+                  - name: pos
+                    value: noun
+                  - name: number
+                    value: sing
+                  - name: case
+                    value: gent
+                  submatches: []
+                  hypotheses: []
+                  hypothesiscount: 0
+                hypotheses: []
+                hypothesiscount: 0
+              hypotheses: []
+              hypothesiscount: 0
+            hypotheses: []
+            hypothesiscount: 0
+          hypotheses: []
+          hypothesiscount: 0
+        hypotheses: []
+        hypothesiscount: 0
+      hypotheses: []
+      hypothesiscount: 0
+    hypotheses: []
+    hypothesiscount: 0
+  hypotheses: []
+  hypothesiscount: 0
+- text: "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника,
+    крапивы и дикой конопли."
+  nonterminal: sentence
+  rule: '{in_adverbial_modifier} {pos=verb number=@2} {extended_objects case=@1 number=@2},
+    {participle_phrase case=@1 number=@2}.'
+  attributes: []
+  submatches:
+  - text: "в больничном дворе"
+    nonterminal: in_adverbial_modifier
+    rule: в {extended_objects case=loct}
+    attributes: []
+    submatches:
+    - text: "больничном дворе"
+      nonterminal: extended_objects
+      rule: '{extended_object !case !number}'
+      attributes:
+      - name: case
+        value: loct
+      - name: number
+        value: sing
+      submatches:
+      - text: "больничном дворе"
+        nonterminal: extended_object
+        rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}'
+        attributes:
+        - name: case
+          value: loct
+        - name: number
+          value: sing
+        submatches:
+        - text: больничном
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: adjf
+          - name: number
+            value: sing
+          - name: case
+            value: loct
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        - text: дворе
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: noun
+          - name: number
+            value: sing
+          - name: case
+            value: loct
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        hypotheses: []
+        hypothesiscount: 0
+      hypotheses: []
+      hypothesiscount: 0
+    hypotheses: []
+    hypothesiscount: 0
+  - text: стоит
+    nonterminal: ""
+    rule: ""
+    attributes:
+    - name: pos
+      value: verb
+    - name: number
+      value: sing
+    submatches: []
+    hypotheses: []
+    hypothesiscount: 0
+  - text: "небольшой флигель"
+    nonterminal: extended_objects
+    rule: '{extended_object !case !number}'
+    attributes:
+    - name: case
+      value: nomn
+    - name: number
+      value: sing
+    submatches:
+    - text: "небольшой флигель"
+      nonterminal: extended_object
+      rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}'
+      attributes:
+      - name: case
+        value: nomn
+      - name: number
+        value: sing
+      submatches:
+      - text: небольшой
+        nonterminal: ""
+        rule: ""
+        attributes:
+        - name: pos
+          value: adjf
+        - name: number
+          value: sing
+        - name: case
+          value: nomn
+        submatches: []
+        hypotheses: []
+        hypothesiscount: 0
+      - text: флигель
+        nonterminal: ""
+        rule: ""
+        attributes:
+        - name: pos
+          value: noun
+        - name: number
+          value: sing
+        - name: case
+          value: nomn
+        submatches: []
+        hypotheses: []
+        hypothesiscount: 0
+      hypotheses: []
+      hypothesiscount: 0
+    hypotheses: []
+    hypothesiscount: 0
+  - text: "окружённый целым лесом репейника, крапивы и дикой конопли"
+    nonterminal: participle_phrase
+    rule: '{pos=prtf !case !number} {extended_objects case=ablt}'
+    attributes:
+    - name: case
+      value: nomn
+    - name: number
+      value: sing
+    submatches:
+    - text: окружённый
+      nonterminal: ""
+      rule: ""
+      attributes:
+      - name: pos
+        value: prtf
+      - name: number
+        value: sing
+      - name: case
+        value: nomn
+      submatches: []
+      hypotheses: []
+      hypothesiscount: 0
+    - text: "целым лесом репейника, крапивы и дикой конопли"
+      nonterminal: extended_objects
+      rule: '{extended_object !case !number}'
+      attributes:
+      - name: case
+        value: ablt
+      - name: number
+        value: sing
+      submatches:
+      - text: "целым лесом репейника, крапивы и дикой конопли"
+        nonterminal: extended_object
+        rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2} {extended_objects
+          case=gent}'
+        attributes:
+        - name: case
+          value: ablt
+        - name: number
+          value: sing
+        submatches:
+        - text: целым
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: adjf
+          - name: number
+            value: sing
+          - name: case
+            value: ablt
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        - text: лесом
+          nonterminal: ""
+          rule: ""
+          attributes:
+          - name: pos
+            value: noun
+          - name: number
+            value: sing
+          - name: case
+            value: ablt
+          submatches: []
+          hypotheses: []
+          hypothesiscount: 0
+        - text: "репейника, крапивы и дикой конопли"
+          nonterminal: extended_objects
+          rule: '@{number=plur}{extended_object !case=@1}, {extended_objects case=@1}'
+          attributes:
+          - name: number
+            value: plur
+          - name: case
+            value: gent
+          submatches:
+          - text: репейника
+            nonterminal: extended_object
+            rule: '{pos=noun !case !number}'
+            attributes:
+            - name: case
+              value: gent
+            - name: number
+              value: sing
+            submatches:
+            - text: репейника
+              nonterminal: ""
+              rule: ""
+              attributes:
+              - name: pos
+                value: noun
+              - name: number
+                value: sing
+              - name: case
+                value: gent
+              submatches: []
+              hypotheses: []
+              hypothesiscount: 0
+            hypotheses: []
+            hypothesiscount: 0
+          - text: "крапивы и дикой конопли"
+            nonterminal: extended_objects
+            rule: "@{number=plur}{extended_object !case=@1} и {extended_objects case=@1}"
+            attributes:
+            - name: number
+              value: plur
+            - name: case
+              value: gent
+            submatches:
+            - text: крапивы
+              nonterminal: extended_object
+              rule: '{pos=noun !case !number}'
+              attributes:
+              - name: case
+                value: gent
+              - name: number
+                value: sing
+              submatches:
+              - text: крапивы
+                nonterminal: ""
+                rule: ""
+                attributes:
+                - name: pos
+                  value: noun
+                - name: number
+                  value: sing
+                - name: case
+                  value: gent
+                submatches: []
+                hypotheses: []
+                hypothesiscount: 0
+              hypotheses: []
+              hypothesiscount: 0
+            - text: "дикой конопли"
+              nonterminal: extended_objects
+              rule: '{extended_object !case !number}'
+              attributes:
+              - name: case
+                value: gent
+              - name: number
+                value: sing
+              submatches:
+              - text: "дикой конопли"
+                nonterminal: extended_object
+                rule: '{pos=adjf case=@1 number=@2} {pos=noun !case=@1 !number=@2}'
+                attributes:
+                - name: case
+                  value: gent
+                - name: number
+                  value: sing
+                submatches:
+                - text: дикой
+                  nonterminal: ""
+                  rule: ""
+                  attributes:
+                  - name: pos
+                    value: adjf
+                  - name: number
+                    value: sing
+                  - name: case
+                    value: gent
+                  submatches: []
+                  hypotheses: []
+                  hypothesiscount: 0
+                - text: конопли
+                  nonterminal: ""
+                  rule: ""
+                  attributes:
+                  - name: pos
+                    value: noun
+                  - name: number
+                    value: sing
+                  - name: case
+                    value: gent
+                  submatches: []
+                  hypotheses: []
+                  hypothesiscount: 0
+                hypotheses: []
+                hypothesiscount: 0
+              hypotheses: []
+              hypothesiscount: 0
+            hypotheses: []
+            hypothesiscount: 0
+          hypotheses: []
+          hypothesiscount: 0
+        hypotheses: []
+        hypothesiscount: 0
+      hypotheses: []
+      hypothesiscount: 0
+    hypotheses: []
+    hypothesiscount: 0
+  hypotheses: []
+  hypothesiscount: 0

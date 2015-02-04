@@ -11,7 +11,7 @@ func InitRules(rules_filename string) error {
 	FinalizeRules()
 
 	data, err := ioutil.ReadFile(rules_filename)
-	if err != err {
+	if err != nil {
 		return nil
 	}
 
