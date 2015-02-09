@@ -14,7 +14,6 @@ func getRootDir() string {
 
 func main() {
 	dir := getRootDir()
-	fmt.Printf("dir: %s\n", dir)
 	if true {
 		err := InitMorph(path.Join(dir, "morph.bin"))
 		if err != nil {
@@ -28,7 +27,11 @@ func main() {
 		}
 		defer FinalizeRules()
 
-		text := "крыша на нем ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой, а от штукатурки остались одни только следы."
+		InitCache(256)
+		defer FinalizeCache()
+
+		//text := "крыша на нем ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой, а от штукатурки остались одни только следы."
+		text := "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли."
 
 		matches := Parse(text, "sentence", 0)
 
@@ -36,6 +39,6 @@ func main() {
 		fmt.Printf("%s\n", str)
 	} else {
 		BuildMorph(path.Join(dir, "dict.opcorpora.txt"),
-			path.Join(dir, "russian.morph"))
+			path.Join(dir, "morph.bin"))
 	}
 }

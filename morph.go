@@ -31,6 +31,14 @@ var (
 		"nomn", "gent", "gen1", "gen2", "datv", "accs", "ablt", "loct",
 		"loc1", "loc2", "voct",
 	}
+
+	morphGenderValues = []string{
+		"masc", "femn", "neut",
+	}
+
+	morphTenseValues = []string{
+		"past", "pres", "futr",
+	}
 )
 
 type morphHeader struct {
@@ -41,11 +49,56 @@ type morphHeader struct {
 }
 
 type morphEntry struct {
-	text     uint32
-	pos      uint8
-	number   uint8
-	case_    uint8
-	reserved uint8
+	text  uint32
+	attrs uint32
+}
+
+func (entry *morphEntry) getAttr(mask, offset uint32) uint32 {
+	return (entry.attrs & mask) >> offset
+}
+
+func (entry *morphEntry) setAttr(imask, offset, value uint32) {
+	entry.attrs = (entry.attrs & imask) | (value << offset)
+}
+
+func (entry *morphEntry) getPos() uint32 {
+	return entry.getAttr(0x1F, 0)
+}
+
+func (entry *morphEntry) setPos(pos uint32) {
+	entry.setAttr(^uint32(0x1F), 0, pos)
+}
+
+func (entry *morphEntry) getNumber() uint32 {
+	return entry.getAttr(0x60, 5)
+}
+
+func (entry *morphEntry) setNumber(number uint32) {
+	entry.setAttr(^uint32(0x60), 5, number)
+}
+
+func (entry *morphEntry) getCase() uint32 {
+	return entry.getAttr(0x780, 7)
+}
+
+func (entry *morphEntry) setCase(case_ uint32) {
+	entry.setAttr(^uint32(0x780), 7, case_)
+}
+
+func (entry *morphEntry) getGender() uint32 {
+	return entry.getAttr(0x1800, 11)
+}
+
+func (entry *morphEntry) setGender(gender uint32) {
+	entry.setAttr(^uint32(0x1800), 11, gender)
+}
+
+func (entry *morphEntry) getTense() uint32 {
+	return entry.getAttr(0x6000, 13)
+}
+
+func (entry *morphEntry) setTense(tense uint32) {
+	entry.setAttr(^uint32(0x6000), 13, tense)
 }
 
 func findString(strs []string, str string) int {
@@ -68,11 +121,15 @@ func findMorphEntry(entries []morphEntry, entry morphEntry) int {
 
 func updateMorphEntry(entry *morphEntry, value string) {
 	if i := findString(morphPosValues, value); i != -1 {
-		entry.pos = uint8(i + 1)
+		entry.setPos(uint32(i + 1))
 	} else if i := findString(morphNumberValues, value); i != -1 {
-		entry.number = uint8(i + 1)
+		entry.setNumber(uint32(i + 1))
 	} else if i := findString(morphCaseValues, value); i != -1 {
-		entry.case_ = uint8(i + 1)
+		entry.setCase(uint32(i + 1))
+	} else if i := findString(morphGenderValues, value); i != -1 {
+		entry.setGender(uint32(i + 1))
+	} else if i := findString(morphTenseValues, value); i != -1 {
+		entry.setTense(uint32(i + 1))
 	}
 }
 
@@ -220,17 +277,25 @@ func getMorphEntryText(i int) string {
 
 func getMorphEntryMatch(i int) ParseMatch {
 	attrs := []Attribute{}
-	if morphEntries[i].pos > 0 {
-		value := morphPosValues[morphEntries[i].pos-1]
+	if morphEntries[i].getPos() > 0 {
+		value := morphPosValues[morphEntries[i].getPos()-1]
 		attrs = append(attrs, Attribute{Name: "pos", Value: value})
 	}
-	if morphEntries[i].number > 0 {
-		value := morphNumberValues[morphEntries[i].number-1]
+	if morphEntries[i].getNumber() > 0 {
+		value := morphNumberValues[morphEntries[i].getNumber()-1]
 		attrs = append(attrs, Attribute{Name: "number", Value: value})
 	}
-	if morphEntries[i].case_ > 0 {
-		value := morphCaseValues[morphEntries[i].case_-1]
+	if morphEntries[i].getCase() > 0 {
+		value := morphCaseValues[morphEntries[i].getCase()-1]
 		attrs = append(attrs, Attribute{Name: "case", Value: value})
+	}
+	if morphEntries[i].getGender() > 0 {
+		value := morphGenderValues[morphEntries[i].getGender()-1]
+		attrs = append(attrs, Attribute{Name: "gender", Value: value})
+	}
+	if morphEntries[i].getTense() > 0 {
+		value := morphTenseValues[morphEntries[i].getTense()-1]
+		attrs = append(attrs, Attribute{Name: "tense", Value: value})
 	}
 
 	return ParseMatch{Text: getMorphEntryText(i), Attributes: attrs}

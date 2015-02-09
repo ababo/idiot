@@ -62,5 +62,8 @@ func TestMain(m *testing.M) {
 	}
 	defer FinalizeRules()
 
+	InitCache(256)
+	defer FinalizeCache()
+
 	os.Exit(m.Run())
 }

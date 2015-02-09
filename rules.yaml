@@ -1,3 +1,105 @@
+# # В больничном дворе стоит небольшой  флигель, окруженный целым лесом репейника, крапивы и дикой конопли. Крыша на нем ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой, а от штукатурки остались одни только следы. Передним фасадом обращен он к больнице, задним - глядит в поле, от которого отделяет его серый больничный забор с гвоздями. Эти гвозди, обращенные остриями кверху, и забор, и самый флигель имеют тот особый унылый, окаянный вид, какой у нас бывает только у больничных и тюремных построек.
+
+# ################################################################################
+# sentence:
+
+# # мама мыла раму.
+# - "@{aim=decl}{aimless_sentence}."
+
+# # ты ел борщ?
+# - "@{aim=intr}{aimless_sentence}?"
+
+# # будь мужиком!
+# - "@{aim=excl}{aimless_sentence}!"
+
+# ################################################################################
+# aimless_sentence:
+
+# # вася ест борщ, а петя пьет компот
+# - "{compound_sentence}"
+
+# # если вася съест борщ, то петя выпьет компот
+# # "{complex_sentence}"
+
+# ################################################################################
+# compound_sentence:
+
+# # вася есть борщ
+# - "{simple_sentence}"
+
+# # вася ест борщ, петя пьет компот
+# - "{simple_sentence}, {compound_sentence}"
+
+# # вася ест борщ, а петя пьет компот
+# - "{simple_sentence}, а {compound_sentence}"
+
+# # вася ест борщ, и петя пьет компот
+# - "{simple_sentence}, и {compound_sentence}"
+
+# ################################################################################
+# simple_sentence:
+
+# ## группа подлежащих + группа сказуемых
+
+# # желтая морковка растет на грядке и тянется к солнцу
+# - "{subject_groups number=sing} {predicate_groups number=sing tense=pres}"
+
+# # желтая морковка вырастет на грядке и будет тянуться к солнцу
+# - "{subject_groups number=sing} {predicate_groups number=sing tense=futr}"
+
+# # желтая морковка росла на грядке и тянулась к солнцу
+# - "{subject_groups number=sing gender=@1} {predicate_groups number=sing tense=past gender=@1}"
+
+# # желтая морковка и красный огурец растут на грядке и тянутся к солнцу
+# - "{subject_groups number=plur} {predicate_groups number=plur}"
+
+# ## группа сказуемых + группа подлежащих
+
+# # растет на грядке и тянется к солнцу желтая морковка
+# - "{predicate_groups number=sing tense=pres} {subject_groups number=sing}"
+
+# # вырастет на грядке и будет тянуться к солнцу желтая морковка
+# - "{predicate_groups number=sing tense=futr} {subject_groups number=sing}"
+
+# # росла на грядке и тянулась к солнцу желтая морковка
+# - "{predicate_groups number=sing tense=past gender=@1} {subject_groups number=sing gender=@1}"
+
+# # растут на грядке и тянутся к солнцу желтая морковка и красный огурец
+# - "{predicate_groups number=plur} {subject_groups number=plur}"
+
+# ## группа сказуемых + группа подлежащих + группа сказуемых
+
+# # растет морковка и к небу тянется
+# - "{predicate_groups number=sing tense=pres} {subject_groups number=sing} и {predicate_groups number=sing tense=pres}"
+# - "{predicate_groups number=sing tense=pres} {subject_groups number=sing}, {predicate_groups number=sing tense=pres}"
+
+
+
+
+# - "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
+# - "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@2}, {predicate_groups number=@1 gender=@2}"
+
+
+
+subject_groups:
+- "{object_groups !number case=nomn !gender}"
+
+predicate_groups:
+- "{predicate_group !number !gender}"
+- "{predicate_group !number=@1 !gender=@1}, {predicates_groups number=@1 gender=@2}"
+- "{predicate_group !number=@1 !gender=@2} и {predicates_groups number=@1 gender=@2}"
+
+object_groups:
+- "{object_group !number !case !gender}"
+- "@{number=plur}{object_group !case=@1}, {object_groups case=@1}"
+- "@{number=plur}{object_group !case=@1} и {object_groups case=@1}"
+
+object_group:
+- "{noun_group, !number !case}"
+- ""
+
+
+
 sentence:
 - "{in_adverbial_modifier} {pos=verb number=@2} {extended_objects case=@1 number=@2}, {participle_phrase case=@1 number=@2}."
 

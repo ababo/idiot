@@ -212,7 +212,7 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 	return true
 }
 
-func parseRulePart(text string, rule string, match ParseMatch,
+func parseRulePart(text, rule string, match ParseMatch,
 	hypotheses_limit uint, output chan []ParseMatch) {
 
 	term, rule := parseTerminal(rule)
@@ -262,10 +262,11 @@ func parseRule(text string, match ParseMatch,
 	return <-output
 }
 
-func Parse(text string, nonterminal string,
-	hypotheses_limit uint) []ParseMatch {
-
-	matches := []ParseMatch{}
+func Parse(text, nonterminal string, hypotheses_limit uint) []ParseMatch {
+	matches, ok := FindInCache(text, nonterminal, hypotheses_limit)
+	if ok {
+		return matches
+	}
 
 	if len(nonterminal) == 0 {
 		var pref, sep string
@@ -288,5 +289,6 @@ func Parse(text string, nonterminal string,
 		}
 	}
 
+	AddToCache(text, nonterminal, hypotheses_limit, matches)
 	return matches
 }
