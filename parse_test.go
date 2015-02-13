@@ -35,7 +35,7 @@ func TestParse(t *testing.T) {
 
 		if actual != expected {
 			if testing.Verbose() {
-				fmt.Printf("case %s actual result:\n%s",
+				fmt.Printf("case %s actual result:\n%s\n",
 					k, actual)
 			}
 

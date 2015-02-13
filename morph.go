@@ -277,24 +277,24 @@ func getMorphEntryText(i int) string {
 
 func getMorphEntryMatch(i int) ParseMatch {
 	attrs := []Attribute{}
-	if morphEntries[i].getPos() > 0 {
-		value := morphPosValues[morphEntries[i].getPos()-1]
+	if pos := morphEntries[i].getPos(); pos > 0 {
+		value := morphPosValues[pos-1]
 		attrs = append(attrs, Attribute{Name: "pos", Value: value})
 	}
-	if morphEntries[i].getNumber() > 0 {
-		value := morphNumberValues[morphEntries[i].getNumber()-1]
+	if number := morphEntries[i].getNumber(); number > 0 {
+		value := morphNumberValues[number-1]
 		attrs = append(attrs, Attribute{Name: "number", Value: value})
 	}
-	if morphEntries[i].getCase() > 0 {
-		value := morphCaseValues[morphEntries[i].getCase()-1]
+	if case_ := morphEntries[i].getCase(); case_ > 0 {
+		value := morphCaseValues[case_-1]
 		attrs = append(attrs, Attribute{Name: "case", Value: value})
 	}
-	if morphEntries[i].getGender() > 0 {
-		value := morphGenderValues[morphEntries[i].getGender()-1]
+	if gender := morphEntries[i].getGender(); gender > 0 {
+		value := morphGenderValues[gender-1]
 		attrs = append(attrs, Attribute{Name: "gender", Value: value})
 	}
-	if morphEntries[i].getTense() > 0 {
-		value := morphTenseValues[morphEntries[i].getTense()-1]
+	if tense := morphEntries[i].getTense(); tense > 0 {
+		value := morphTenseValues[tense-1]
 		attrs = append(attrs, Attribute{Name: "tense", Value: value})
 	}
 
