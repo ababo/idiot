@@ -153,7 +153,7 @@ func parseMorphLines(
 
 	for _, l := range lines {
 		split := strings.Split(l, "\t")
-		if len(split) < 2 {
+		if strings.HasPrefix(l, "#") || len(split) < 2 {
 			continue
 		}
 

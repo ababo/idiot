@@ -1,8 +1,8 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"path"
@@ -10,27 +10,28 @@ import (
 	"testing"
 )
 
-func TestParse(t *testing.T) {
+func TestParser(t *testing.T) {
 	dir := getRootDir()
-	data, err := ioutil.ReadFile(path.Join(dir, "test/cases.yaml"))
+	data, err := ioutil.ReadFile(path.Join(dir, "parser_test/cases.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	var cases map[string]string
-	err = yaml.Unmarshal(data, &cases)
+	err = json.Unmarshal(data, &cases)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	for k, v := range cases {
-		data, err := ioutil.ReadFile(path.Join(dir, "test", k+".yaml"))
+		data, err := ioutil.ReadFile(
+			path.Join(dir, "parser_test", k+".json"))
 		if err != nil {
 			t.Error(err)
 		}
 		expected := strings.Trim(string(data), " \t\n")
 
-		data, _ = yaml.Marshal(Parse(v, "sentence", 0))
+		data, _ = json.Marshal(Parse(v, "sentence", 0, true))
 		actual := strings.Trim(string(data), " \t\n")
 
 		if actual != expected {
@@ -41,6 +42,8 @@ func TestParse(t *testing.T) {
 
 			t.Errorf("parse result for case "+
 				"%s defers from expected", k)
+		} else {
+			t.Logf("parse result for case %s matches\n", k)
 		}
 	}
 }

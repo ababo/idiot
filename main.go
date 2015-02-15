@@ -1,8 +1,8 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"path"
 	"runtime"
 )
@@ -32,9 +32,9 @@ func main() {
 
 		//text := "крыша на нем ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой, а от штукатурки остались одни только следы."
 		text := "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли."
-		matches := Parse(text, "sentence", 0)
+		matches := Parse(text, "sentence", 0, false)
 
-		str, _ := yaml.Marshal(matches)
+		str, _ := json.Marshal(matches)
 		fmt.Printf("%s\n", str)
 	} else {
 		BuildMorph(path.Join(dir, "dict.opcorpora.txt"),
