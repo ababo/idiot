@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 	"strings"
 )
 
@@ -21,14 +20,6 @@ type ParseMatch struct {
 	Submatches      []ParseMatch
 	Hypotheses      []string
 	HypothesisCount uint
-}
-
-type byAllFields []ParseMatch
-
-func (pms byAllFields) Len() int      { return len(pms) }
-func (pms byAllFields) Swap(i, j int) { pms[i], pms[j] = pms[j], pms[i] }
-func (pms byAllFields) Less(i, j int) bool {
-	return fmt.Sprintf("%v", pms[i]) < fmt.Sprintf("%v", pms[j])
 }
 
 const TerminalSeparators = " ,."
@@ -222,7 +213,7 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 }
 
 func parseRulePart(text, rule string, match ParseMatch,
-	hypotheses_limit uint, deep_sort bool, output chan []ParseMatch) {
+	hypotheses_limit uint, output chan []ParseMatch) {
 
 	term, rule := parseTerminal(rule)
 	if !strings.HasPrefix(text, term) {
@@ -241,11 +232,11 @@ func parseRulePart(text, rule string, match ParseMatch,
 	pred, attrs, rule := parseNonterminal(rule)
 	output2 := make(chan []ParseMatch)
 	count := 0
-	for _, m := range Parse(text, pred, hypotheses_limit, deep_sort) {
+	for _, m := range Parse(text, pred, hypotheses_limit) {
 		match2 := match.clone()
 		if match2.checkSubmatch(attrs, m, hypotheses_limit) {
-			go parseRulePart(text[len(m.Text):], rule,
-				match2, hypotheses_limit, deep_sort, output2)
+			go parseRulePart(text[len(m.Text):],
+				rule, match2, hypotheses_limit, output2)
 			count++
 		}
 	}
@@ -259,7 +250,7 @@ func parseRulePart(text, rule string, match ParseMatch,
 }
 
 func parseRule(text string, match ParseMatch,
-	hypotheses_limit uint, deep_sort bool) []ParseMatch {
+	hypotheses_limit uint) []ParseMatch {
 
 	rule := match.Rule
 	if strings.HasPrefix(rule, "@") {
@@ -267,13 +258,11 @@ func parseRule(text string, match ParseMatch,
 	}
 
 	output := make(chan []ParseMatch)
-	go parseRulePart(text, rule, match, hypotheses_limit, deep_sort, output)
+	go parseRulePart(text, rule, match, hypotheses_limit, output)
 	return <-output
 }
 
-func Parse(text, nonterminal string,
-	hypotheses_limit uint, deep_sort bool) []ParseMatch {
-
+func Parse(text, nonterminal string, hypotheses_limit uint) []ParseMatch {
 	matches, ok := FindInCache(text, nonterminal, hypotheses_limit)
 	if ok {
 		return matches
@@ -296,13 +285,8 @@ func Parse(text, nonterminal string,
 		for _, r := range FindNonterminalRules(nonterminal) {
 			match := ParseMatch{Nonterminal: nonterminal, Rule: r}
 			matches = append(matches,
-				parseRule(text, match,
-					hypotheses_limit, deep_sort)...)
+				parseRule(text, match, hypotheses_limit)...)
 		}
-	}
-
-	if deep_sort {
-		sort.Sort(byAllFields(matches))
 	}
 
 	AddToCache(text, nonterminal, hypotheses_limit, matches)
