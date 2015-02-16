@@ -1,1 +1,2453 @@
-{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли.","Nonterminal":"sentence","HypothesesLimit":0,"Matches":[{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли.","Nonterminal":"sentence","Rule":"{compound_sentence}{sentence_ending !aim}","Attributes":[{"Name":"aim","Value":"decl"}],"Submatches":[{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"compound_sentence","Rule":"{simple_sentence}","Attributes":[],"Submatches":[{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"simple_sentence","Rule":"{predicate_groups number=@1 tense=pres} {subject_groups number=@1}","Attributes":[],"Submatches":[{"Text":"в больничном дворе стоит","Nonterminal":"predicate_groups","Rule":"{predicate_group !number !tense}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"tense","Value":"pres"}],"Submatches":[{"Text":"в больничном дворе стоит","Nonterminal":"predicate_group","Rule":"{adverbial_modifier} {pos=verb !number !tense}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"tense","Value":"pres"}],"Submatches":[{"Text":"в больничном дворе","Nonterminal":"adverbial_modifier","Rule":"@{rel=in}в {object_groups case=loct}","Attributes":[{"Name":"rel","Value":"in"}],"Submatches":[{"Text":"больничном дворе","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"больничном дворе","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}","Attributes":[{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"больничном","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"больничном","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"больничном","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"дворе","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"дворе","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"дворе","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"стоит","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"verb"},{"Name":"number","Value":"sing"},{"Name":"tense","Value":"pres"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"subject_groups","Rule":"{object_groups !number case=nomn !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}, {attributes number=sing case=@2 gender=@3}","Attributes":[{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"небольшой","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"флигель","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"флигель","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"флигель","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"attribute","Rule":"{participial_phrase !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"participial_phrase","Rule":"{pos=prtf !number !case !gender} {object_groups case=ablt}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"окружённый","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"prtf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"},{"Name":"tense","Value":"past"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0},{"Text":"целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}","Attributes":[{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"целым","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"целым","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"целым","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"лесом репейника, крапивы и дикой конопли","Nonterminal":"objects","Rule":"{object !number !case !gender} {object_groups case=gent}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"лесом","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"лесом","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"репейника, крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"@{number=plur}{object_group !case=@1 !gender=masc} и {object_groups case=@1}","Attributes":[{"Name":"number","Value":"plur"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника, крапивы","Nonterminal":"object_group","Rule":"{objects !number=@1 !case=@2 !gender}","Attributes":[{"Name":"number","Value":"plur"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника, крапивы","Nonterminal":"objects","Rule":"@{number=plur}{object !case=@1 !gender=masc}, {objects case=@1}","Attributes":[{"Name":"number","Value":"plur"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"крапивы","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"крапивы","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"крапивы","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"дикой конопли","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"дикой конопли","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}","Attributes":[{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"дикой","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"дикой","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"дикой","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"конопли","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"конопли","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"конопли","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":".","Nonterminal":"sentence_ending","Rule":"@{aim=decl}.","Attributes":[{"Name":"aim","Value":"decl"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли.","Nonterminal":"sentence","Rule":"{compound_sentence}{sentence_ending !aim}","Attributes":[{"Name":"aim","Value":"decl"}],"Submatches":[{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"compound_sentence","Rule":"{simple_sentence}","Attributes":[],"Submatches":[{"Text":"в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"simple_sentence","Rule":"{predicate_groups number=@1 tense=pres} {subject_groups number=@1}","Attributes":[],"Submatches":[{"Text":"в больничном дворе стоит","Nonterminal":"predicate_groups","Rule":"{predicate_group !number !tense}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"tense","Value":"pres"}],"Submatches":[{"Text":"в больничном дворе стоит","Nonterminal":"predicate_group","Rule":"{adverbial_modifier} {pos=verb !number !tense}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"tense","Value":"pres"}],"Submatches":[{"Text":"в больничном дворе","Nonterminal":"adverbial_modifier","Rule":"@{rel=in}в {object_groups case=loct}","Attributes":[{"Name":"rel","Value":"in"}],"Submatches":[{"Text":"больничном дворе","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"больничном дворе","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}","Attributes":[{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"больничном","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"больничном","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"больничном","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"дворе","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"дворе","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"дворе","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"loct"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"стоит","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"verb"},{"Name":"number","Value":"sing"},{"Name":"tense","Value":"pres"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"subject_groups","Rule":"{object_groups !number case=nomn !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}, {attributes number=sing case=@2 gender=@3}","Attributes":[{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"небольшой","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"небольшой","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"флигель","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"флигель","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"флигель","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"attribute","Rule":"{participial_phrase !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"окружённый целым лесом репейника, крапивы и дикой конопли","Nonterminal":"participial_phrase","Rule":"{pos=prtf !number !case !gender} {object_groups case=ablt}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"окружённый","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"prtf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"nomn"},{"Name":"gender","Value":"masc"},{"Name":"tense","Value":"past"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0},{"Text":"целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"целым лесом репейника, крапивы и дикой конопли","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}","Attributes":[{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"целым","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"целым","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"целым","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"лесом репейника, крапивы и дикой конопли","Nonterminal":"objects","Rule":"{object !number !case !gender} {object_groups case=gent}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"лесом","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"лесом","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"ablt"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"репейника, крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"@{number=plur}{object_group !case=@1 !gender=masc}, {object_groups case=@1}","Attributes":[{"Name":"number","Value":"plur"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника","Nonterminal":"object_group","Rule":"{objects !number=@1 !case=@2 !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":[{"Text":"репейника","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"masc"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"крапивы и дикой конопли","Nonterminal":"object_groups","Rule":"@{number=plur}{object_group !case=@1 !gender=femn} и {object_groups case=@1 gender=femn}","Attributes":[{"Name":"number","Value":"plur"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"крапивы","Nonterminal":"object_group","Rule":"{objects !number=@1 !case=@2 !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"крапивы","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"крапивы","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"крапивы","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"дикой конопли","Nonterminal":"object_groups","Rule":"{object_group !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"дикой конопли","Nonterminal":"object_group","Rule":"{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}","Attributes":[{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"},{"Name":"number","Value":"sing"}],"Submatches":[{"Text":"дикой","Nonterminal":"attributes","Rule":"{attribute !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"дикой","Nonterminal":"attribute","Rule":"{pos=adjf !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"дикой","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"adjf"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":"конопли","Nonterminal":"objects","Rule":"{object !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"конопли","Nonterminal":"object","Rule":"{pos=noun !number !case !gender}","Attributes":[{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":[{"Text":"конопли","Nonterminal":"","Rule":"","Attributes":[{"Name":"pos","Value":"noun"},{"Name":"number","Value":"sing"},{"Name":"case","Value":"gent"},{"Name":"gender","Value":"femn"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0},{"Text":".","Nonterminal":"sentence_ending","Rule":"@{aim=decl}.","Attributes":[{"Name":"aim","Value":"decl"}],"Submatches":null,"Hypotheses":null,"HypothesisCount":0}],"Hypotheses":[],"HypothesisCount":0}]}
+{
+ "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли.",
+ "Nonterminal": "sentence",
+ "HypothesesLimit": 0,
+ "Matches": [
+  {
+   "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли.",
+   "Nonterminal": "sentence",
+   "Rule": "{compound_sentence}{sentence_ending !aim}",
+   "Attributes": [
+    {
+     "Name": "aim",
+     "Value": "decl"
+    }
+   ],
+   "Submatches": [
+    {
+     "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+     "Nonterminal": "compound_sentence",
+     "Rule": "{simple_sentence}",
+     "Attributes": [],
+     "Submatches": [
+      {
+       "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+       "Nonterminal": "simple_sentence",
+       "Rule": "{predicate_groups number=@1 tense=pres} {subject_groups number=@1}",
+       "Attributes": [],
+       "Submatches": [
+        {
+         "Text": "в больничном дворе стоит",
+         "Nonterminal": "predicate_groups",
+         "Rule": "{predicate_group !number !gender !tense}",
+         "Attributes": [
+          {
+           "Name": "number",
+           "Value": "sing"
+          },
+          {
+           "Name": "gender",
+           "Value": ""
+          },
+          {
+           "Name": "tense",
+           "Value": "pres"
+          }
+         ],
+         "Submatches": [
+          {
+           "Text": "в больничном дворе стоит",
+           "Nonterminal": "predicate_group",
+           "Rule": "{adverbial_modifier} {pos=verb !number !gender !tense}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "gender",
+             "Value": ""
+            },
+            {
+             "Name": "tense",
+             "Value": "pres"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "в больничном дворе",
+             "Nonterminal": "adverbial_modifier",
+             "Rule": "@{rel=in}в {object_groups case=loct}",
+             "Attributes": [
+              {
+               "Name": "rel",
+               "Value": "in"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "больничном дворе",
+               "Nonterminal": "object_groups",
+               "Rule": "{object_group !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "loct"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "больничном дворе",
+                 "Nonterminal": "object_group",
+                 "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}",
+                 "Attributes": [
+                  {
+                   "Name": "case",
+                   "Value": "loct"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  },
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "больничном",
+                   "Nonterminal": "attributes",
+                   "Rule": "{attribute !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "loct"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "больничном",
+                     "Nonterminal": "attribute",
+                     "Rule": "{pos=adjf !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "loct"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "больничном",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "adjf"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "loct"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "дворе",
+                   "Nonterminal": "objects",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "loct"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "дворе",
+                     "Nonterminal": "object",
+                     "Rule": "{pos=noun !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "loct"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "дворе",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "noun"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "loct"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            },
+            {
+             "Text": "стоит",
+             "Nonterminal": "",
+             "Rule": "",
+             "Attributes": [
+              {
+               "Name": "pos",
+               "Value": "verb"
+              },
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "tense",
+               "Value": "pres"
+              }
+             ],
+             "Submatches": null,
+             "Hypotheses": null,
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        },
+        {
+         "Text": "небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+         "Nonterminal": "subject_groups",
+         "Rule": "{object_groups !number case=nomn !gender}",
+         "Attributes": [
+          {
+           "Name": "number",
+           "Value": "sing"
+          },
+          {
+           "Name": "gender",
+           "Value": "masc"
+          }
+         ],
+         "Submatches": [
+          {
+           "Text": "небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+           "Nonterminal": "object_groups",
+           "Rule": "{object_group !number !case !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "case",
+             "Value": "nomn"
+            },
+            {
+             "Name": "gender",
+             "Value": "masc"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+             "Nonterminal": "object_group",
+             "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}, {attributes number=sing case=@2 gender=@3}",
+             "Attributes": [
+              {
+               "Name": "case",
+               "Value": "nomn"
+              },
+              {
+               "Name": "gender",
+               "Value": "masc"
+              },
+              {
+               "Name": "number",
+               "Value": "sing"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "небольшой",
+               "Nonterminal": "attributes",
+               "Rule": "{attribute !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "небольшой",
+                 "Nonterminal": "attribute",
+                 "Rule": "{pos=adjf !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "небольшой",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "adjf"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "флигель",
+               "Nonterminal": "objects",
+               "Rule": "{object !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "флигель",
+                 "Nonterminal": "object",
+                 "Rule": "{pos=noun !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "флигель",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "noun"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "окружённый целым лесом репейника, крапивы и дикой конопли",
+               "Nonterminal": "attributes",
+               "Rule": "{attribute !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "окружённый целым лесом репейника, крапивы и дикой конопли",
+                 "Nonterminal": "attribute",
+                 "Rule": "{participial_phrase !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "окружённый целым лесом репейника, крапивы и дикой конопли",
+                   "Nonterminal": "participial_phrase",
+                   "Rule": "{pos=prtf !number !case !gender} {object_groups case=ablt}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "окружённый",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "prtf"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      },
+                      {
+                       "Name": "tense",
+                       "Value": "past"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "целым лесом репейника, крапивы и дикой конопли",
+                     "Nonterminal": "object_groups",
+                     "Rule": "{object_group !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "ablt"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "целым лесом репейника, крапивы и дикой конопли",
+                       "Nonterminal": "object_group",
+                       "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}",
+                       "Attributes": [
+                        {
+                         "Name": "case",
+                         "Value": "ablt"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        }
+                       ],
+                       "Submatches": [
+                        {
+                         "Text": "целым",
+                         "Nonterminal": "attributes",
+                         "Rule": "{attribute !number !case !gender}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "ablt"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "masc"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "целым",
+                           "Nonterminal": "attribute",
+                           "Rule": "{pos=adjf !number !case !gender}",
+                           "Attributes": [
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "ablt"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "masc"
+                            }
+                           ],
+                           "Submatches": [
+                            {
+                             "Text": "целым",
+                             "Nonterminal": "",
+                             "Rule": "",
+                             "Attributes": [
+                              {
+                               "Name": "pos",
+                               "Value": "adjf"
+                              },
+                              {
+                               "Name": "number",
+                               "Value": "sing"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "ablt"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "masc"
+                              }
+                             ],
+                             "Submatches": null,
+                             "Hypotheses": null,
+                             "HypothesisCount": 0
+                            }
+                           ],
+                           "Hypotheses": [],
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        },
+                        {
+                         "Text": "лесом репейника, крапивы и дикой конопли",
+                         "Nonterminal": "objects",
+                         "Rule": "{object !number !case !gender} {object_groups case=gent}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "ablt"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "masc"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "лесом",
+                           "Nonterminal": "object",
+                           "Rule": "{pos=noun !number !case !gender}",
+                           "Attributes": [
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "ablt"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "masc"
+                            }
+                           ],
+                           "Submatches": [
+                            {
+                             "Text": "лесом",
+                             "Nonterminal": "",
+                             "Rule": "",
+                             "Attributes": [
+                              {
+                               "Name": "pos",
+                               "Value": "noun"
+                              },
+                              {
+                               "Name": "number",
+                               "Value": "sing"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "ablt"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "masc"
+                              }
+                             ],
+                             "Submatches": null,
+                             "Hypotheses": null,
+                             "HypothesisCount": 0
+                            }
+                           ],
+                           "Hypotheses": [],
+                           "HypothesisCount": 0
+                          },
+                          {
+                           "Text": "репейника, крапивы и дикой конопли",
+                           "Nonterminal": "object_groups",
+                           "Rule": "@{number=plur}{object_group !case=@1 !gender=masc} и {object_groups case=@1}",
+                           "Attributes": [
+                            {
+                             "Name": "number",
+                             "Value": "plur"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "gent"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "masc"
+                            }
+                           ],
+                           "Submatches": [
+                            {
+                             "Text": "репейника, крапивы",
+                             "Nonterminal": "object_group",
+                             "Rule": "{objects !number=@1 !case=@2 !gender}",
+                             "Attributes": [
+                              {
+                               "Name": "number",
+                               "Value": "plur"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "gent"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "masc"
+                              }
+                             ],
+                             "Submatches": [
+                              {
+                               "Text": "репейника, крапивы",
+                               "Nonterminal": "objects",
+                               "Rule": "@{number=plur}{object !case=@1 !gender=masc}, {objects case=@1}",
+                               "Attributes": [
+                                {
+                                 "Name": "number",
+                                 "Value": "plur"
+                                },
+                                {
+                                 "Name": "case",
+                                 "Value": "gent"
+                                },
+                                {
+                                 "Name": "gender",
+                                 "Value": "masc"
+                                }
+                               ],
+                               "Submatches": [
+                                {
+                                 "Text": "репейника",
+                                 "Nonterminal": "object",
+                                 "Rule": "{pos=noun !number !case !gender}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  },
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "masc"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "репейника",
+                                   "Nonterminal": "",
+                                   "Rule": "",
+                                   "Attributes": [
+                                    {
+                                     "Name": "pos",
+                                     "Value": "noun"
+                                    },
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "masc"
+                                    }
+                                   ],
+                                   "Submatches": null,
+                                   "Hypotheses": null,
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                },
+                                {
+                                 "Text": "крапивы",
+                                 "Nonterminal": "objects",
+                                 "Rule": "{object !number !case !gender}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  },
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "femn"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "крапивы",
+                                   "Nonterminal": "object",
+                                   "Rule": "{pos=noun !number !case !gender}",
+                                   "Attributes": [
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "femn"
+                                    }
+                                   ],
+                                   "Submatches": [
+                                    {
+                                     "Text": "крапивы",
+                                     "Nonterminal": "",
+                                     "Rule": "",
+                                     "Attributes": [
+                                      {
+                                       "Name": "pos",
+                                       "Value": "noun"
+                                      },
+                                      {
+                                       "Name": "number",
+                                       "Value": "sing"
+                                      },
+                                      {
+                                       "Name": "case",
+                                       "Value": "gent"
+                                      },
+                                      {
+                                       "Name": "gender",
+                                       "Value": "femn"
+                                      }
+                                     ],
+                                     "Submatches": null,
+                                     "Hypotheses": null,
+                                     "HypothesisCount": 0
+                                    }
+                                   ],
+                                   "Hypotheses": [],
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                }
+                               ],
+                               "Hypotheses": [],
+                               "HypothesisCount": 0
+                              }
+                             ],
+                             "Hypotheses": [],
+                             "HypothesisCount": 0
+                            },
+                            {
+                             "Text": "дикой конопли",
+                             "Nonterminal": "object_groups",
+                             "Rule": "{object_group !number !case !gender}",
+                             "Attributes": [
+                              {
+                               "Name": "number",
+                               "Value": "sing"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "gent"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "femn"
+                              }
+                             ],
+                             "Submatches": [
+                              {
+                               "Text": "дикой конопли",
+                               "Nonterminal": "object_group",
+                               "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}",
+                               "Attributes": [
+                                {
+                                 "Name": "case",
+                                 "Value": "gent"
+                                },
+                                {
+                                 "Name": "gender",
+                                 "Value": "femn"
+                                },
+                                {
+                                 "Name": "number",
+                                 "Value": "sing"
+                                }
+                               ],
+                               "Submatches": [
+                                {
+                                 "Text": "дикой",
+                                 "Nonterminal": "attributes",
+                                 "Rule": "{attribute !number !case !gender}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  },
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "femn"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "дикой",
+                                   "Nonterminal": "attribute",
+                                   "Rule": "{pos=adjf !number !case !gender}",
+                                   "Attributes": [
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "femn"
+                                    }
+                                   ],
+                                   "Submatches": [
+                                    {
+                                     "Text": "дикой",
+                                     "Nonterminal": "",
+                                     "Rule": "",
+                                     "Attributes": [
+                                      {
+                                       "Name": "pos",
+                                       "Value": "adjf"
+                                      },
+                                      {
+                                       "Name": "number",
+                                       "Value": "sing"
+                                      },
+                                      {
+                                       "Name": "case",
+                                       "Value": "gent"
+                                      },
+                                      {
+                                       "Name": "gender",
+                                       "Value": "femn"
+                                      }
+                                     ],
+                                     "Submatches": null,
+                                     "Hypotheses": null,
+                                     "HypothesisCount": 0
+                                    }
+                                   ],
+                                   "Hypotheses": [],
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                },
+                                {
+                                 "Text": "конопли",
+                                 "Nonterminal": "objects",
+                                 "Rule": "{object !number !case !gender}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  },
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "femn"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "конопли",
+                                   "Nonterminal": "object",
+                                   "Rule": "{pos=noun !number !case !gender}",
+                                   "Attributes": [
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "femn"
+                                    }
+                                   ],
+                                   "Submatches": [
+                                    {
+                                     "Text": "конопли",
+                                     "Nonterminal": "",
+                                     "Rule": "",
+                                     "Attributes": [
+                                      {
+                                       "Name": "pos",
+                                       "Value": "noun"
+                                      },
+                                      {
+                                       "Name": "number",
+                                       "Value": "sing"
+                                      },
+                                      {
+                                       "Name": "case",
+                                       "Value": "gent"
+                                      },
+                                      {
+                                       "Name": "gender",
+                                       "Value": "femn"
+                                      }
+                                     ],
+                                     "Submatches": null,
+                                     "Hypotheses": null,
+                                     "HypothesisCount": 0
+                                    }
+                                   ],
+                                   "Hypotheses": [],
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                }
+                               ],
+                               "Hypotheses": [],
+                               "HypothesisCount": 0
+                              }
+                             ],
+                             "Hypotheses": [],
+                             "HypothesisCount": 0
+                            }
+                           ],
+                           "Hypotheses": [],
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        }
+                       ],
+                       "Hypotheses": [],
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        }
+       ],
+       "Hypotheses": [],
+       "HypothesisCount": 0
+      }
+     ],
+     "Hypotheses": [],
+     "HypothesisCount": 0
+    },
+    {
+     "Text": ".",
+     "Nonterminal": "sentence_ending",
+     "Rule": "@{aim=decl}.",
+     "Attributes": [
+      {
+       "Name": "aim",
+       "Value": "decl"
+      }
+     ],
+     "Submatches": null,
+     "Hypotheses": null,
+     "HypothesisCount": 0
+    }
+   ],
+   "Hypotheses": [],
+   "HypothesisCount": 0
+  },
+  {
+   "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли.",
+   "Nonterminal": "sentence",
+   "Rule": "{compound_sentence}{sentence_ending !aim}",
+   "Attributes": [
+    {
+     "Name": "aim",
+     "Value": "decl"
+    }
+   ],
+   "Submatches": [
+    {
+     "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+     "Nonterminal": "compound_sentence",
+     "Rule": "{simple_sentence}",
+     "Attributes": [],
+     "Submatches": [
+      {
+       "Text": "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+       "Nonterminal": "simple_sentence",
+       "Rule": "{predicate_groups number=@1 tense=pres} {subject_groups number=@1}",
+       "Attributes": [],
+       "Submatches": [
+        {
+         "Text": "в больничном дворе стоит",
+         "Nonterminal": "predicate_groups",
+         "Rule": "{predicate_group !number !gender !tense}",
+         "Attributes": [
+          {
+           "Name": "number",
+           "Value": "sing"
+          },
+          {
+           "Name": "gender",
+           "Value": ""
+          },
+          {
+           "Name": "tense",
+           "Value": "pres"
+          }
+         ],
+         "Submatches": [
+          {
+           "Text": "в больничном дворе стоит",
+           "Nonterminal": "predicate_group",
+           "Rule": "{adverbial_modifier} {pos=verb !number !gender !tense}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "gender",
+             "Value": ""
+            },
+            {
+             "Name": "tense",
+             "Value": "pres"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "в больничном дворе",
+             "Nonterminal": "adverbial_modifier",
+             "Rule": "@{rel=in}в {object_groups case=loct}",
+             "Attributes": [
+              {
+               "Name": "rel",
+               "Value": "in"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "больничном дворе",
+               "Nonterminal": "object_groups",
+               "Rule": "{object_group !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "loct"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "больничном дворе",
+                 "Nonterminal": "object_group",
+                 "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}",
+                 "Attributes": [
+                  {
+                   "Name": "case",
+                   "Value": "loct"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  },
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "больничном",
+                   "Nonterminal": "attributes",
+                   "Rule": "{attribute !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "loct"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "больничном",
+                     "Nonterminal": "attribute",
+                     "Rule": "{pos=adjf !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "loct"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "больничном",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "adjf"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "loct"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "дворе",
+                   "Nonterminal": "objects",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "loct"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "дворе",
+                     "Nonterminal": "object",
+                     "Rule": "{pos=noun !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "loct"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "дворе",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "noun"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "loct"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            },
+            {
+             "Text": "стоит",
+             "Nonterminal": "",
+             "Rule": "",
+             "Attributes": [
+              {
+               "Name": "pos",
+               "Value": "verb"
+              },
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "tense",
+               "Value": "pres"
+              }
+             ],
+             "Submatches": null,
+             "Hypotheses": null,
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        },
+        {
+         "Text": "небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+         "Nonterminal": "subject_groups",
+         "Rule": "{object_groups !number case=nomn !gender}",
+         "Attributes": [
+          {
+           "Name": "number",
+           "Value": "sing"
+          },
+          {
+           "Name": "gender",
+           "Value": "masc"
+          }
+         ],
+         "Submatches": [
+          {
+           "Text": "небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+           "Nonterminal": "object_groups",
+           "Rule": "{object_group !number !case !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "case",
+             "Value": "nomn"
+            },
+            {
+             "Name": "gender",
+             "Value": "masc"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли",
+             "Nonterminal": "object_group",
+             "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}, {attributes number=sing case=@2 gender=@3}",
+             "Attributes": [
+              {
+               "Name": "case",
+               "Value": "nomn"
+              },
+              {
+               "Name": "gender",
+               "Value": "masc"
+              },
+              {
+               "Name": "number",
+               "Value": "sing"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "небольшой",
+               "Nonterminal": "attributes",
+               "Rule": "{attribute !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "небольшой",
+                 "Nonterminal": "attribute",
+                 "Rule": "{pos=adjf !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "небольшой",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "adjf"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "флигель",
+               "Nonterminal": "objects",
+               "Rule": "{object !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "флигель",
+                 "Nonterminal": "object",
+                 "Rule": "{pos=noun !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "флигель",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "noun"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "окружённый целым лесом репейника, крапивы и дикой конопли",
+               "Nonterminal": "attributes",
+               "Rule": "{attribute !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "окружённый целым лесом репейника, крапивы и дикой конопли",
+                 "Nonterminal": "attribute",
+                 "Rule": "{participial_phrase !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "окружённый целым лесом репейника, крапивы и дикой конопли",
+                   "Nonterminal": "participial_phrase",
+                   "Rule": "{pos=prtf !number !case !gender} {object_groups case=ablt}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "окружённый",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "prtf"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      },
+                      {
+                       "Name": "tense",
+                       "Value": "past"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "целым лесом репейника, крапивы и дикой конопли",
+                     "Nonterminal": "object_groups",
+                     "Rule": "{object_group !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "ablt"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "целым лесом репейника, крапивы и дикой конопли",
+                       "Nonterminal": "object_group",
+                       "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}",
+                       "Attributes": [
+                        {
+                         "Name": "case",
+                         "Value": "ablt"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        }
+                       ],
+                       "Submatches": [
+                        {
+                         "Text": "целым",
+                         "Nonterminal": "attributes",
+                         "Rule": "{attribute !number !case !gender}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "ablt"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "masc"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "целым",
+                           "Nonterminal": "attribute",
+                           "Rule": "{pos=adjf !number !case !gender}",
+                           "Attributes": [
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "ablt"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "masc"
+                            }
+                           ],
+                           "Submatches": [
+                            {
+                             "Text": "целым",
+                             "Nonterminal": "",
+                             "Rule": "",
+                             "Attributes": [
+                              {
+                               "Name": "pos",
+                               "Value": "adjf"
+                              },
+                              {
+                               "Name": "number",
+                               "Value": "sing"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "ablt"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "masc"
+                              }
+                             ],
+                             "Submatches": null,
+                             "Hypotheses": null,
+                             "HypothesisCount": 0
+                            }
+                           ],
+                           "Hypotheses": [],
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        },
+                        {
+                         "Text": "лесом репейника, крапивы и дикой конопли",
+                         "Nonterminal": "objects",
+                         "Rule": "{object !number !case !gender} {object_groups case=gent}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "ablt"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "masc"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "лесом",
+                           "Nonterminal": "object",
+                           "Rule": "{pos=noun !number !case !gender}",
+                           "Attributes": [
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "ablt"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "masc"
+                            }
+                           ],
+                           "Submatches": [
+                            {
+                             "Text": "лесом",
+                             "Nonterminal": "",
+                             "Rule": "",
+                             "Attributes": [
+                              {
+                               "Name": "pos",
+                               "Value": "noun"
+                              },
+                              {
+                               "Name": "number",
+                               "Value": "sing"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "ablt"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "masc"
+                              }
+                             ],
+                             "Submatches": null,
+                             "Hypotheses": null,
+                             "HypothesisCount": 0
+                            }
+                           ],
+                           "Hypotheses": [],
+                           "HypothesisCount": 0
+                          },
+                          {
+                           "Text": "репейника, крапивы и дикой конопли",
+                           "Nonterminal": "object_groups",
+                           "Rule": "@{number=plur}{object_group !case=@1 !gender=masc}, {object_groups case=@1}",
+                           "Attributes": [
+                            {
+                             "Name": "number",
+                             "Value": "plur"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "gent"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "masc"
+                            }
+                           ],
+                           "Submatches": [
+                            {
+                             "Text": "репейника",
+                             "Nonterminal": "object_group",
+                             "Rule": "{objects !number=@1 !case=@2 !gender}",
+                             "Attributes": [
+                              {
+                               "Name": "number",
+                               "Value": "sing"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "gent"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "masc"
+                              }
+                             ],
+                             "Submatches": [
+                              {
+                               "Text": "репейника",
+                               "Nonterminal": "objects",
+                               "Rule": "{object !number !case !gender}",
+                               "Attributes": [
+                                {
+                                 "Name": "number",
+                                 "Value": "sing"
+                                },
+                                {
+                                 "Name": "case",
+                                 "Value": "gent"
+                                },
+                                {
+                                 "Name": "gender",
+                                 "Value": "masc"
+                                }
+                               ],
+                               "Submatches": [
+                                {
+                                 "Text": "репейника",
+                                 "Nonterminal": "object",
+                                 "Rule": "{pos=noun !number !case !gender}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  },
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "masc"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "репейника",
+                                   "Nonterminal": "",
+                                   "Rule": "",
+                                   "Attributes": [
+                                    {
+                                     "Name": "pos",
+                                     "Value": "noun"
+                                    },
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "masc"
+                                    }
+                                   ],
+                                   "Submatches": null,
+                                   "Hypotheses": null,
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                }
+                               ],
+                               "Hypotheses": [],
+                               "HypothesisCount": 0
+                              }
+                             ],
+                             "Hypotheses": [],
+                             "HypothesisCount": 0
+                            },
+                            {
+                             "Text": "крапивы и дикой конопли",
+                             "Nonterminal": "object_groups",
+                             "Rule": "@{number=plur}{object_group !case=@1 !gender=femn} и {object_groups case=@1 gender=femn}",
+                             "Attributes": [
+                              {
+                               "Name": "number",
+                               "Value": "plur"
+                              },
+                              {
+                               "Name": "case",
+                               "Value": "gent"
+                              },
+                              {
+                               "Name": "gender",
+                               "Value": "femn"
+                              }
+                             ],
+                             "Submatches": [
+                              {
+                               "Text": "крапивы",
+                               "Nonterminal": "object_group",
+                               "Rule": "{objects !number=@1 !case=@2 !gender}",
+                               "Attributes": [
+                                {
+                                 "Name": "number",
+                                 "Value": "sing"
+                                },
+                                {
+                                 "Name": "case",
+                                 "Value": "gent"
+                                },
+                                {
+                                 "Name": "gender",
+                                 "Value": "femn"
+                                }
+                               ],
+                               "Submatches": [
+                                {
+                                 "Text": "крапивы",
+                                 "Nonterminal": "objects",
+                                 "Rule": "{object !number !case !gender}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  },
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "femn"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "крапивы",
+                                   "Nonterminal": "object",
+                                   "Rule": "{pos=noun !number !case !gender}",
+                                   "Attributes": [
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "femn"
+                                    }
+                                   ],
+                                   "Submatches": [
+                                    {
+                                     "Text": "крапивы",
+                                     "Nonterminal": "",
+                                     "Rule": "",
+                                     "Attributes": [
+                                      {
+                                       "Name": "pos",
+                                       "Value": "noun"
+                                      },
+                                      {
+                                       "Name": "number",
+                                       "Value": "sing"
+                                      },
+                                      {
+                                       "Name": "case",
+                                       "Value": "gent"
+                                      },
+                                      {
+                                       "Name": "gender",
+                                       "Value": "femn"
+                                      }
+                                     ],
+                                     "Submatches": null,
+                                     "Hypotheses": null,
+                                     "HypothesisCount": 0
+                                    }
+                                   ],
+                                   "Hypotheses": [],
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                }
+                               ],
+                               "Hypotheses": [],
+                               "HypothesisCount": 0
+                              },
+                              {
+                               "Text": "дикой конопли",
+                               "Nonterminal": "object_groups",
+                               "Rule": "{object_group !number !case !gender}",
+                               "Attributes": [
+                                {
+                                 "Name": "number",
+                                 "Value": "sing"
+                                },
+                                {
+                                 "Name": "case",
+                                 "Value": "gent"
+                                },
+                                {
+                                 "Name": "gender",
+                                 "Value": "femn"
+                                }
+                               ],
+                               "Submatches": [
+                                {
+                                 "Text": "дикой конопли",
+                                 "Nonterminal": "object_group",
+                                 "Rule": "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}",
+                                 "Attributes": [
+                                  {
+                                   "Name": "case",
+                                   "Value": "gent"
+                                  },
+                                  {
+                                   "Name": "gender",
+                                   "Value": "femn"
+                                  },
+                                  {
+                                   "Name": "number",
+                                   "Value": "sing"
+                                  }
+                                 ],
+                                 "Submatches": [
+                                  {
+                                   "Text": "дикой",
+                                   "Nonterminal": "attributes",
+                                   "Rule": "{attribute !number !case !gender}",
+                                   "Attributes": [
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "femn"
+                                    }
+                                   ],
+                                   "Submatches": [
+                                    {
+                                     "Text": "дикой",
+                                     "Nonterminal": "attribute",
+                                     "Rule": "{pos=adjf !number !case !gender}",
+                                     "Attributes": [
+                                      {
+                                       "Name": "number",
+                                       "Value": "sing"
+                                      },
+                                      {
+                                       "Name": "case",
+                                       "Value": "gent"
+                                      },
+                                      {
+                                       "Name": "gender",
+                                       "Value": "femn"
+                                      }
+                                     ],
+                                     "Submatches": [
+                                      {
+                                       "Text": "дикой",
+                                       "Nonterminal": "",
+                                       "Rule": "",
+                                       "Attributes": [
+                                        {
+                                         "Name": "pos",
+                                         "Value": "adjf"
+                                        },
+                                        {
+                                         "Name": "number",
+                                         "Value": "sing"
+                                        },
+                                        {
+                                         "Name": "case",
+                                         "Value": "gent"
+                                        },
+                                        {
+                                         "Name": "gender",
+                                         "Value": "femn"
+                                        }
+                                       ],
+                                       "Submatches": null,
+                                       "Hypotheses": null,
+                                       "HypothesisCount": 0
+                                      }
+                                     ],
+                                     "Hypotheses": [],
+                                     "HypothesisCount": 0
+                                    }
+                                   ],
+                                   "Hypotheses": [],
+                                   "HypothesisCount": 0
+                                  },
+                                  {
+                                   "Text": "конопли",
+                                   "Nonterminal": "objects",
+                                   "Rule": "{object !number !case !gender}",
+                                   "Attributes": [
+                                    {
+                                     "Name": "number",
+                                     "Value": "sing"
+                                    },
+                                    {
+                                     "Name": "case",
+                                     "Value": "gent"
+                                    },
+                                    {
+                                     "Name": "gender",
+                                     "Value": "femn"
+                                    }
+                                   ],
+                                   "Submatches": [
+                                    {
+                                     "Text": "конопли",
+                                     "Nonterminal": "object",
+                                     "Rule": "{pos=noun !number !case !gender}",
+                                     "Attributes": [
+                                      {
+                                       "Name": "number",
+                                       "Value": "sing"
+                                      },
+                                      {
+                                       "Name": "case",
+                                       "Value": "gent"
+                                      },
+                                      {
+                                       "Name": "gender",
+                                       "Value": "femn"
+                                      }
+                                     ],
+                                     "Submatches": [
+                                      {
+                                       "Text": "конопли",
+                                       "Nonterminal": "",
+                                       "Rule": "",
+                                       "Attributes": [
+                                        {
+                                         "Name": "pos",
+                                         "Value": "noun"
+                                        },
+                                        {
+                                         "Name": "number",
+                                         "Value": "sing"
+                                        },
+                                        {
+                                         "Name": "case",
+                                         "Value": "gent"
+                                        },
+                                        {
+                                         "Name": "gender",
+                                         "Value": "femn"
+                                        }
+                                       ],
+                                       "Submatches": null,
+                                       "Hypotheses": null,
+                                       "HypothesisCount": 0
+                                      }
+                                     ],
+                                     "Hypotheses": [],
+                                     "HypothesisCount": 0
+                                    }
+                                   ],
+                                   "Hypotheses": [],
+                                   "HypothesisCount": 0
+                                  }
+                                 ],
+                                 "Hypotheses": [],
+                                 "HypothesisCount": 0
+                                }
+                               ],
+                               "Hypotheses": [],
+                               "HypothesisCount": 0
+                              }
+                             ],
+                             "Hypotheses": [],
+                             "HypothesisCount": 0
+                            }
+                           ],
+                           "Hypotheses": [],
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        }
+                       ],
+                       "Hypotheses": [],
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        }
+       ],
+       "Hypotheses": [],
+       "HypothesisCount": 0
+      }
+     ],
+     "Hypotheses": [],
+     "HypothesisCount": 0
+    },
+    {
+     "Text": ".",
+     "Nonterminal": "sentence_ending",
+     "Rule": "@{aim=decl}.",
+     "Attributes": [
+      {
+       "Name": "aim",
+       "Value": "decl"
+      }
+     ],
+     "Submatches": null,
+     "Hypotheses": null,
+     "HypothesisCount": 0
+    }
+   ],
+   "Hypotheses": [],
+   "HypothesisCount": 0
+  }
+ ]
+}
