@@ -5,11 +5,24 @@ import (
 	"fmt"
 	"path"
 	"runtime"
+	"sort"
+	"strings"
 )
 
 func getRootDir() string {
 	_, filename, _, _ := runtime.Caller(1)
 	return path.Dir(filename)
+}
+
+func getParseMatchesJson(matches []ParseMatch) string {
+	jsons := make([]string, len(matches))
+	for i, m := range matches {
+		data, _ := json.Marshal(&m)
+		jsons[i] = string(data)
+	}
+
+	sort.Strings(jsons)
+	return "[" + strings.Join(jsons, ",") + "]"
 }
 
 func main() {
@@ -32,10 +45,8 @@ func main() {
 
 		//text := "крыша на нем ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой, а от штукатурки остались одни только следы."
 		text := "в больничном дворе стоит небольшой флигель, окружённый целым лесом репейника, крапивы и дикой конопли."
-		matches := Parse(text, "sentence", 0)
 
-		str, _ := json.Marshal(matches)
-		fmt.Printf("%s\n", str)
+		fmt.Print(getParseMatchesJson(Parse(text, "sentence", 0)))
 	} else {
 		BuildMorph(path.Join(dir, "dict.opcorpora.txt"),
 			path.Join(dir, "morph.bin"))
