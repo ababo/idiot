@@ -1,6 +1,6 @@
 # В больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
 
-# Крыша на нем ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.
+# Крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.
 
 # Передним фасадом обращен он к больнице, задним - глядит в поле, от которого отделяет его серый больничный забор с гвоздями.
 
@@ -42,8 +42,41 @@ complex_sentence:
 ################################################################################
 simple_sentence:
 
+## subject groups + predicate groups
+
+# труба наполовину обвалилась
+- "{subject_groups number=sing gender=@1} {predicate_groups number=sing gender=@1 tense=past}"
+
+# ?
+- "{subject_groups number=plur} {predicate_groups number=plur tense=past}"
+
+# ?
+- "{subject_groups number=@1} {predicate_groups number=@1 tense=pres}"
+
+# ?
+- "{subject_groups number=@1} {predicate_groups number=@1 tense=futr}"
+
+## predicate groups + subject groups
+
+# ?
+- "{predicate_groups number=sing gender=@1 tense=past} {subject_groups number=sing gender=@1}"
+
+# ?
+- "{predicate_groups number=plur tense=past} {subject_groups number=plur}"
+
 # в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
 - "{predicate_groups number=@1 tense=pres} {subject_groups number=@1}"
+
+# ?
+- "{predicate_groups number=@1 tense=futr} {subject_groups number=@1}"
+
+## subject groups + attributive predicate
+
+# крыша на нем ржавая
+- "{subject_groups number=sing gender=@1} {attributive_predicate number=sing gender=@1}"
+
+# ?
+- "{subject_groups number=plur} {attributive_predicate number=plur}"
 
 ################################################################################
 predicate_groups:
@@ -60,8 +93,14 @@ predicate_group:
 ################################################################################
 adverbial_modifier:
 
+# наполовину
+- "@{rel=how}{pos=advb}"
+
 # в больничном дворе
 - "@{rel=in}в {object_groups case=loct}"
+
+# на нём
+- "@{rel=on}на {object_groups case=loct}"
 
 ################################################################################
 object_groups:
@@ -148,8 +187,20 @@ object:
 # дворе
 - "{pos=noun !number !case !gender}"
 
+# нём
+- "{pos=npro !number !case !gender}"
+
 ################################################################################
 subject_groups:
 
 # небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
 - "{object_groups !number case=nomn !gender}"
+
+################################################################################
+attributive_predicate:
+
+# ?
+- "{attributes !number case=nomn !gender}"
+
+# ржавая (крыша на нем ржавая)
+- "{adverbial_modifier} {attributes !number case=nomn !gender}"
