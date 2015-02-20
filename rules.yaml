@@ -1,10 +1,10 @@
-# В больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
+# в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
 
-# Крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.
+# крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.
 
-# Передним фасадом обращен он к больнице, задним - глядит в поле, от которого отделяет его серый больничный забор с гвоздями.
+# передним фасадом обращен он к больнице, задним - глядит в поле, от которого отделяет его серый больничный забор с гвоздями.
 
-# Эти гвозди, обращенные остриями кверху, и забор, и самый флигель имеют тот особый унылый, окаянный вид, какой у нас бывает только у больничных и тюремных построек.
+# эти гвозди, обращенные остриями кверху, и забор, и самый флигель имеют тот особый унылый, окаянный вид, какой у нас бывает только у больничных и тюремных построек.
 
 ################################################################################
 sentence:
@@ -42,65 +42,65 @@ complex_sentence:
 ################################################################################
 simple_sentence:
 
-## subject groups + predicate groups
-
 # труба наполовину обвалилась
-- "{subject_groups number=sing gender=@1} {predicate_groups number=sing gender=@1 tense=past}"
-
-# ?
-- "{subject_groups number=plur} {predicate_groups number=plur tense=past}"
-
-# ?
-- "{subject_groups number=@1} {predicate_groups number=@1 tense=pres}"
-
-# ?
-- "{subject_groups number=@1} {predicate_groups number=@1 tense=futr}"
-
-## predicate groups + subject groups
-
-# ?
-- "{predicate_groups number=sing gender=@1 tense=past} {subject_groups number=sing gender=@1}"
-
-# ?
-- "{predicate_groups number=plur tense=past} {subject_groups number=plur}"
+- "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}"
 
 # в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
-- "{predicate_groups number=@1 tense=pres} {subject_groups number=@1}"
-
-# ?
-- "{predicate_groups number=@1 tense=futr} {subject_groups number=@1}"
-
-## subject groups + attributive predicate
-
-# крыша на нем ржавая
-- "{subject_groups number=sing gender=@1} {attributive_predicate number=sing gender=@1}"
-
-# ?
-- "{subject_groups number=plur} {attributive_predicate number=plur}"
+- "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
 
 ################################################################################
 predicate_groups:
 
 # в больничном дворе стоит
-- "{predicate_group !number !gender !tense}"
+- "{predicate_group !number !gender}"
+
+# сгнили и поросли травой
+- "{predicate_group !number=@1 !gender=@2} и {predicate_groups number=@1 gender=@2}"
+
+# ?
+- "{predicate_group !number=@1 !gender=@2}, {predicate_groups number=@1 gender=@2}"
 
 ################################################################################
 predicate_group:
 
+# ?
+- "{predicate !number !gender !tense}"
+
 # в больничном дворе стоит
-- "{adverbial_modifier} {pos=verb !number !gender !tense}"
+- "{adverbial_modifier} {predicate !number !gender !tense}"
+
+# поросли травой
+- "{predicate !number !gender !tense} {object_groups}"
+
+# ?
+- "{adverbial_modifier} {predicate !number !gender !tense} {object_groups}"
+
+################################################################################
+predicate:
+
+# стоит
+- "{particle}{pos=verb !number !gender !tense}"
+
+# ржавая
+- "{particle}{attributes !number case=nomn !gender}"
 
 ################################################################################
 adverbial_modifier:
 
 # наполовину
-- "@{rel=how}{pos=advb}"
+- "@{rel=how}{particle}{pos=advb}"
 
 # в больничном дворе
-- "@{rel=in}в {object_groups case=loct}"
+- "@{rel=in}{particle}в {object_groups case=loct}"
 
 # на нём
-- "@{rel=on}на {object_groups case=loct}"
+- "@{rel=on}{particle}на {object_groups case=loct}"
+
+# у крыльца
+- "@{rel=near}{particle}у {object_groups case=gent}"
+
+# от штукатурки
+- "@{rel=of}{particle}от {object_groups case=gent}"
 
 ################################################################################
 object_groups:
@@ -124,20 +124,19 @@ object_groups:
 object_group:
 
 # крапивы
-- "{objects !number=@1 !case=@2 !gender}"
+- "{object !number !case !gender}"
 
 # больничном дворе
-- "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}"
-
-# ?
-- "{attributes number=plur case=@2} {objects !number=plur !case=@2}"
+- "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}"
 
 # небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
-- "{attributes number=sing case=@2 gender=@3} {objects !number=sing !case=@2 !gender=@3}, {attributes number=sing case=@2 gender=@3}"
+- "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}, {attributes number=@1 case=@2 gender=@3}"
 
 # ?
-- "{attributes number=plur case=@2} {objects !number=plur !case=@2}, {attributes number=@1 case=@2}"
+- "{object !number !case !gender} {object_groups case=gent}"
 
+# целым лесом репейника, крапивы и дикой конопли
+- "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3} {object_groups case=gent}"
 
 ################################################################################
 attributes:
@@ -149,10 +148,10 @@ attributes:
 attribute:
 
 # больничном
-- "{pos=adjf !number !case !gender}"
+- "{particle}{pos=adjf !number !case !gender}"
 
 # окруженный целым лесом репейника, крапивы и дикой конопли
-- "{participial_phrase !number !case !gender}"
+- "{particle}{participial_phrase !number !case !gender}"
 
 ################################################################################
 participial_phrase:
@@ -161,46 +160,22 @@ participial_phrase:
 - "{pos=prtf !number !case !gender} {object_groups case=ablt}"
 
 ################################################################################
-objects:
-
-# дворе
-- "{object !number !case !gender}"
-
-# лесом репейника, крапивы и дикой конопли
-- "{object !number !case !gender} {object_groups case=gent}"
-
-# ?
-- "@{number=plur}{object !case=@1 !gender=femn}, {objects case=@1 gender=femn}"
-
-# репейника, крапивы
-- "@{number=plur}{object !case=@1 !gender=masc}, {objects case=@1}"
-
-# ?
-- "@{number=plur}{object !case=@1 !gender=femn} и {objects case=@1 gender=femn}"
-
-# ?
-- "@{number=plur}{object !case=@1 !gender=masc} и {objects case=@1}"
-
-################################################################################
 object:
 
 # дворе
-- "{pos=noun !number !case !gender}"
+- "{particle}{pos=noun !number !case !gender}"
 
 # нём
-- "{pos=npro !number !case !gender}"
+- "{particle}{pos=npro !number !case !gender}"
 
 ################################################################################
 subject_groups:
 
-# небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
+# небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
 - "{object_groups !number case=nomn !gender}"
 
 ################################################################################
-attributive_predicate:
+particle:
 
-# ?
-- "{attributes !number case=nomn !gender}"
-
-# ржавая (крыша на нем ржавая)
-- "{adverbial_modifier} {attributes !number case=nomn !gender}"
+- ""
+- "@{mod=only}только "

@@ -128,10 +128,8 @@ func (match *ParseMatch) findAttr(name string) (Attribute, bool) {
 
 func (match *ParseMatch) checkAttrValue(attr Attribute, hypo *string) bool {
 	attr2, ok := match.findAttr(attr.Name)
-	if ok {
-		if attr.Value == attr2.Value {
-			return true
-		}
+	if !ok || len(attr2.Value) == 0 || attr2.Value == attr.Value {
+		return true
 	}
 
 	*hypo = fmt.Sprintf("%s = %s", attr.Name, attr2.Value)
@@ -139,6 +137,10 @@ func (match *ParseMatch) checkAttrValue(attr Attribute, hypo *string) bool {
 }
 
 func (match *ParseMatch) checkAttrToken(attr Attribute, hypo *string) bool {
+	if len(attr.Value) == 0 {
+		return true
+	}
+
 	for i := 0; i < len(match.Attributes); i++ {
 		a := &match.Attributes[i]
 		if a.Name == attr.Name && a.token == attr.token {
@@ -146,7 +148,12 @@ func (match *ParseMatch) checkAttrToken(attr Attribute, hypo *string) bool {
 				a.export = true
 			}
 
-			if a.Value == attr.Value {
+			if len(a.Value) > 0 {
+				if a.Value == attr.Value {
+					return true
+				}
+			} else {
+				a.Value = attr.Value
 				return true
 			}
 

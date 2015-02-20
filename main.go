@@ -13,7 +13,7 @@ func main() {
 		}
 		defer finalizeParser()
 
-		text := "в больничном дворе"
+		text := "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы."
 		matches := Parse(text, "sentence", 0)
 		data, _ := json.Marshal(&matches)
 		fmt.Println(string(data))

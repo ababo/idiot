@@ -1,0 +1,3525 @@
+{
+ "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.",
+ "Nonterminal": "sentence",
+ "HypothesesLimit": 0,
+ "Matches": [
+  {
+   "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.",
+   "Nonterminal": "sentence",
+   "Rule": "{complex_sentence}{sentence_ending !aim}",
+   "Attributes": [
+    {
+     "Name": "aim",
+     "Value": "decl"
+    }
+   ],
+   "Submatches": [
+    {
+     "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы",
+     "Nonterminal": "complex_sentence",
+     "Rule": "@{rel=opos}{compound_sentence}, а {compound_sentence}",
+     "Attributes": [
+      {
+       "Name": "rel",
+       "Value": "opos"
+      }
+     ],
+     "Submatches": [
+      {
+       "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой",
+       "Nonterminal": "compound_sentence",
+       "Rule": "{simple_sentence}, {compound_sentence}",
+       "Attributes": [],
+       "Submatches": [
+        {
+         "Text": "крыша на нём ржавая",
+         "Nonterminal": "simple_sentence",
+         "Rule": "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}",
+         "Attributes": [],
+         "Submatches": [
+          {
+           "Text": "крыша",
+           "Nonterminal": "subject_groups",
+           "Rule": "{object_groups !number case=nomn !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "gender",
+             "Value": "femn"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "крыша",
+             "Nonterminal": "object_groups",
+             "Rule": "{object_group !number !case !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "case",
+               "Value": "nomn"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "крыша",
+               "Nonterminal": "object_group",
+               "Rule": "{object !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "крыша",
+                 "Nonterminal": "object",
+                 "Rule": "{particle}{pos=noun !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "",
+                   "Nonterminal": "particle",
+                   "Rule": "",
+                   "Attributes": [],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "крыша",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "noun"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          },
+          {
+           "Text": "на нём ржавая",
+           "Nonterminal": "predicate_groups",
+           "Rule": "{predicate_group !number !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "gender",
+             "Value": "femn"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "на нём ржавая",
+             "Nonterminal": "predicate_group",
+             "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              },
+              {
+               "Name": "tense",
+               "Value": ""
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "на нём",
+               "Nonterminal": "adverbial_modifier",
+               "Rule": "@{rel=on}{particle}на {object_groups case=loct}",
+               "Attributes": [
+                {
+                 "Name": "rel",
+                 "Value": "on"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "нём",
+                 "Nonterminal": "object_groups",
+                 "Rule": "{object_group !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "loct"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "нём",
+                   "Nonterminal": "object_group",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "loct"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "нём",
+                     "Nonterminal": "object",
+                     "Rule": "{particle}{pos=npro !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "loct"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "masc"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "нём",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "npro"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "loct"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "masc"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "ржавая",
+               "Nonterminal": "predicate",
+               "Rule": "{particle}{attributes !number case=nomn !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "ржавая",
+                 "Nonterminal": "attributes",
+                 "Rule": "{attribute !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "ржавая",
+                   "Nonterminal": "attribute",
+                   "Rule": "{particle}{pos=adjf !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "ржавая",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "adjf"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        },
+        {
+         "Text": "труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой",
+         "Nonterminal": "compound_sentence",
+         "Rule": "{simple_sentence}, {compound_sentence}",
+         "Attributes": [],
+         "Submatches": [
+          {
+           "Text": "труба наполовину обвалилась",
+           "Nonterminal": "simple_sentence",
+           "Rule": "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}",
+           "Attributes": [],
+           "Submatches": [
+            {
+             "Text": "труба",
+             "Nonterminal": "subject_groups",
+             "Rule": "{object_groups !number case=nomn !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "труба",
+               "Nonterminal": "object_groups",
+               "Rule": "{object_group !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "труба",
+                 "Nonterminal": "object_group",
+                 "Rule": "{object !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "труба",
+                   "Nonterminal": "object",
+                   "Rule": "{particle}{pos=noun !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "труба",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "noun"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            },
+            {
+             "Text": "наполовину обвалилась",
+             "Nonterminal": "predicate_groups",
+             "Rule": "{predicate_group !number !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "наполовину обвалилась",
+               "Nonterminal": "predicate_group",
+               "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                },
+                {
+                 "Name": "tense",
+                 "Value": "past"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "наполовину",
+                 "Nonterminal": "adverbial_modifier",
+                 "Rule": "@{rel=how}{particle}{pos=advb}",
+                 "Attributes": [
+                  {
+                   "Name": "rel",
+                   "Value": "how"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "",
+                   "Nonterminal": "particle",
+                   "Rule": "",
+                   "Attributes": [],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "наполовину",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "advb"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "обвалилась",
+                 "Nonterminal": "predicate",
+                 "Rule": "{particle}{pos=verb !number !gender !tense}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  },
+                  {
+                   "Name": "tense",
+                   "Value": "past"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "",
+                   "Nonterminal": "particle",
+                   "Rule": "",
+                   "Attributes": [],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "обвалилась",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "verb"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    },
+                    {
+                     "Name": "tense",
+                     "Value": "past"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          },
+          {
+           "Text": "ступеньки у крыльца сгнили и поросли травой",
+           "Nonterminal": "compound_sentence",
+           "Rule": "{simple_sentence}",
+           "Attributes": [],
+           "Submatches": [
+            {
+             "Text": "ступеньки у крыльца сгнили и поросли травой",
+             "Nonterminal": "simple_sentence",
+             "Rule": "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}",
+             "Attributes": [],
+             "Submatches": [
+              {
+               "Text": "ступеньки",
+               "Nonterminal": "subject_groups",
+               "Rule": "{object_groups !number case=nomn !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "ступеньки",
+                 "Nonterminal": "object_groups",
+                 "Rule": "{object_group !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "ступеньки",
+                   "Nonterminal": "object_group",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "ступеньки",
+                     "Nonterminal": "object",
+                     "Rule": "{particle}{pos=noun !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "ступеньки",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "noun"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "plur"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "nomn"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "femn"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "у крыльца сгнили и поросли травой",
+               "Nonterminal": "predicate_groups",
+               "Rule": "{predicate_group !number=@1 !gender=@2} и {predicate_groups number=@1 gender=@2}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "у крыльца сгнили",
+                 "Nonterminal": "predicate_group",
+                 "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": ""
+                  },
+                  {
+                   "Name": "tense",
+                   "Value": "past"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "у крыльца",
+                   "Nonterminal": "adverbial_modifier",
+                   "Rule": "@{rel=near}{particle}у {object_groups case=gent}",
+                   "Attributes": [
+                    {
+                     "Name": "rel",
+                     "Value": "near"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "крыльца",
+                     "Nonterminal": "object_groups",
+                     "Rule": "{object_group !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "gent"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "neut"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "крыльца",
+                       "Nonterminal": "object_group",
+                       "Rule": "{object !number !case !gender}",
+                       "Attributes": [
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "gent"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "neut"
+                        }
+                       ],
+                       "Submatches": [
+                        {
+                         "Text": "крыльца",
+                         "Nonterminal": "object",
+                         "Rule": "{particle}{pos=noun !number !case !gender}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "gent"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "neut"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "",
+                           "Nonterminal": "particle",
+                           "Rule": "",
+                           "Attributes": [],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          },
+                          {
+                           "Text": "крыльца",
+                           "Nonterminal": "",
+                           "Rule": "",
+                           "Attributes": [
+                            {
+                             "Name": "pos",
+                             "Value": "noun"
+                            },
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "gent"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "neut"
+                            }
+                           ],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        }
+                       ],
+                       "Hypotheses": [],
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "сгнили",
+                   "Nonterminal": "predicate",
+                   "Rule": "{particle}{pos=verb !number !gender !tense}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": ""
+                    },
+                    {
+                     "Name": "tense",
+                     "Value": "past"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "сгнили",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "verb"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "tense",
+                       "Value": "past"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "поросли травой",
+                 "Nonterminal": "predicate_groups",
+                 "Rule": "{predicate_group !number !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": ""
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "поросли травой",
+                   "Nonterminal": "predicate_group",
+                   "Rule": "{predicate !number !gender !tense} {object_groups}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": ""
+                    },
+                    {
+                     "Name": "tense",
+                     "Value": "past"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "поросли",
+                     "Nonterminal": "predicate",
+                     "Rule": "{particle}{pos=verb !number !gender !tense}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": ""
+                      },
+                      {
+                       "Name": "tense",
+                       "Value": "past"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "поросли",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "verb"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "plur"
+                        },
+                        {
+                         "Name": "tense",
+                         "Value": "past"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "травой",
+                     "Nonterminal": "object_groups",
+                     "Rule": "{object_group !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "ablt"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "травой",
+                       "Nonterminal": "object_group",
+                       "Rule": "{object !number !case !gender}",
+                       "Attributes": [
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "ablt"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "femn"
+                        }
+                       ],
+                       "Submatches": [
+                        {
+                         "Text": "травой",
+                         "Nonterminal": "object",
+                         "Rule": "{particle}{pos=noun !number !case !gender}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "ablt"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "femn"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "",
+                           "Nonterminal": "particle",
+                           "Rule": "",
+                           "Attributes": [],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          },
+                          {
+                           "Text": "травой",
+                           "Nonterminal": "",
+                           "Rule": "",
+                           "Attributes": [
+                            {
+                             "Name": "pos",
+                             "Value": "noun"
+                            },
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "ablt"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "femn"
+                            }
+                           ],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        }
+                       ],
+                       "Hypotheses": [],
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        }
+       ],
+       "Hypotheses": [],
+       "HypothesisCount": 0
+      },
+      {
+       "Text": "от штукатурки остались одни только следы",
+       "Nonterminal": "compound_sentence",
+       "Rule": "{simple_sentence}",
+       "Attributes": [],
+       "Submatches": [
+        {
+         "Text": "от штукатурки остались одни только следы",
+         "Nonterminal": "simple_sentence",
+         "Rule": "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@2}",
+         "Attributes": [],
+         "Submatches": [
+          {
+           "Text": "от штукатурки остались",
+           "Nonterminal": "predicate_groups",
+           "Rule": "{predicate_group !number !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "plur"
+            },
+            {
+             "Name": "gender",
+             "Value": ""
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "от штукатурки остались",
+             "Nonterminal": "predicate_group",
+             "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "plur"
+              },
+              {
+               "Name": "gender",
+               "Value": ""
+              },
+              {
+               "Name": "tense",
+               "Value": "past"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "от штукатурки",
+               "Nonterminal": "adverbial_modifier",
+               "Rule": "@{rel=of}{particle}от {object_groups case=gent}",
+               "Attributes": [
+                {
+                 "Name": "rel",
+                 "Value": "of"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "штукатурки",
+                 "Nonterminal": "object_groups",
+                 "Rule": "{object_group !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "gent"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "штукатурки",
+                   "Nonterminal": "object_group",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "gent"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "штукатурки",
+                     "Nonterminal": "object",
+                     "Rule": "{particle}{pos=noun !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "gent"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "штукатурки",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "noun"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "gent"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "femn"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "остались",
+               "Nonterminal": "predicate",
+               "Rule": "{particle}{pos=verb !number !gender !tense}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                },
+                {
+                 "Name": "gender",
+                 "Value": ""
+                },
+                {
+                 "Name": "tense",
+                 "Value": "past"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "остались",
+                 "Nonterminal": "",
+                 "Rule": "",
+                 "Attributes": [
+                  {
+                   "Name": "pos",
+                   "Value": "verb"
+                  },
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "tense",
+                   "Value": "past"
+                  }
+                 ],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          },
+          {
+           "Text": "одни только следы",
+           "Nonterminal": "subject_groups",
+           "Rule": "{object_groups !number case=nomn !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "plur"
+            },
+            {
+             "Name": "gender",
+             "Value": "masc"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "одни только следы",
+             "Nonterminal": "object_groups",
+             "Rule": "{object_group !number !case !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "plur"
+              },
+              {
+               "Name": "case",
+               "Value": "nomn"
+              },
+              {
+               "Name": "gender",
+               "Value": "masc"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "одни только следы",
+               "Nonterminal": "object_group",
+               "Rule": "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "одни",
+                 "Nonterminal": "attributes",
+                 "Rule": "{attribute !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": ""
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "одни",
+                   "Nonterminal": "attribute",
+                   "Rule": "{particle}{pos=adjf !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": ""
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "одни",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "adjf"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "только следы",
+                 "Nonterminal": "object",
+                 "Rule": "{particle}{pos=noun !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "только ",
+                   "Nonterminal": "particle",
+                   "Rule": "@{mod=only}только ",
+                   "Attributes": [
+                    {
+                     "Name": "mod",
+                     "Value": "only"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "следы",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "noun"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        }
+       ],
+       "Hypotheses": [],
+       "HypothesisCount": 0
+      }
+     ],
+     "Hypotheses": [],
+     "HypothesisCount": 0
+    },
+    {
+     "Text": ".",
+     "Nonterminal": "sentence_ending",
+     "Rule": "@{aim=decl}.",
+     "Attributes": [
+      {
+       "Name": "aim",
+       "Value": "decl"
+      }
+     ],
+     "Submatches": null,
+     "Hypotheses": null,
+     "HypothesisCount": 0
+    }
+   ],
+   "Hypotheses": [],
+   "HypothesisCount": 0
+  },
+  {
+   "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.",
+   "Nonterminal": "sentence",
+   "Rule": "{complex_sentence}{sentence_ending !aim}",
+   "Attributes": [
+    {
+     "Name": "aim",
+     "Value": "decl"
+    }
+   ],
+   "Submatches": [
+    {
+     "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы",
+     "Nonterminal": "complex_sentence",
+     "Rule": "@{rel=opos}{compound_sentence}, а {compound_sentence}",
+     "Attributes": [
+      {
+       "Name": "rel",
+       "Value": "opos"
+      }
+     ],
+     "Submatches": [
+      {
+       "Text": "крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой",
+       "Nonterminal": "compound_sentence",
+       "Rule": "{simple_sentence}, {compound_sentence}",
+       "Attributes": [],
+       "Submatches": [
+        {
+         "Text": "крыша на нём ржавая",
+         "Nonterminal": "simple_sentence",
+         "Rule": "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}",
+         "Attributes": [],
+         "Submatches": [
+          {
+           "Text": "крыша",
+           "Nonterminal": "subject_groups",
+           "Rule": "{object_groups !number case=nomn !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "gender",
+             "Value": "femn"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "крыша",
+             "Nonterminal": "object_groups",
+             "Rule": "{object_group !number !case !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "case",
+               "Value": "nomn"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "крыша",
+               "Nonterminal": "object_group",
+               "Rule": "{object !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "крыша",
+                 "Nonterminal": "object",
+                 "Rule": "{particle}{pos=noun !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "",
+                   "Nonterminal": "particle",
+                   "Rule": "",
+                   "Attributes": [],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "крыша",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "noun"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          },
+          {
+           "Text": "на нём ржавая",
+           "Nonterminal": "predicate_groups",
+           "Rule": "{predicate_group !number !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "sing"
+            },
+            {
+             "Name": "gender",
+             "Value": "femn"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "на нём ржавая",
+             "Nonterminal": "predicate_group",
+             "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              },
+              {
+               "Name": "tense",
+               "Value": ""
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "на нём",
+               "Nonterminal": "adverbial_modifier",
+               "Rule": "@{rel=on}{particle}на {object_groups case=loct}",
+               "Attributes": [
+                {
+                 "Name": "rel",
+                 "Value": "on"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "нём",
+                 "Nonterminal": "object_groups",
+                 "Rule": "{object_group !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "loct"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "neut"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "нём",
+                   "Nonterminal": "object_group",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "loct"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "neut"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "нём",
+                     "Nonterminal": "object",
+                     "Rule": "{particle}{pos=npro !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "loct"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "neut"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "нём",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "npro"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "loct"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "neut"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "ржавая",
+               "Nonterminal": "predicate",
+               "Rule": "{particle}{attributes !number case=nomn !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "ржавая",
+                 "Nonterminal": "attributes",
+                 "Rule": "{attribute !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "ржавая",
+                   "Nonterminal": "attribute",
+                   "Rule": "{particle}{pos=adjf !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "ржавая",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "adjf"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        },
+        {
+         "Text": "труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой",
+         "Nonterminal": "compound_sentence",
+         "Rule": "{simple_sentence}, {compound_sentence}",
+         "Attributes": [],
+         "Submatches": [
+          {
+           "Text": "труба наполовину обвалилась",
+           "Nonterminal": "simple_sentence",
+           "Rule": "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}",
+           "Attributes": [],
+           "Submatches": [
+            {
+             "Text": "труба",
+             "Nonterminal": "subject_groups",
+             "Rule": "{object_groups !number case=nomn !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "труба",
+               "Nonterminal": "object_groups",
+               "Rule": "{object_group !number !case !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "труба",
+                 "Nonterminal": "object_group",
+                 "Rule": "{object !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "труба",
+                   "Nonterminal": "object",
+                   "Rule": "{particle}{pos=noun !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "труба",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "noun"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            },
+            {
+             "Text": "наполовину обвалилась",
+             "Nonterminal": "predicate_groups",
+             "Rule": "{predicate_group !number !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "sing"
+              },
+              {
+               "Name": "gender",
+               "Value": "femn"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "наполовину обвалилась",
+               "Nonterminal": "predicate_group",
+               "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "sing"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                },
+                {
+                 "Name": "tense",
+                 "Value": "past"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "наполовину",
+                 "Nonterminal": "adverbial_modifier",
+                 "Rule": "@{rel=how}{particle}{pos=advb}",
+                 "Attributes": [
+                  {
+                   "Name": "rel",
+                   "Value": "how"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "",
+                   "Nonterminal": "particle",
+                   "Rule": "",
+                   "Attributes": [],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "наполовину",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "advb"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "обвалилась",
+                 "Nonterminal": "predicate",
+                 "Rule": "{particle}{pos=verb !number !gender !tense}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  },
+                  {
+                   "Name": "tense",
+                   "Value": "past"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "",
+                   "Nonterminal": "particle",
+                   "Rule": "",
+                   "Attributes": [],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "обвалилась",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "verb"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    },
+                    {
+                     "Name": "tense",
+                     "Value": "past"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          },
+          {
+           "Text": "ступеньки у крыльца сгнили и поросли травой",
+           "Nonterminal": "compound_sentence",
+           "Rule": "{simple_sentence}",
+           "Attributes": [],
+           "Submatches": [
+            {
+             "Text": "ступеньки у крыльца сгнили и поросли травой",
+             "Nonterminal": "simple_sentence",
+             "Rule": "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}",
+             "Attributes": [],
+             "Submatches": [
+              {
+               "Text": "ступеньки",
+               "Nonterminal": "subject_groups",
+               "Rule": "{object_groups !number case=nomn !gender}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "femn"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "ступеньки",
+                 "Nonterminal": "object_groups",
+                 "Rule": "{object_group !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "ступеньки",
+                   "Nonterminal": "object_group",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "ступеньки",
+                     "Nonterminal": "object",
+                     "Rule": "{particle}{pos=noun !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "ступеньки",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "noun"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "plur"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "nomn"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "femn"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "у крыльца сгнили и поросли травой",
+               "Nonterminal": "predicate_groups",
+               "Rule": "{predicate_group !number=@1 !gender=@2} и {predicate_groups number=@1 gender=@2}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "у крыльца сгнили",
+                 "Nonterminal": "predicate_group",
+                 "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": ""
+                  },
+                  {
+                   "Name": "tense",
+                   "Value": "past"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "у крыльца",
+                   "Nonterminal": "adverbial_modifier",
+                   "Rule": "@{rel=near}{particle}у {object_groups case=gent}",
+                   "Attributes": [
+                    {
+                     "Name": "rel",
+                     "Value": "near"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "крыльца",
+                     "Nonterminal": "object_groups",
+                     "Rule": "{object_group !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "gent"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "neut"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "крыльца",
+                       "Nonterminal": "object_group",
+                       "Rule": "{object !number !case !gender}",
+                       "Attributes": [
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "gent"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "neut"
+                        }
+                       ],
+                       "Submatches": [
+                        {
+                         "Text": "крыльца",
+                         "Nonterminal": "object",
+                         "Rule": "{particle}{pos=noun !number !case !gender}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "gent"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "neut"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "",
+                           "Nonterminal": "particle",
+                           "Rule": "",
+                           "Attributes": [],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          },
+                          {
+                           "Text": "крыльца",
+                           "Nonterminal": "",
+                           "Rule": "",
+                           "Attributes": [
+                            {
+                             "Name": "pos",
+                             "Value": "noun"
+                            },
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "gent"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "neut"
+                            }
+                           ],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        }
+                       ],
+                       "Hypotheses": [],
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "сгнили",
+                   "Nonterminal": "predicate",
+                   "Rule": "{particle}{pos=verb !number !gender !tense}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": ""
+                    },
+                    {
+                     "Name": "tense",
+                     "Value": "past"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "сгнили",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "verb"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "tense",
+                       "Value": "past"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "поросли травой",
+                 "Nonterminal": "predicate_groups",
+                 "Rule": "{predicate_group !number !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": ""
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "поросли травой",
+                   "Nonterminal": "predicate_group",
+                   "Rule": "{predicate !number !gender !tense} {object_groups}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": ""
+                    },
+                    {
+                     "Name": "tense",
+                     "Value": "past"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "поросли",
+                     "Nonterminal": "predicate",
+                     "Rule": "{particle}{pos=verb !number !gender !tense}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": ""
+                      },
+                      {
+                       "Name": "tense",
+                       "Value": "past"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "поросли",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "verb"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "plur"
+                        },
+                        {
+                         "Name": "tense",
+                         "Value": "past"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "травой",
+                     "Nonterminal": "object_groups",
+                     "Rule": "{object_group !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "ablt"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "травой",
+                       "Nonterminal": "object_group",
+                       "Rule": "{object !number !case !gender}",
+                       "Attributes": [
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "ablt"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "femn"
+                        }
+                       ],
+                       "Submatches": [
+                        {
+                         "Text": "травой",
+                         "Nonterminal": "object",
+                         "Rule": "{particle}{pos=noun !number !case !gender}",
+                         "Attributes": [
+                          {
+                           "Name": "number",
+                           "Value": "sing"
+                          },
+                          {
+                           "Name": "case",
+                           "Value": "ablt"
+                          },
+                          {
+                           "Name": "gender",
+                           "Value": "femn"
+                          }
+                         ],
+                         "Submatches": [
+                          {
+                           "Text": "",
+                           "Nonterminal": "particle",
+                           "Rule": "",
+                           "Attributes": [],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          },
+                          {
+                           "Text": "травой",
+                           "Nonterminal": "",
+                           "Rule": "",
+                           "Attributes": [
+                            {
+                             "Name": "pos",
+                             "Value": "noun"
+                            },
+                            {
+                             "Name": "number",
+                             "Value": "sing"
+                            },
+                            {
+                             "Name": "case",
+                             "Value": "ablt"
+                            },
+                            {
+                             "Name": "gender",
+                             "Value": "femn"
+                            }
+                           ],
+                           "Submatches": null,
+                           "Hypotheses": null,
+                           "HypothesisCount": 0
+                          }
+                         ],
+                         "Hypotheses": [],
+                         "HypothesisCount": 0
+                        }
+                       ],
+                       "Hypotheses": [],
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        }
+       ],
+       "Hypotheses": [],
+       "HypothesisCount": 0
+      },
+      {
+       "Text": "от штукатурки остались одни только следы",
+       "Nonterminal": "compound_sentence",
+       "Rule": "{simple_sentence}",
+       "Attributes": [],
+       "Submatches": [
+        {
+         "Text": "от штукатурки остались одни только следы",
+         "Nonterminal": "simple_sentence",
+         "Rule": "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@2}",
+         "Attributes": [],
+         "Submatches": [
+          {
+           "Text": "от штукатурки остались",
+           "Nonterminal": "predicate_groups",
+           "Rule": "{predicate_group !number !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "plur"
+            },
+            {
+             "Name": "gender",
+             "Value": ""
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "от штукатурки остались",
+             "Nonterminal": "predicate_group",
+             "Rule": "{adverbial_modifier} {predicate !number !gender !tense}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "plur"
+              },
+              {
+               "Name": "gender",
+               "Value": ""
+              },
+              {
+               "Name": "tense",
+               "Value": "past"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "от штукатурки",
+               "Nonterminal": "adverbial_modifier",
+               "Rule": "@{rel=of}{particle}от {object_groups case=gent}",
+               "Attributes": [
+                {
+                 "Name": "rel",
+                 "Value": "of"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "штукатурки",
+                 "Nonterminal": "object_groups",
+                 "Rule": "{object_group !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "sing"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "gent"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "femn"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "штукатурки",
+                   "Nonterminal": "object_group",
+                   "Rule": "{object !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "sing"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "gent"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "femn"
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "штукатурки",
+                     "Nonterminal": "object",
+                     "Rule": "{particle}{pos=noun !number !case !gender}",
+                     "Attributes": [
+                      {
+                       "Name": "number",
+                       "Value": "sing"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "gent"
+                      },
+                      {
+                       "Name": "gender",
+                       "Value": "femn"
+                      }
+                     ],
+                     "Submatches": [
+                      {
+                       "Text": "",
+                       "Nonterminal": "particle",
+                       "Rule": "",
+                       "Attributes": [],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      },
+                      {
+                       "Text": "штукатурки",
+                       "Nonterminal": "",
+                       "Rule": "",
+                       "Attributes": [
+                        {
+                         "Name": "pos",
+                         "Value": "noun"
+                        },
+                        {
+                         "Name": "number",
+                         "Value": "sing"
+                        },
+                        {
+                         "Name": "case",
+                         "Value": "gent"
+                        },
+                        {
+                         "Name": "gender",
+                         "Value": "femn"
+                        }
+                       ],
+                       "Submatches": null,
+                       "Hypotheses": null,
+                       "HypothesisCount": 0
+                      }
+                     ],
+                     "Hypotheses": [],
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              },
+              {
+               "Text": "остались",
+               "Nonterminal": "predicate",
+               "Rule": "{particle}{pos=verb !number !gender !tense}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                },
+                {
+                 "Name": "gender",
+                 "Value": ""
+                },
+                {
+                 "Name": "tense",
+                 "Value": "past"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "",
+                 "Nonterminal": "particle",
+                 "Rule": "",
+                 "Attributes": [],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "остались",
+                 "Nonterminal": "",
+                 "Rule": "",
+                 "Attributes": [
+                  {
+                   "Name": "pos",
+                   "Value": "verb"
+                  },
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "tense",
+                   "Value": "past"
+                  }
+                 ],
+                 "Submatches": null,
+                 "Hypotheses": null,
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          },
+          {
+           "Text": "одни только следы",
+           "Nonterminal": "subject_groups",
+           "Rule": "{object_groups !number case=nomn !gender}",
+           "Attributes": [
+            {
+             "Name": "number",
+             "Value": "plur"
+            },
+            {
+             "Name": "gender",
+             "Value": "masc"
+            }
+           ],
+           "Submatches": [
+            {
+             "Text": "одни только следы",
+             "Nonterminal": "object_groups",
+             "Rule": "{object_group !number !case !gender}",
+             "Attributes": [
+              {
+               "Name": "number",
+               "Value": "plur"
+              },
+              {
+               "Name": "case",
+               "Value": "nomn"
+              },
+              {
+               "Name": "gender",
+               "Value": "masc"
+              }
+             ],
+             "Submatches": [
+              {
+               "Text": "одни только следы",
+               "Nonterminal": "object_group",
+               "Rule": "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}",
+               "Attributes": [
+                {
+                 "Name": "number",
+                 "Value": "plur"
+                },
+                {
+                 "Name": "case",
+                 "Value": "nomn"
+                },
+                {
+                 "Name": "gender",
+                 "Value": "masc"
+                }
+               ],
+               "Submatches": [
+                {
+                 "Text": "одни",
+                 "Nonterminal": "attributes",
+                 "Rule": "{attribute !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": ""
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "одни",
+                   "Nonterminal": "attribute",
+                   "Rule": "{particle}{pos=adjf !number !case !gender}",
+                   "Attributes": [
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": ""
+                    }
+                   ],
+                   "Submatches": [
+                    {
+                     "Text": "",
+                     "Nonterminal": "particle",
+                     "Rule": "",
+                     "Attributes": [],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    },
+                    {
+                     "Text": "одни",
+                     "Nonterminal": "",
+                     "Rule": "",
+                     "Attributes": [
+                      {
+                       "Name": "pos",
+                       "Value": "adjf"
+                      },
+                      {
+                       "Name": "number",
+                       "Value": "plur"
+                      },
+                      {
+                       "Name": "case",
+                       "Value": "nomn"
+                      }
+                     ],
+                     "Submatches": null,
+                     "Hypotheses": null,
+                     "HypothesisCount": 0
+                    }
+                   ],
+                   "Hypotheses": [],
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                },
+                {
+                 "Text": "только следы",
+                 "Nonterminal": "object",
+                 "Rule": "{particle}{pos=noun !number !case !gender}",
+                 "Attributes": [
+                  {
+                   "Name": "number",
+                   "Value": "plur"
+                  },
+                  {
+                   "Name": "case",
+                   "Value": "nomn"
+                  },
+                  {
+                   "Name": "gender",
+                   "Value": "masc"
+                  }
+                 ],
+                 "Submatches": [
+                  {
+                   "Text": "только ",
+                   "Nonterminal": "particle",
+                   "Rule": "@{mod=only}только ",
+                   "Attributes": [
+                    {
+                     "Name": "mod",
+                     "Value": "only"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  },
+                  {
+                   "Text": "следы",
+                   "Nonterminal": "",
+                   "Rule": "",
+                   "Attributes": [
+                    {
+                     "Name": "pos",
+                     "Value": "noun"
+                    },
+                    {
+                     "Name": "number",
+                     "Value": "plur"
+                    },
+                    {
+                     "Name": "case",
+                     "Value": "nomn"
+                    },
+                    {
+                     "Name": "gender",
+                     "Value": "masc"
+                    }
+                   ],
+                   "Submatches": null,
+                   "Hypotheses": null,
+                   "HypothesisCount": 0
+                  }
+                 ],
+                 "Hypotheses": [],
+                 "HypothesisCount": 0
+                }
+               ],
+               "Hypotheses": [],
+               "HypothesisCount": 0
+              }
+             ],
+             "Hypotheses": [],
+             "HypothesisCount": 0
+            }
+           ],
+           "Hypotheses": [],
+           "HypothesisCount": 0
+          }
+         ],
+         "Hypotheses": [],
+         "HypothesisCount": 0
+        }
+       ],
+       "Hypotheses": [],
+       "HypothesisCount": 0
+      }
+     ],
+     "Hypotheses": [],
+     "HypothesisCount": 0
+    },
+    {
+     "Text": ".",
+     "Nonterminal": "sentence_ending",
+     "Rule": "@{aim=decl}.",
+     "Attributes": [
+      {
+       "Name": "aim",
+       "Value": "decl"
+      }
+     ],
+     "Submatches": null,
+     "Hypotheses": null,
+     "HypothesisCount": 0
+    }
+   ],
+   "Hypotheses": [],
+   "HypothesisCount": 0
+  }
+ ]
+}
