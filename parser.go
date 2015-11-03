@@ -15,7 +15,7 @@ type Attribute struct {
 type ParseMatch struct {
 	Text            string
 	Nonterminal     string
-	Rule            string
+	Rule            Rule
 	Attributes      []Attribute
 	Submatches      []ParseMatch
 	Hypotheses      []string
@@ -24,44 +24,44 @@ type ParseMatch struct {
 
 const TerminalSeparators = " ,."
 
-func parseTerminal(rule string) (string, string) {
+func parseTerminal(pattern string) (string, string) {
 	var term string
 	found, unescape := false, false
-	for i := 0; i < len(rule); i++ {
-		escaped := i > 0 && rule[i-1] == '\\'
+	for i := 0; i < len(pattern); i++ {
+		escaped := i > 0 && pattern[i-1] == '\\'
 		if escaped {
 			unescape = true
 		}
-		if rule[i] == '{' && !escaped {
-			term, rule = rule[:i], rule[i:]
+		if pattern[i] == '{' && !escaped {
+			term, pattern = pattern[:i], pattern[i:]
 			found = true
 			break
 		}
 	}
 
 	if !found {
-		term, rule = rule, ""
+		term, pattern = pattern, ""
 	}
 
 	if unescape {
 		term = strings.Replace(term, "\\{", "{", -1)
 	}
 
-	return term, rule
+	return term, pattern
 }
 
-func parseNonterminal(rule string) (string, []Attribute, string) {
+func parseNonterminal(pattern string) (string, []Attribute, string) {
 	attrs := []Attribute{}
 
-	if len(rule) == 0 || rule[0] != '{' {
-		return "", attrs, rule
+	if len(pattern) == 0 || pattern[0] != '{' {
+		return "", attrs, pattern
 	}
 
 	var body string
-	if i := strings.Index(rule, "}"); i != -1 {
-		body, rule = rule[1:i], rule[i+1:]
+	if i := strings.Index(pattern, "}"); i != -1 {
+		body, pattern = pattern[1:i], pattern[i+1:]
 	} else {
-		body, rule = rule, ""
+		body, pattern = pattern, ""
 	}
 
 	var nterm string
@@ -99,7 +99,7 @@ func parseNonterminal(rule string) (string, []Attribute, string) {
 		attrs = append(attrs, attr)
 	}
 
-	return nterm, attrs, rule
+	return nterm, attrs, pattern
 }
 
 func (match *ParseMatch) clone() ParseMatch {
@@ -219,10 +219,10 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 	return true
 }
 
-func parseRulePart(text, rule string, match ParseMatch,
+func parsePatternPart(text, pattern string, match ParseMatch,
 	hypotheses_limit uint, output chan []ParseMatch) {
 
-	term, rule := parseTerminal(rule)
+	term, pattern := parseTerminal(pattern)
 	if !strings.HasPrefix(text, term) {
 		output <- nil
 		return
@@ -230,20 +230,20 @@ func parseRulePart(text, rule string, match ParseMatch,
 	match.Text += term
 	text = text[len(term):]
 
-	if len(rule) == 0 {
+	if len(pattern) == 0 {
 		match.cleanExport()
 		output <- []ParseMatch{match}
 		return
 	}
 
-	pred, attrs, rule := parseNonterminal(rule)
+	pred, attrs, pattern := parseNonterminal(pattern)
 	output2 := make(chan []ParseMatch)
 	count := 0
 	for _, m := range Parse(text, pred, hypotheses_limit) {
 		match2 := match.clone()
 		if match2.checkSubmatch(attrs, m, hypotheses_limit) {
-			go parseRulePart(text[len(m.Text):],
-				rule, match2, hypotheses_limit, output2)
+			go parsePatternPart(text[len(m.Text):],
+				pattern, match2, hypotheses_limit, output2)
 			count++
 		}
 	}
@@ -256,16 +256,16 @@ func parseRulePart(text, rule string, match ParseMatch,
 	output <- matches
 }
 
-func parseRule(text string, match ParseMatch,
+func parsePattern(text string, match ParseMatch,
 	hypotheses_limit uint) []ParseMatch {
 
-	rule := match.Rule
-	if strings.HasPrefix(rule, "@") {
-		_, match.Attributes, rule = parseNonterminal(rule[1:])
+	pattern := match.Rule.Pattern
+	if strings.HasPrefix(pattern, "@") {
+		_, match.Attributes, pattern = parseNonterminal(pattern[1:])
 	}
 
 	output := make(chan []ParseMatch)
-	go parseRulePart(text, rule, match, hypotheses_limit, output)
+	go parsePatternPart(text, pattern, match, hypotheses_limit, output)
 	return <-output
 }
 
@@ -292,7 +292,7 @@ func Parse(text, nonterminal string, hypotheses_limit uint) []ParseMatch {
 		for _, r := range FindNonterminalRules(nonterminal) {
 			match := ParseMatch{Nonterminal: nonterminal, Rule: r}
 			matches = append(matches,
-				parseRule(text, match, hypotheses_limit)...)
+				parsePattern(text, match, hypotheses_limit)...)
 		}
 	}
 

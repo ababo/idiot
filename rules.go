@@ -5,7 +5,12 @@ import (
 	"io/ioutil"
 )
 
-var nonterminals map[string][]string
+type Rule struct {
+	Pattern     string   `json:"pat"`
+	Equivalents []string `json:"equiv"`
+}
+
+var nonterminals map[string][]Rule
 
 func InitRules(rules_filename string) error {
 	FinalizeRules()
@@ -28,6 +33,6 @@ func FinalizeRules() {
 	nonterminals = nil
 }
 
-func FindNonterminalRules(nonterminal string) []string {
+func FindNonterminalRules(nonterminal string) []Rule {
 	return nonterminals[nonterminal]
 }

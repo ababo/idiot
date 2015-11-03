@@ -1,181 +1,107 @@
-# в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
-
-# крыша на нём ржавая, труба наполовину обвалилась, ступеньки у крыльца сгнили и поросли травой, а от штукатурки остались одни только следы.
-
-# передним фасадом обращен он к больнице, задним - глядит в поле, от которого отделяет его серый больничный забор с гвоздями.
-
-# эти гвозди, обращенные остриями кверху, и забор, и самый флигель имеют тот особый унылый, окаянный вид, какой у нас бывает только у больничных и тюремных построек.
-
-################################################################################
 sentence:
+    # Я люблю шоколад, но ненавижу пористый.
+    - pat: "{compound_sentence}{sentence_ending}"
+    # Я пошла на кухню, чтобы сделать маме чай.
+    - pat: "{complex_sentence}{sentence_ending}"
 
-# в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
-- "{compound_sentence}{sentence_ending !aim}"
-
-# крыша на нем  ржавая,  труба  наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой,  а  от  штукатурки остались одни только следы.
-- "{complex_sentence}{sentence_ending !aim}"
-
-################################################################################
 sentence_ending:
+    - pat: "."
+    - pat: "?"
+    - pat: "!"
 
-- "@{aim=decl}."
-- "@{aim=intr}?"
-- "@{aim=excl}!"
-
-################################################################################
 compound_sentence:
+    # Сегодня я поеду к бабушке.
+    - pat: "{simple_sentence}"
+    # Воздух дышит весенним ароматом, и вся природа оживляется. 
+    - pat: "{simple_sentence}, {compound_sentence}"
+      equiv:
+        - "{2}, {1}"
+    # Папа вышел на пробежку, и мы встретились. 
+    - pat: "{simple_sentence}, и {compound_sentence}"
+      equiv:
+        - "{2}, и {1}"
+    # Мы гуляли, а мама в это время была на работе.
+    - pat: "{simple_sentence}, а {compound_sentence}"
+      equiv:
+        - "{2}, а {1}"
 
-# в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли.
-- "{simple_sentence}"
-
-# крыша на нем  ржавая,  труба  наполовину обвалилась, ступеньки у крыльца сгнили и поросли  травой
-- "{simple_sentence}, {compound_sentence}"
-
-# ?
-- "{simple_sentence}, и {compound_sentence}"
-
-################################################################################
 complex_sentence:
 
-- "@{rel=opos}{compound_sentence}, а {compound_sentence}"
-
-################################################################################
 simple_sentence:
+    # В огороде лежит большой камень.
+    - pat: "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@1}"
+      equiv:
+        # Большой камень лежит в огороде.
+        - "{2} {1 require=adverbial_ending}"
+    # Толстый мальчик посмотрел на меня.
+    - pat: "{subject_groups number=@1 gender=@1} {predicate_groups number=@1 gender=@2}"
+      equiv:
+        # На меня посмотрел толстый мальчик.
+        - "{2 require=adverbial_beginning} {1}"
 
-# труба наполовину обвалилась
-- "{subject_groups number=@1 gender=@2} {predicate_groups number=@1 gender=@2}"
-
-# в больничном дворе стоит небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
-- "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
-
-################################################################################
 predicate_groups:
+    # весело прыгает по волнам
+    - pat: "{predicate_group !number !gender}"
+    # в огне не горит, в воде не тонет
+    - pat: "{predicate_group !number=@1 !gender=@2}, {predicate_groups number=@1 gender=@2}"
+      equiv:
+        - "{2}, {1}"
+    # шагает по траве и поёт
+    - pat: "{predicate_group !number=@1 !gender=@2} и {predicate_groups number=@1 gender=@2}"
+      equiv:
+        - "{2} и {1}"
 
-# в больничном дворе стоит
-- "{predicate_group !number !gender}"
-
-# сгнили и поросли травой
-- "{predicate_group !number=@1 !gender=@2} и {predicate_groups number=@1 gender=@2}"
-
-# ?
-- "{predicate_group !number=@1 !gender=@2}, {predicate_groups number=@1 gender=@2}"
-
-################################################################################
 predicate_group:
+    # прыгает
+    - pat: "{predicate !number !gender !tense}"
+    # бьёт сильно
+    - pat: "{predicate !number !gender !tense} {adverbial_modifiers}"
+      equiv:
+        - "{2} {1}"
+    # много платит
+    - pat: "{adverbial_modifiers} {predicate !number !gender !tense}"
+      equiv:
+        - "{2} {1}"
+    # обижает Васю
+    - pat: "{predicate !number !gender !tense} {object_groups}"
+      equiv:
+        - "{2} {1}"
+    # деньги платят
+    - pat: "{object_groups} {predicate !number !gender !tense}"
+      equiv:
+        - "{2} {1}"
+    # дал много сока
+    - pat: "{predicate !number !gender !tense} {adverbial_modifiers} {object_groups}"
+      equiv:
+        # много дал сока
+        - "{2} {1} {3}"
+        # сока много дал
+        - "{3} {2} {1}"
+        # сока дал много
+        - "{3} {1} {2}"
+    # сильно вымазал зелёнкой
+    - pat: "{adverbial_modifiers} {predicate !number !gender !tense} {object_groups}"
+      equiv:
+        # вымазал сильно зелёнкой
+        - "{2} {1} {3}"
+        # зелёнкой сильно вымазал
+        - "{3} {1} {2}"
+        # зелёнкой вымазал сильно
+        - "{3} {2} {1}"
+    # ему открылась полностью
+    - pat: "{object_groups} {predicate !number !gender !tense} {adverbial_modifiers}"
+      equiv:
+        # открылась полностью ему
+        - "{2} {3} {1}"
+        # полностью открылась ему
+        - "{3} {2} {1}"
+        # ему полностью открылась
+        - "{1} {3} {2}"
+    # ей много дали
+    - pat: "{object_groups} {adverbial_modifiers} {predicate !number !gender !tense}"
+      equiv:
+        # дали много ей ????
+        # много дали ей
+        # ей дали много
 
-# ?
-- "{predicate !number !gender !tense}"
-
-# в больничном дворе стоит
-- "{adverbial_modifier} {predicate !number !gender !tense}"
-
-# поросли травой
-- "{predicate !number !gender !tense} {object_groups}"
-
-# ?
-- "{adverbial_modifier} {predicate !number !gender !tense} {object_groups}"
-
-################################################################################
-predicate:
-
-# стоит
-- "{particle}{pos=verb !number !gender !tense}"
-
-# ржавая
-- "{particle}{attributes !number case=nomn !gender}"
-
-################################################################################
-adverbial_modifier:
-
-# наполовину
-- "@{rel=how}{particle}{pos=advb}"
-
-# в больничном дворе
-- "@{rel=in}{particle}в {object_groups case=loct}"
-
-# на нём
-- "@{rel=on}{particle}на {object_groups case=loct}"
-
-# у крыльца
-- "@{rel=near}{particle}у {object_groups case=gent}"
-
-# от штукатурки
-- "@{rel=of}{particle}от {object_groups case=gent}"
-
-################################################################################
-object_groups:
-
-# больничном дворе
-- "{object_group !number !case !gender}"
-
-# ?
-- "@{number=plur}{object_group !case=@1 !gender=femn}, {object_groups case=@1 gender=femn}"
-
-# репейника, крапивы и дикой конопли
-- "@{number=plur}{object_group !case=@1 !gender=masc}, {object_groups case=@1}"
-
-# крапивы и дикой конопли
-- "@{number=plur}{object_group !case=@1 !gender=femn} и {object_groups case=@1 gender=femn}"
-
-# ?
-- "@{number=plur}{object_group !case=@1 !gender=masc} и {object_groups case=@1}"
-
-################################################################################
-object_group:
-
-# крапивы
-- "{object !number !case !gender}"
-
-# больничном дворе
-- "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}"
-
-# небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
-- "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}, {attributes number=@1 case=@2 gender=@3}"
-
-# ?
-- "{object !number !case !gender} {object_groups case=gent}"
-
-# целым лесом репейника, крапивы и дикой конопли
-- "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3} {object_groups case=gent}"
-
-################################################################################
-attributes:
-
-# больничном
-- "{attribute !number !case !gender}"
-
-################################################################################
-attribute:
-
-# больничном
-- "{particle}{pos=adjf !number !case !gender}"
-
-# окруженный целым лесом репейника, крапивы и дикой конопли
-- "{particle}{participial_phrase !number !case !gender}"
-
-################################################################################
-participial_phrase:
-
-# окруженный целым лесом репейника, крапивы и дикой конопли
-- "{pos=prtf !number !case !gender} {object_groups case=ablt}"
-
-################################################################################
-object:
-
-# дворе
-- "{particle}{pos=noun !number !case !gender}"
-
-# нём
-- "{particle}{pos=npro !number !case !gender}"
-
-################################################################################
-subject_groups:
-
-# небольшой флигель, окруженный целым лесом репейника, крапивы и дикой конопли
-- "{object_groups !number case=nomn !gender}"
-
-################################################################################
-particle:
-
-- ""
-- "@{mod=only}только "
+# проработать две формы: кому/чему и что
