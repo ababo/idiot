@@ -6,8 +6,8 @@ import (
 )
 
 type Rule struct {
-	Pattern     string   `json:"pat"`
-	Equivalents []string `json:"equiv"`
+	Pattern     string   `yaml:"pat"`
+	Equivalents []string `yaml:"equiv"`
 }
 
 var nonterminals map[string][]Rule

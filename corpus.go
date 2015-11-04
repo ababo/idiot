@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/xml"
 	"os"
 	"strings"
@@ -76,4 +77,25 @@ func BuildCorpus(xml_filename, corpus_filename string) error {
 	}
 
 	return nil
+}
+
+func ReadCorpus(corpus_filename string, from, to int) ([]string, error) {
+	file, err := os.Open(corpus_filename)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	index := 0
+	var sentences []string
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		if index >= from && index < to {
+			sentences = append(sentences, scanner.Text())
+		}
+		index += 1
+	}
+
+	return sentences, scanner.Err()
 }

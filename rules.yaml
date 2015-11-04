@@ -54,54 +54,61 @@ predicate_groups:
 predicate_group:
     # прыгает
     - pat: "{predicate !number !gender !tense}"
-    # бьёт сильно
-    - pat: "{predicate !number !gender !tense} {adverbial_modifiers}"
-      equiv:
-        - "{2} {1}"
-    # много платит
+    # тяжело дышит
     - pat: "{adverbial_modifiers} {predicate !number !gender !tense}"
-      equiv:
-        - "{2} {1}"
-    # обижает Васю
-    - pat: "{predicate !number !gender !tense} {object_groups}"
-      equiv:
-        - "{2} {1}"
-    # деньги платят
-    - pat: "{object_groups} {predicate !number !gender !tense}"
-      equiv:
-        - "{2} {1}"
-    # дал много сока
-    - pat: "{predicate !number !gender !tense} {adverbial_modifiers} {object_groups}"
-      equiv:
-        # много дал сока
-        - "{2} {1} {3}"
-        # сока много дал
-        - "{3} {2} {1}"
-        # сока дал много
-        - "{3} {1} {2}"
-    # сильно вымазал зелёнкой
-    - pat: "{adverbial_modifiers} {predicate !number !gender !tense} {object_groups}"
-      equiv:
-        # вымазал сильно зелёнкой
-        - "{2} {1} {3}"
-        # зелёнкой сильно вымазал
-        - "{3} {1} {2}"
-        # зелёнкой вымазал сильно
-        - "{3} {2} {1}"
-    # ему открылась полностью
-    - pat: "{object_groups} {predicate !number !gender !tense} {adverbial_modifiers}"
-      equiv:
-        # открылась полностью ему
-        - "{2} {3} {1}"
-        # полностью открылась ему
-        - "{3} {2} {1}"
-        # ему полностью открылась
-        - "{1} {3} {2}"
-    # ей много дали
-    - pat: "{object_groups} {adverbial_modifiers} {predicate !number !gender !tense}"
-      equiv:
-        # дали много ей ????
-        # много дали ей
-        # ей дали много
 
-# проработать две формы: кому/чему и что
+adverbial_modifiers:
+    # красиво
+    - pat: "{adverbial_modifier}"
+    # модно, стильно, молодёжно
+    - pat: "{adverbial_modifier}, {adverbial_modifiers}"
+    # тепло и уютно
+    - pat: "{adverbial_modifier} и {adverbial_modifiers}"
+
+adverbial_modifier:
+    # наполовину
+    - pat: "{pos=advb}"
+
+predicate:
+    # висит
+    - pat: "{pos=verb !number !gender !tense}"
+    # ржавая
+    - pat: "{attribute !number case=nomn !gender}"
+
+subject_groups:
+    # слон и Моська
+    - pat: "{object_groups !number case=nomn !gender}"
+
+object_groups:
+    # больничном дворе
+    - pat: "{object_group !number !case !gender}"
+    # репейника, крапивы и дикой конопли
+    - pat: "@{number=plur}{object_group !case=@1 !gender}, {object_groups case=@1 gender}"
+    # маленьким ребёнком и седым стариком
+    - pat: "@{number=plur}{object_group !case=@1 !gender} и {object_groups case=@1 gender}"
+
+object_group:
+    # самолёта
+    - pat: "{object !number !case !gender}"
+    # красивых и уютных палатах
+    - pat: "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}"
+
+object:
+    # банки
+    - pat: "{pos=noun !number !case !gender}"
+    # она
+    - pat: "{pos=npro !number !case !gender}"
+
+attributes:
+    # красивой
+    - pat: "{attribute !number !case !gender}"
+    # тёплая шерстяная
+    - pat: "{attribute !number=@1 !case=@2 !gender=@3} {attributes number=@1 case=@2 gender=@3}"
+    # красивых и умных
+    - pat: "{attribute !number=@1 !case=@2 !gender=@3} и {attributes number=@1 case=@2 gender=@3}"
+
+attribute:
+    # милую
+    - pat: "{pos=adjf !number !case !gender}"
+    # развитый
+    - pat: "{pos=prts !number !case !gender}"

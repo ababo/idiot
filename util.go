@@ -5,6 +5,9 @@ import (
 	"runtime"
 )
 
+const MaxUint = ^uint(0)
+const MaxInt = int(MaxUint >> 1)
+
 func getRootDir() string {
 	_, filename, _, _ := runtime.Caller(1)
 	return path.Dir(filename)

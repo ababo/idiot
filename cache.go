@@ -6,8 +6,6 @@ import (
 	"sync"
 )
 
-const hashableTextLen = 16
-
 type cacheBank struct {
 	sync.RWMutex
 	data map[uint64][]ParseMatch
@@ -28,9 +26,6 @@ func FinalizeCache() {
 }
 
 func getCacheHash(text, nonterminal string, hypotheses_limit uint) uint64 {
-	if len(text) > hashableTextLen {
-		text = text[:hashableTextLen]
-	}
 	hash := fnv.New64()
 	hash.Write([]byte(text))
 	hash.Write([]byte(nonterminal))

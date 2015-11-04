@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strconv"
+	"strings"
+	"time"
 )
 
 func morph() {
@@ -34,13 +37,50 @@ func corpus() {
 	fmt.Println("done")
 }
 
-func parse() {
+func parse(from, to int) {
+	dir := getRootDir()
+	sentences, err := ReadCorpus(path.Join(dir, "corpus.txt"), from, to)
+	if err != nil {
+		fmt.Println("failed to read text corpus: %s\n", err)
+		return
+	}
+
 	if err := initParser(); err != nil {
 		fmt.Printf("failed to initialize parser: %s\n", err)
 		return
 	}
 	defer finalizeParser()
 
+	ok, failed := 0, 0
+	lastTime := time.Now()
+	for _, sentence := range sentences {
+		matches := Parse(strings.ToLower(sentence), "sentence", 0)
+		ClearCache()
+
+		if len(matches) > 0 {
+			ok += 1
+		} else {
+			failed += 1
+		}
+
+		if now := time.Now(); now.Sub(lastTime).Seconds() >= 1 {
+			fmt.Printf("ok: %d, failed: %d\n", ok, failed)
+			lastTime = now
+		}
+	}
+	fmt.Printf("ok: %d, failed: %d\n", ok, failed)
+}
+
+func readIntArg(index, default_ int) int {
+	if len(os.Args) <= index {
+		return default_
+	}
+
+	if value, err := strconv.Atoi(os.Args[index]); err == nil {
+		return value
+	}
+
+	return default_
 }
 
 func main() {
@@ -53,13 +93,13 @@ func main() {
 			corpus()
 			return
 		case "parse":
-			parse()
+			parse(readIntArg(2, 0), readIntArg(3, MaxInt))
 			return
 		}
 	}
 	fmt.Println("usage: idiot <command>\n" +
 		"commands:\n" +
-		"       morph  - build morphology base\n" +
-		"       corpus - build text corpus\n" +
-		"       parse  - parse text corpus\n")
+		"       morph           - build morphology base\n" +
+		"       corpus          - build text corpus\n" +
+		"       parse [from to] - parse text corpus\n")
 }
