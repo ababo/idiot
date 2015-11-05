@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"path"
@@ -37,7 +39,7 @@ func corpus() {
 	fmt.Println("done")
 }
 
-func parse(from, to int) {
+func parse(from, to int, verbose bool) {
 	dir := getRootDir()
 	sentences, err := ReadCorpus(path.Join(dir, "corpus.txt"), from, to)
 	if err != nil {
@@ -57,7 +59,19 @@ func parse(from, to int) {
 		matches := Parse(strings.ToLower(sentence), "sentence", 0)
 		ClearCache()
 
-		if len(matches) > 0 {
+		parsed := false
+		for _, m := range matches {
+			if len(m.Text) == len(sentence) {
+				parsed = true
+				break
+			}
+		}
+
+		if parsed {
+			if verbose {
+				bytes, _ := json.Marshal(matches)
+				fmt.Printf("\n%d: %s\n%s\n", ok+failed, sentence, string(bytes))
+			}
 			ok += 1
 		} else {
 			failed += 1
@@ -84,22 +98,25 @@ func readIntArg(index, default_ int) int {
 }
 
 func main() {
-	if len(os.Args) > 1 {
-		switch os.Args[1] {
-		case "morph":
-			morph()
-			return
-		case "corpus":
-			corpus()
-			return
-		case "parse":
-			parse(readIntArg(2, 0), readIntArg(3, MaxInt))
-			return
-		}
+	prefix := "(for \"parse\" command) "
+	command := flag.String("command", "parse",
+		"can be \"morph\", \"corpus\" or \"parse\"")
+	from := flag.Int("from", 0, prefix+"begin of sentence interval")
+	to := flag.Int("to", 1000000, prefix+"end of sentence interval")
+	verbose := flag.Bool("verbose", false, prefix+"verbose output")
+	flag.Parse()
+
+	switch *command {
+	case "morph":
+		morph()
+		return
+	case "corpus":
+		corpus()
+		return
+	case "parse":
+		parse(*from, *to, *verbose)
+		return
+	default:
+		flag.PrintDefaults()
 	}
-	fmt.Println("usage: idiot <command>\n" +
-		"commands:\n" +
-		"       morph           - build morphology base\n" +
-		"       corpus          - build text corpus\n" +
-		"       parse [from to] - parse text corpus\n")
 }

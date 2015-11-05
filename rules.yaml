@@ -56,6 +56,10 @@ predicate_group:
     - pat: "{predicate !number !gender !tense}"
     # тяжело дышит
     - pat: "{adverbial_modifiers} {predicate !number !gender !tense}"
+    # стучать кувалдой
+    - pat: "{predicate !number !gender !tense} {object_groups case=ablt}"
+    # быстро прикрылся щитом
+    - pat: "{adverbial_modifiers} {predicate !number !gender !tense} {object_groups case=ablt}"
 
 adverbial_modifiers:
     # красиво
@@ -98,6 +102,8 @@ object:
     - pat: "{pos=noun !number !case !gender}"
     # она
     - pat: "{pos=npro !number !case !gender}"
+    # семеро
+    - pat: "{pos=numr !number !case !gender}"
 
 attributes:
     # красивой
