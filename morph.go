@@ -39,6 +39,14 @@ var (
 	morphTenseValues = []string{
 		"past", "pres", "futr",
 	}
+
+	morphPersonValues = []string{
+		"1per", "2per", "3per",
+	}
+
+	morphPersonMap = map[string]int{
+		"impr": 1, /* 2per */
+	}
 )
 
 type morphHeader struct {
@@ -101,6 +109,14 @@ func (entry *morphEntry) setTense(tense uint32) {
 	entry.setAttr(^uint32(0x6000), 13, tense)
 }
 
+func (entry *morphEntry) getPerson() uint32 {
+	return entry.getAttr(0x18000, 15)
+}
+
+func (entry *morphEntry) setPerson(person uint32) {
+	entry.setAttr(^uint32(0x18000), 15, person)
+}
+
 func findString(strs []string, str string) int {
 	for i, s := range strs {
 		if s == str {
@@ -130,6 +146,10 @@ func updateMorphEntry(entry *morphEntry, value string) {
 		entry.setGender(uint32(i + 1))
 	} else if i := findString(morphTenseValues, value); i != -1 {
 		entry.setTense(uint32(i + 1))
+	} else if i := findString(morphPersonValues, value); i != -1 {
+		entry.setPerson(uint32(i + 1))
+	} else if i, ok := morphPersonMap[value]; ok {
+		entry.setPerson(uint32(i + 1))
 	}
 }
 
@@ -296,6 +316,10 @@ func getMorphEntryMatch(i int) ParseMatch {
 	if tense := morphEntries[i].getTense(); tense > 0 {
 		value := morphTenseValues[tense-1]
 		attrs = append(attrs, Attribute{Name: "tense", Value: value})
+	}
+	if person := morphEntries[i].getPerson(); person > 0 {
+		value := morphPersonValues[person-1]
+		attrs = append(attrs, Attribute{Name: "person", Value: value})
 	}
 
 	return ParseMatch{Text: getMorphEntryText(i), Attributes: attrs}

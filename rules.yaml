@@ -14,52 +14,36 @@ compound_sentence:
     - pat: "{simple_sentence}"
     # Воздух дышит весенним ароматом, и вся природа оживляется. 
     - pat: "{simple_sentence}, {compound_sentence}"
-      equiv:
-        - "{2}, {1}"
     # Папа вышел на пробежку, и мы встретились. 
     - pat: "{simple_sentence}, и {compound_sentence}"
-      equiv:
-        - "{2}, и {1}"
     # Мы гуляли, а мама в это время была на работе.
     - pat: "{simple_sentence}, а {compound_sentence}"
-      equiv:
-        - "{2}, а {1}"
 
 complex_sentence:
 
 simple_sentence:
     # В огороде лежит большой камень.
-    - pat: "{predicate_groups number=@1 gender=@2} {subject_groups number=@1 gender=@1}"
-      equiv:
-        # Большой камень лежит в огороде.
-        - "{2} {1 require=adverbial_ending}"
+    - pat: "{predicate_groups number=@1 gender=@2 person=@3 ext=no} {subject_groups number=@1 gender=@2 person=@3}"
     # Толстый мальчик посмотрел на меня.
-    - pat: "{subject_groups number=@1 gender=@1} {predicate_groups number=@1 gender=@2}"
-      equiv:
-        # На меня посмотрел толстый мальчик.
-        - "{2 require=adverbial_beginning} {1}"
+    - pat: "{subject_groups number=@1 gender=@2 person=@3} {predicate_groups number=@1 gender=@2 person=@3 ext=yes}"
 
 predicate_groups:
     # весело прыгает по волнам
-    - pat: "{predicate_group !number !gender}"
+    - pat: "{predicate_group !number !gender !person !ext}"
     # в огне не горит, в воде не тонет
-    - pat: "{predicate_group !number=@1 !gender=@2}, {predicate_groups number=@1 gender=@2}"
-      equiv:
-        - "{2}, {1}"
+    - pat: "{predicate_group !number=@1 !gender=@2 !person=@3 !ext=@4}, {predicate_groups number=@1 gender=@2 person=@3 ext=@4}"
     # шагает по траве и поёт
-    - pat: "{predicate_group !number=@1 !gender=@2} и {predicate_groups number=@1 gender=@2}"
-      equiv:
-        - "{2} и {1}"
+    - pat: "{predicate_group !number=@1 !gender=@2 !person=@3 !ext=@4} и {predicate_groups number=@1 gender=@2 person=@3 ext=@4}"
 
 predicate_group:
     # прыгает
-    - pat: "{predicate !number !gender !tense}"
+    - pat: "{predicate !number !gender !person !ext}"
     # тяжело дышит
-    - pat: "{adverbial_modifiers} {predicate !number !gender !tense}"
+    - pat: "{adverbial_modifiers} {predicate !number !gender !person !ext=no}"
     # стучать кувалдой
-    - pat: "{predicate !number !gender !tense} {object_groups case=ablt}"
+    - pat: "{predicate !number !gender !person !ext} {object_groups case=ablt}"
     # быстро прикрылся щитом
-    - pat: "{adverbial_modifiers} {predicate !number !gender !tense} {object_groups case=ablt}"
+    - pat: "{adverbial_modifiers} {predicate !number !gender !person !ext=no} {object_groups case=ablt}"
 
 adverbial_modifiers:
     # красиво
@@ -75,33 +59,33 @@ adverbial_modifier:
 
 predicate:
     # висит
-    - pat: "{pos=verb !number !gender !tense}"
+    - pat: "@{ext=no}{pos=verb !number !gender !person}"
     # ржавая
-    - pat: "{attribute !number case=nomn !gender}"
+    - pat: "@{ext=yes}{attribute !number case=nomn}"
 
 subject_groups:
     # слон и Моська
-    - pat: "{object_groups !number case=nomn !gender}"
+    - pat: "{object_groups !number case=nomn !gender !person}"
 
 object_groups:
     # больничном дворе
-    - pat: "{object_group !number !case !gender}"
+    - pat: "{object_group !number !case !gender !person}"
     # репейника, крапивы и дикой конопли
-    - pat: "@{number=plur}{object_group !case=@1 !gender}, {object_groups case=@1 gender}"
+    - pat: "@{number=plur}{object_group !case=@1 !person=@2}, {object_groups case=@1 person=@2}"
     # маленьким ребёнком и седым стариком
-    - pat: "@{number=plur}{object_group !case=@1 !gender} и {object_groups case=@1 gender}"
+    - pat: "@{number=plur}{object_group !case=@1 !person=@2} и {object_groups case=@1 person=@2}"
 
 object_group:
     # самолёта
-    - pat: "{object !number !case !gender}"
+    - pat: "{object !number !case !gender !person}"
     # красивых и уютных палатах
-    - pat: "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3}"
+    - pat: "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3 !person}"
 
 object:
     # банки
-    - pat: "{pos=noun !number !case !gender}"
+    - pat: "@{person=3per}{pos=noun !number !case !gender}"
     # она
-    - pat: "{pos=npro !number !case !gender}"
+    - pat: "{pos=npro !number !case !gender !person}"
     # семеро
     - pat: "{pos=numr !number !case !gender}"
 
@@ -118,3 +102,7 @@ attribute:
     - pat: "{pos=adjf !number !case !gender}"
     # развитый
     - pat: "{pos=prts !number !case !gender}"
+    # очень красивая
+    - pat: "{adverbial_modifiers} {pos=adjf !number !case !gender}"
+    # невероятно подвижный
+    - pat: "{adverbial_modifiers} {pos=prts !number !case !gender}"
