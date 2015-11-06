@@ -12,7 +12,7 @@ sentence_ending:
 compound_sentence:
     # Сегодня я поеду к бабушке.
     - pat: "{simple_sentence}"
-    # Воздух дышит весенним ароматом, и вся природа оживляется. 
+    # Воздух дышит весенним ароматом, вся природа оживляется. 
     - pat: "{simple_sentence}, {compound_sentence}"
     # Папа вышел на пробежку, и мы встретились. 
     - pat: "{simple_sentence}, и {compound_sentence}"

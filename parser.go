@@ -180,10 +180,10 @@ func (match *ParseMatch) cleanExport() {
 }
 
 func (match *ParseMatch) checkSubmatch(attrs []Attribute,
-	submatch ParseMatch, hypotheses_limit uint) bool {
+	submatch ParseMatch, hypothesesLimit uint) bool {
 
 	match.HypothesisCount += submatch.HypothesisCount
-	if match.HypothesisCount > hypotheses_limit {
+	if match.HypothesisCount > hypothesesLimit {
 		return false
 	}
 
@@ -201,7 +201,7 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 		if (len(a.Value) > 0 && !submatch.checkAttrValue(a, &hypo)) ||
 			(len(a.token) > 0 && !match.checkAttrToken(a, &hypo)) {
 			match.HypothesisCount++
-			if match.HypothesisCount > hypotheses_limit {
+			if match.HypothesisCount > hypothesesLimit {
 				return false
 			}
 			hypo = fmt.Sprintf(
@@ -220,7 +220,7 @@ func (match *ParseMatch) checkSubmatch(attrs []Attribute,
 }
 
 func parsePatternPart(text, pattern string, match ParseMatch,
-	hypotheses_limit uint, output chan []ParseMatch) {
+	hypothesesLimit uint, output chan []ParseMatch) {
 
 	term, pattern := parseTerminal(pattern)
 	if !strings.HasPrefix(text, term) {
@@ -239,11 +239,11 @@ func parsePatternPart(text, pattern string, match ParseMatch,
 	pred, attrs, pattern := parseNonterminal(pattern)
 	output2 := make(chan []ParseMatch)
 	count := 0
-	for _, m := range Parse(text, pred, hypotheses_limit) {
+	for _, m := range Parse(text, pred, hypothesesLimit) {
 		match2 := match.clone()
-		if match2.checkSubmatch(attrs, m, hypotheses_limit) {
+		if match2.checkSubmatch(attrs, m, hypothesesLimit) {
 			go parsePatternPart(text[len(m.Text):],
-				pattern, match2, hypotheses_limit, output2)
+				pattern, match2, hypothesesLimit, output2)
 			count++
 		}
 	}
@@ -257,7 +257,7 @@ func parsePatternPart(text, pattern string, match ParseMatch,
 }
 
 func parsePattern(text string, match ParseMatch,
-	hypotheses_limit uint) []ParseMatch {
+	hypothesesLimit uint) []ParseMatch {
 
 	pattern := match.Rule.Pattern
 	if strings.HasPrefix(pattern, "@") {
@@ -265,12 +265,12 @@ func parsePattern(text string, match ParseMatch,
 	}
 
 	output := make(chan []ParseMatch)
-	go parsePatternPart(text, pattern, match, hypotheses_limit, output)
+	go parsePatternPart(text, pattern, match, hypothesesLimit, output)
 	return <-output
 }
 
-func Parse(text, nonterminal string, hypotheses_limit uint) []ParseMatch {
-	matches, ok := FindInCache(text, nonterminal, hypotheses_limit)
+func Parse(text, nonterminal string, hypothesesLimit uint) []ParseMatch {
+	matches, ok := FindInCache(text, nonterminal, hypothesesLimit)
 	if ok {
 		return matches
 	}
@@ -292,10 +292,10 @@ func Parse(text, nonterminal string, hypotheses_limit uint) []ParseMatch {
 		for _, r := range FindNonterminalRules(nonterminal) {
 			match := ParseMatch{Nonterminal: nonterminal, Rule: r}
 			matches = append(matches,
-				parsePattern(text, match, hypotheses_limit)...)
+				parsePattern(text, match, hypothesesLimit)...)
 		}
 	}
 
-	AddToCache(text, nonterminal, hypotheses_limit, matches)
+	AddToCache(text, nonterminal, hypothesesLimit, matches)
 	return matches
 }

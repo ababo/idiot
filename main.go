@@ -4,11 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"os"
 	"path"
-	"strconv"
-	"strings"
-	"time"
 )
 
 func morph() {
@@ -39,62 +35,34 @@ func corpus() {
 	fmt.Println("done")
 }
 
-func parse(from, to int, verbose bool) {
-	dir := getRootDir()
-	sentences, err := ReadCorpus(path.Join(dir, "corpus.txt"), from, to)
-	if err != nil {
-		fmt.Println("failed to read text corpus: %s\n", err)
-		return
-	}
-
-	if err := initParser(); err != nil {
-		fmt.Printf("failed to initialize parser: %s\n", err)
-		return
-	}
-	defer finalizeParser()
-
-	ok, failed := 0, 0
-	lastTime := time.Now()
-	for _, sentence := range sentences {
-		matches := Parse(strings.ToLower(sentence), "sentence", 0)
-		ClearCache()
-
-		parsed := false
-		for _, m := range matches {
-			if len(m.Text) == len(sentence) {
-				parsed = true
-				break
+func nextSentence(index int, sentence string,
+	matches []ParseMatch, verbose bool) {
+	if len(matches) > 0 {
+		fmt.Printf("+%d: %s\n", index, sentence)
+		if verbose {
+			json, err := json.Marshal(matches)
+			if err != nil {
+				fmt.Printf("failed to marshal parse matches: %s\n", err)
+				return
 			}
+			fmt.Printf("%s\n\n", json)
 		}
-
-		if parsed {
-			if verbose {
-				bytes, _ := json.Marshal(matches)
-				fmt.Printf("\n%d: %s\n%s\n", ok+failed, sentence, string(bytes))
-			}
-			ok += 1
-		} else {
-			failed += 1
-		}
-
-		if now := time.Now(); now.Sub(lastTime).Seconds() >= 1 {
-			fmt.Printf("ok: %d, failed: %d\n", ok, failed)
-			lastTime = now
-		}
+	} else {
+		fmt.Printf("-%d: %s\n", index, sentence)
 	}
-	fmt.Printf("ok: %d, failed: %d\n", ok, failed)
 }
 
-func readIntArg(index, default_ int) int {
-	if len(os.Args) <= index {
-		return default_
-	}
+func nextStats(succeeded, failed int) {
+	fmt.Printf("succeeded: %d, failed: %d\n", succeeded, failed)
+}
 
-	if value, err := strconv.Atoi(os.Args[index]); err == nil {
-		return value
+func parse(from, to int, save, verbose bool) {
+	dir := getRootDir()
+	if err := ParseCorpus(path.Join(dir, "corpus.txt"),
+		from, to, path.Join(dir, "corparse.rec"), save, verbose,
+		nextSentence, nextStats); err != nil {
+		fmt.Println(err)
 	}
-
-	return default_
 }
 
 func main() {
@@ -103,6 +71,7 @@ func main() {
 		"can be \"morph\", \"corpus\" or \"parse\"")
 	from := flag.Int("from", 0, prefix+"begin of sentence interval")
 	to := flag.Int("to", 1000000, prefix+"end of sentence interval")
+	save := flag.Bool("save", false, prefix+"save result changes")
 	verbose := flag.Bool("verbose", false, prefix+"verbose output")
 	flag.Parse()
 
@@ -114,7 +83,7 @@ func main() {
 		corpus()
 		return
 	case "parse":
-		parse(*from, *to, *verbose)
+		parse(*from, *to, *save, *verbose)
 		return
 	default:
 		flag.PrintDefaults()

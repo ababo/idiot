@@ -50,10 +50,10 @@ var (
 )
 
 type morphHeader struct {
-	magic        uint32
-	text_size    uint32
-	entries_size uint32
-	reserved     uint32
+	magic       uint32
+	textSize    uint32
+	entriesSize uint32
+	reserved    uint32
 }
 
 type morphEntry struct {
@@ -215,14 +215,14 @@ func castMorphHeaderToBytes(header *morphHeader) []byte {
 	return bytes
 }
 
-func BuildMorph(txt_filename, morph_filename string) error {
-	db, err := os.Create(morph_filename)
+func BuildMorph(txtFilename, morphFilename string) error {
+	db, err := os.Create(morphFilename)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
 
-	content, err := ioutil.ReadFile(txt_filename)
+	content, err := ioutil.ReadFile(txtFilename)
 	if err != nil {
 		return err
 	}
@@ -251,10 +251,10 @@ var (
 	morphEntries []morphEntry
 )
 
-func InitMorph(morph_filename string) error {
+func InitMorph(morphFilename string) error {
 	FinalizeMorph()
 
-	db, err := os.Open(morph_filename)
+	db, err := os.Open(morphFilename)
 	if err != nil {
 		return err
 	}
@@ -266,16 +266,16 @@ func InitMorph(morph_filename string) error {
 		return errors.New("bad file magic")
 	}
 
-	text := make([]byte, header.text_size)
+	text := make([]byte, header.textSize)
 	read, err := db.Read(text)
-	if uint32(read) < header.text_size {
+	if uint32(read) < header.textSize {
 		return errors.New("unexpected end of file")
 	}
 
 	esize := uint32(unsafe.Sizeof(morphEntry{}))
-	entries := make([]morphEntry, header.entries_size/esize)
+	entries := make([]morphEntry, header.entriesSize/esize)
 	read, err = db.Read(castMorphEntriesToBytes(entries))
-	if uint32(read) < header.entries_size {
+	if uint32(read) < header.entriesSize {
 		return errors.New("unexpected end of file")
 	}
 

@@ -25,18 +25,18 @@ func FinalizeCache() {
 	cacheBanks = nil
 }
 
-func getCacheHash(text, nonterminal string, hypotheses_limit uint) uint64 {
+func getCacheHash(text, nonterminal string, hypothesesLimit uint) uint64 {
 	hash := fnv.New64()
 	hash.Write([]byte(text))
 	hash.Write([]byte(nonterminal))
-	hash.Write([]byte(strconv.Itoa(int(hypotheses_limit))))
+	hash.Write([]byte(strconv.Itoa(int(hypothesesLimit))))
 	return hash.Sum64()
 }
 
 func FindInCache(text, nonterminal string,
-	hypotheses_limit uint) ([]ParseMatch, bool) {
+	hypothesesLimit uint) ([]ParseMatch, bool) {
 
-	hash := getCacheHash(text, nonterminal, hypotheses_limit)
+	hash := getCacheHash(text, nonterminal, hypothesesLimit)
 	bank := &cacheBanks[hash%uint64(len(cacheBanks))]
 	bank.RLock()
 	matches, ok := bank.data[hash]
@@ -46,9 +46,9 @@ func FindInCache(text, nonterminal string,
 }
 
 func AddToCache(text, nonterminal string,
-	hypotheses_limit uint, matches []ParseMatch) {
+	hypothesesLimit uint, matches []ParseMatch) {
 
-	hash := getCacheHash(text, nonterminal, hypotheses_limit)
+	hash := getCacheHash(text, nonterminal, hypothesesLimit)
 	bank := &cacheBanks[hash%uint64(len(cacheBanks))]
 	bank.Lock()
 	bank.data[hash] = matches
