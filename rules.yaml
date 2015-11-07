@@ -56,10 +56,26 @@ adverbial_modifiers:
 adverbial_modifier:
     # наполовину
     - pat: "{pos=advb}"
+    # в большом тереме
+    - pat: "в {object_groups case=loct}"
+    # на крыше дома
+    - pat: "на {object_groups case=loct}"
+    # под столом
+    - pat: "под {object_groups case=ablt}"
+    # над головой
+    - pat: "над {object_groups case=ablt}"
+    # через реку
+    - pat: "через {object_groups case=accs}"
+    # у озера
+    - pat: "у {object_groups case=gent}"
 
 predicate:
     # висит
     - pat: "@{ext=no}{pos=verb !number !gender !person}"
+    - pat: "@{ext=yes}{pos=verb !number !gender !person}"
+    # завершено
+    - pat: "@{ext=no}{pos=prts !number !case !gender}"
+    - pat: "@{ext=yes}{pos=prts !number !case !gender}"
     # ржавая
     - pat: "@{ext=yes}{attribute !number case=nomn}"
 
@@ -87,7 +103,7 @@ object:
     # она
     - pat: "{pos=npro !number !case !gender !person}"
     # семеро
-    - pat: "{pos=numr !number !case !gender}"
+    - pat: "@{number=plur}{pos=numr !number !case !gender}"
 
 attributes:
     # красивой
@@ -101,7 +117,7 @@ attribute:
     # милую
     - pat: "{pos=adjf !number !case !gender}"
     # развитый
-    - pat: "{pos=prts !number !case !gender}"
+    - pat: "{pos=prtf !number !case !gender}"
     # очень красивая
     - pat: "{adverbial_modifiers} {pos=adjf !number !case !gender}"
     # невероятно подвижный

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"os"
 	"path"
 )
 
@@ -65,17 +66,32 @@ func parse(from, to int, save, verbose bool) {
 	}
 }
 
-func main() {
-	prefix := "(for \"parse\" command) "
-	command := flag.String("command", "parse",
-		"can be \"morph\", \"corpus\" or \"parse\"")
-	from := flag.Int("from", 0, prefix+"begin of sentence interval")
-	to := flag.Int("to", 1000000, prefix+"end of sentence interval")
-	save := flag.Bool("save", false, prefix+"save result changes")
-	verbose := flag.Bool("verbose", false, prefix+"verbose output")
-	flag.Parse()
+func test(nonterminal, text string) {
+	if err := initParser(); err != nil {
+		fmt.Printf("failed to initialize parser: %s\n", err)
+	}
+	defer finalizeParser()
 
-	switch *command {
+	matches := Parse(nonterminal, text, 0)
+	json, err := json.Marshal(matches)
+	if err != nil {
+		fmt.Printf("failed to marshal parse matches: %s\n", err)
+		return
+	}
+	fmt.Printf("%s\n", json)
+}
+
+func printUsage() {
+	fmt.Printf("usage: idiot (morph | corpus | parse | test)\n")
+}
+
+func main() {
+	if len(os.Args) == 1 {
+		printUsage()
+		return
+	}
+
+	switch os.Args[1] {
 	case "morph":
 		morph()
 		return
@@ -83,9 +99,22 @@ func main() {
 		corpus()
 		return
 	case "parse":
+		parseFlags := flag.NewFlagSet("parse", flag.ExitOnError)
+		from := parseFlags.Int("from", 0, "begin of sentence interval")
+		to := parseFlags.Int("to", 1000000, "end of sentence interval")
+		save := parseFlags.Bool("save", false, "save result changes")
+		verbose := parseFlags.Bool("verbose", false, "verbose output")
+		parseFlags.Parse(os.Args[2:])
 		parse(*from, *to, *save, *verbose)
 		return
+	case "test":
+		testFlags := flag.NewFlagSet("test", flag.ExitOnError)
+		nonterm := testFlags.String("nonterm",
+			"sentence", "non-terminal to parse against")
+		text := testFlags.String("text", "", "text to parse")
+		testFlags.Parse(os.Args[2:])
+		test(*nonterm, *text)
 	default:
-		flag.PrintDefaults()
+		printUsage()
 	}
 }

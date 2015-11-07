@@ -1,0 +1,80 @@
+5686316,5686323c5686316,5686323
+< 377005
+< ЧТО	NPRO,neut sing,nomn
+< ЧЕГО	NPRO,neut sing,gent
+< ЧЕМУ	NPRO,neut sing,datv
+< ЧТО	NPRO,neut sing,accs
+< ЧЕМ	NPRO,neut sing,ablt
+< ЧЁМ	NPRO,neut sing,loct
+< ЧАВО	NPRO,neut sing,nomn,Slng
+---
+> #377005
+> #ЧТО	NPRO,neut sing,nomn
+> #ЧЕГО	NPRO,neut sing,gent
+> #ЧЕМУ	NPRO,neut sing,datv
+> #ЧТО	NPRO,neut sing,accs
+> #ЧЕМ	NPRO,neut sing,ablt
+> #ЧЁМ	NPRO,neut sing,loct
+> #ЧАВО	NPRO,neut sing,nomn,Slng
+5686325,5686326c5686325,5686326
+< 377006
+< ЧТО	ADVB,Ques 
+---
+> #377006
+> #ЧТО	ADVB,Ques
+5868376,5868388c5868376,5868388
+< 389612
+< В	NOUN,inan,masc,Fixd,Abbr sing,nomn
+< В	NOUN,inan,masc,Fixd,Abbr sing,gent
+< В	NOUN,inan,masc,Fixd,Abbr sing,datv
+< В	NOUN,inan,masc,Fixd,Abbr sing,accs
+< В	NOUN,inan,masc,Fixd,Abbr sing,ablt
+< В	NOUN,inan,masc,Fixd,Abbr sing,loct
+< В	NOUN,inan,masc,Fixd,Abbr plur,nomn
+< В	NOUN,inan,masc,Fixd,Abbr plur,gent
+< В	NOUN,inan,masc,Fixd,Abbr plur,datv
+< В	NOUN,inan,masc,Fixd,Abbr plur,accs
+< В	NOUN,inan,masc,Fixd,Abbr plur,ablt
+< В	NOUN,inan,masc,Fixd,Abbr plur,loct
+---
+> #389612
+> #В	NOUN,inan,masc,Fixd,Abbr sing,nomn
+> #В	NOUN,inan,masc,Fixd,Abbr sing,gent
+> #В	NOUN,inan,masc,Fixd,Abbr sing,datv
+> #В	NOUN,inan,masc,Fixd,Abbr sing,accs
+> #В	NOUN,inan,masc,Fixd,Abbr sing,ablt
+> #В	NOUN,inan,masc,Fixd,Abbr sing,loct
+> #В	NOUN,inan,masc,Fixd,Abbr plur,nomn
+> #В	NOUN,inan,masc,Fixd,Abbr plur,gent
+> #В	NOUN,inan,masc,Fixd,Abbr plur,datv
+> #В	NOUN,inan,masc,Fixd,Abbr plur,accs
+> #В	NOUN,inan,masc,Fixd,Abbr plur,ablt
+> #В	NOUN,inan,masc,Fixd,Abbr plur,loct
+5868512,5868524c5868512,5868524
+< 389621
+< И	NOUN,anim,masc,Fixd,Abbr sing,nomn
+< И	NOUN,anim,masc,Fixd,Abbr sing,gent
+< И	NOUN,anim,masc,Fixd,Abbr sing,datv
+< И	NOUN,anim,masc,Fixd,Abbr sing,accs
+< И	NOUN,anim,masc,Fixd,Abbr sing,ablt
+< И	NOUN,anim,masc,Fixd,Abbr sing,loct
+< И	NOUN,anim,masc,Fixd,Abbr plur,nomn
+< И	NOUN,anim,masc,Fixd,Abbr plur,gent
+< И	NOUN,anim,masc,Fixd,Abbr plur,datv
+< И	NOUN,anim,masc,Fixd,Abbr plur,accs
+< И	NOUN,anim,masc,Fixd,Abbr plur,ablt
+< И	NOUN,anim,masc,Fixd,Abbr plur,loct
+---
+> #389621
+> #И	NOUN,anim,masc,Fixd,Abbr sing,nomn
+> #И	NOUN,anim,masc,Fixd,Abbr sing,gent
+> #И	NOUN,anim,masc,Fixd,Abbr sing,datv
+> #И	NOUN,anim,masc,Fixd,Abbr sing,accs
+> #И	NOUN,anim,masc,Fixd,Abbr sing,ablt
+> #И	NOUN,anim,masc,Fixd,Abbr sing,loct
+> #И	NOUN,anim,masc,Fixd,Abbr plur,nomn
+> #И	NOUN,anim,masc,Fixd,Abbr plur,gent
+> #И	NOUN,anim,masc,Fixd,Abbr plur,datv
+> #И	NOUN,anim,masc,Fixd,Abbr plur,accs
+> #И	NOUN,anim,masc,Fixd,Abbr plur,ablt
+> #И	NOUN,anim,masc,Fixd,Abbr plur,loct
