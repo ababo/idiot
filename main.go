@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strings"
 )
 
 func morph() {
@@ -72,7 +73,7 @@ func test(nonterminal, text string) {
 	}
 	defer finalizeParser()
 
-	matches := Parse(nonterminal, text, 0)
+	matches := Parse(strings.ToLower(text), nonterminal, 0)
 	json, err := json.Marshal(matches)
 	if err != nil {
 		fmt.Printf("failed to marshal parse matches: %s\n", err)

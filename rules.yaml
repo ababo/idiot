@@ -10,52 +10,64 @@ sentence_ending:
     - pat: "!"
 
 compound_sentence:
-    # Сегодня я поеду к бабушке.
+    # сегодня я поеду к бабушке
     - pat: "{simple_sentence}"
-    # Воздух дышит весенним ароматом, вся природа оживляется. 
+    # воздух дышит весенним ароматом, вся природа оживляется
     - pat: "{simple_sentence}, {compound_sentence}"
-    # Папа вышел на пробежку, и мы встретились. 
+    # папа вышел на пробежку, и мы встретились
     - pat: "{simple_sentence}, и {compound_sentence}"
-    # Мы гуляли, а мама в это время была на работе.
+    # мы гуляли, а мама в это время была на работе
     - pat: "{simple_sentence}, а {compound_sentence}"
 
 complex_sentence:
 
 simple_sentence:
-    # В огороде лежит большой камень.
-    - pat: "{predicate_groups number=@1 gender=@2 person=@3 ext=no} {subject_groups number=@1 gender=@2 person=@3}"
-    # Толстый мальчик посмотрел на меня.
-    - pat: "{subject_groups number=@1 gender=@2 person=@3} {predicate_groups number=@1 gender=@2 person=@3 ext=yes}"
+    # толстый мальчик посмотрел на меня
+    - pat: "{subject_groups number=@1 gender=@2 person=@3} {predicate_groups number=@1 gender=@2 person=@3}"
+    # в любом случае срединное земное измерение вытесняется
+    - pat: "{adverbial_modifiers} {subject_groups number=@1 gender=@2 person=@3} {predicate_groups number=@1 gender=@2 person=@3}"
+    # эта девушка очень хороша собой
+    - pat: "{subject_groups number=@1 gender=@2} {attribute_groups number=@1 gender=@2}"
+    # по субботам она очень отзывчива
+    - pat: "{adverbial_modifiers} {subject_groups number=@1 gender=@2} {attribute_groups number=@1 gender=@2}"
+    # в огороде лежит большой камень
+    - pat: "{predicate_groups number=@1 gender=@2 person=@3} {subject_groups number=@1 gender=@2 person=@3}"
+    # инициировано административное расследование
+    - pat: "{pos=prts number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
+    # у них развито сильное территориальное поведение
+    - pat: "{adverbial_modifiers} {pos=prts number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
 
 predicate_groups:
     # весело прыгает по волнам
-    - pat: "{predicate_group !number !gender !person !ext}"
+    - pat: "{predicate_group !number !gender !person}"
     # в огне не горит, в воде не тонет
-    - pat: "{predicate_group !number=@1 !gender=@2 !person=@3 !ext=@4}, {predicate_groups number=@1 gender=@2 person=@3 ext=@4}"
+    - pat: "{predicate_group !number=@1 !gender=@2 !person=@3}, {predicate_groups number=@1 gender=@2 person=@3}"
     # шагает по траве и поёт
-    - pat: "{predicate_group !number=@1 !gender=@2 !person=@3 !ext=@4} и {predicate_groups number=@1 gender=@2 person=@3 ext=@4}"
+    - pat: "{predicate_group !number=@1 !gender=@2 !person=@3} и {predicate_groups number=@1 gender=@2 person=@3}"
 
 predicate_group:
     # прыгает
-    - pat: "{predicate !number !gender !person !ext}"
+    - pat: "{predicate !number !gender !person}"
     # тяжело дышит
-    - pat: "{adverbial_modifiers} {predicate !number !gender !person !ext=no}"
+    - pat: "{adverbial_modifiers} {predicate !number !gender !person}"
     # стучать кувалдой
-    - pat: "{predicate !number !gender !person !ext} {object_groups case=ablt}"
+    - pat: "{predicate !number !gender !person} {object_groups case=ablt}"
     # быстро прикрылся щитом
-    - pat: "{adverbial_modifiers} {predicate !number !gender !person !ext=no} {object_groups case=ablt}"
+    - pat: "{adverbial_modifiers} {predicate !number !gender !person} {object_groups case=ablt}"
+    # выставляются в основном
+    - pat: "{predicate !number !gender !person} {adverbial_modifiers}"
 
 adverbial_modifiers:
-    # красиво
-    - pat: "{adverbial_modifier}"
     # модно, стильно, молодёжно
+    - pat: "{adverbials}"
+    # в пятницу
+    - pat: "{adverbial_modifier}"
+    # в пятицу, во дворе дома
     - pat: "{adverbial_modifier}, {adverbial_modifiers}"
-    # тепло и уютно
+    # по субботам и по воскресеньям
     - pat: "{adverbial_modifier} и {adverbial_modifiers}"
 
 adverbial_modifier:
-    # наполовину
-    - pat: "{pos=advb}"
     # в большом тереме
     - pat: "в {object_groups case=loct}"
     # на крыше дома
@@ -71,13 +83,49 @@ adverbial_modifier:
 
 predicate:
     # висит
-    - pat: "@{ext=no}{pos=verb !number !gender !person}"
-    - pat: "@{ext=yes}{pos=verb !number !gender !person}"
+    - pat: "{pos=verb !number !gender !person}"
+
+attribute_groups:
+    # сделан вчера
+    - pat: "{attribute_group !number !gender}"
+    # стильно, модно, молодёжно
+    - pat: "{attribute_group !number=@1 !gender=@2}, {attribute_groups number=@1 gender=@2}"
+    # брошены и сожжены
+    - pat: "{attribute_group !number=@1 !gender=@2} и {attribute_groups number=@1 gender=@2}"
+
+attribute_group:
     # завершено
-    - pat: "@{ext=no}{pos=prts !number !case !gender}"
-    - pat: "@{ext=yes}{pos=prts !number !case !gender}"
+    - pat: "{pos=prts !number !gender}"
+    # плотно закрыта
+    - pat: "{adverbial_modifiers} {pos=prts !number case=nomn !gender}"
+    # завершено в четверг
+    - pat: "{pos=prts !number case=nomn !gender} {adverbial_modifiers}"
+    # полностью открыто с прошлой недели
+    - pat: "{adverbial_modifiers} {pos=prts !number case=nomn !gender} {adverbial_modifiers}"
     # ржавая
-    - pat: "@{ext=yes}{attribute !number case=nomn}"
+    - pat: "{attribute !number case=nomn}"
+    # ярко красная
+    - pat: "{adverbial_modifiers} {attribute !number case=nomn}"
+    # добрая после обеда
+    - pat: "{attribute !number case=nomn} {adverbial_modifiers}"
+    # очень злая перед сном
+    - pat: "{adverbial_modifiers} {attribute !number case=nomn} {adverbial_modifiers}"
+    # выложен плиткой
+    - pat: "{pos=prts !number case=nomn !gender} {object_groups case=ablt}"
+    # аккуратно обмотана лентой
+    - pat: "{adverbial_modifiers} {pos=prts !number case=nomn !gender} {object_groups case=ablt}"
+
+adverbials:
+    # грязно
+    - pat: "{adverbial}"
+    # тихо, приглушённо
+    - pat: "{adverbial}, {adverbials}"
+    # ярко и звонко
+    - pat: "{adverbial} и {adverbials}"
+
+adverbial:
+    # наполовину
+    - pat: "{pos=advb}"
 
 subject_groups:
     # слон и Моська
@@ -90,6 +138,10 @@ object_groups:
     - pat: "@{number=plur}{object_group !case=@1 !person=@2}, {object_groups case=@1 person=@2}"
     # маленьким ребёнком и седым стариком
     - pat: "@{number=plur}{object_group !case=@1 !person=@2} и {object_groups case=@1 person=@2}"
+    # рыбой, в том числе ценными промысловыми породами
+    - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе {object_groups case=@1 person=@2}"
+    # млекопитающим, в том числе и китообразным
+    - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе и {object_groups case=@1 person=@2}"
 
 object_group:
     # самолёта
@@ -119,6 +171,6 @@ attribute:
     # развитый
     - pat: "{pos=prtf !number !case !gender}"
     # очень красивая
-    - pat: "{adverbial_modifiers} {pos=adjf !number !case !gender}"
+    - pat: "{adverbials} {pos=adjf !number !case !gender}"
     # невероятно подвижный
-    - pat: "{adverbial_modifiers} {pos=prts !number !case !gender}"
+    - pat: "{adverbials} {pos=prts !number !case !gender}"
