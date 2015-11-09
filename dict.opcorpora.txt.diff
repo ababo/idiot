@@ -18,6 +18,64 @@
 > #128192
 > #КАК	ADVB,Ques 
 > #К	ADVB,Ques Abbr
+1866105,1866132c1866105,1866132
+< 128224
+< КАКОЙ	ADJF,Apro masc,sing,nomn
+< КАКОГО	ADJF,Apro masc,sing,gent
+< КАКОМУ	ADJF,Apro masc,sing,datv
+< КАКОЙ	ADJF,Apro inan,masc,sing,accs
+< КАКОГО	ADJF,Apro anim,masc,sing,accs
+< КАКИМ	ADJF,Apro masc,sing,ablt
+< КАКОМ	ADJF,Apro masc,sing,loct
+< КАКАЯ	ADJF,Apro femn,sing,nomn
+< КАКОЙ	ADJF,Apro femn,sing,gent
+< КАКОЙ	ADJF,Apro femn,sing,datv
+< КАКУЮ	ADJF,Apro femn,sing,accs
+< КАКОЙ	ADJF,Apro femn,sing,ablt
+< КАКОЮ	ADJF,Apro femn,sing,ablt,V-oy
+< КАКОЙ	ADJF,Apro femn,sing,loct
+< КАКОЕ	ADJF,Apro neut,sing,nomn
+< КАКОГО	ADJF,Apro neut,sing,gent
+< КАКОМУ	ADJF,Apro neut,sing,datv
+< КАКОЕ	ADJF,Apro neut,sing,accs
+< КАКИМ	ADJF,Apro neut,sing,ablt
+< КАКОМ	ADJF,Apro neut,sing,loct
+< КАКИЕ	ADJF,Apro plur,nomn
+< КАКИХ	ADJF,Apro plur,gent
+< КАКИМ	ADJF,Apro plur,datv
+< КАКИЕ	ADJF,Apro inan,plur,accs
+< КАКИХ	ADJF,Apro anim,plur,accs
+< КАКИМИ	ADJF,Apro plur,ablt
+< КАКИХ	ADJF,Apro plur,loct
+---
+> #128224
+> #КАКОЙ	ADJF,Apro masc,sing,nomn
+> #КАКОГО	ADJF,Apro masc,sing,gent
+> #КАКОМУ	ADJF,Apro masc,sing,datv
+> #КАКОЙ	ADJF,Apro inan,masc,sing,accs
+> #КАКОГО	ADJF,Apro anim,masc,sing,accs
+> #КАКИМ	ADJF,Apro masc,sing,ablt
+> #КАКОМ	ADJF,Apro masc,sing,loct
+> #КАКАЯ	ADJF,Apro femn,sing,nomn
+> #КАКОЙ	ADJF,Apro femn,sing,gent
+> #КАКОЙ	ADJF,Apro femn,sing,datv
+> #КАКУЮ	ADJF,Apro femn,sing,accs
+> #КАКОЙ	ADJF,Apro femn,sing,ablt
+> #КАКОЮ	ADJF,Apro femn,sing,ablt,V-oy
+> #КАКОЙ	ADJF,Apro femn,sing,loct
+> #КАКОЕ	ADJF,Apro neut,sing,nomn
+> #КАКОГО	ADJF,Apro neut,sing,gent
+> #КАКОМУ	ADJF,Apro neut,sing,datv
+> #КАКОЕ	ADJF,Apro neut,sing,accs
+> #КАКИМ	ADJF,Apro neut,sing,ablt
+> #КАКОМ	ADJF,Apro neut,sing,loct
+> #КАКИЕ	ADJF,Apro plur,nomn
+> #КАКИХ	ADJF,Apro plur,gent
+> #КАКИМ	ADJF,Apro plur,datv
+> #КАКИЕ	ADJF,Apro inan,plur,accs
+> #КАКИХ	ADJF,Apro anim,plur,accs
+> #КАКИМИ	ADJF,Apro plur,ablt
+> #КАКИХ	ADJF,Apro plur,loct
 1971804,1971805c1971804,1971805
 < 135240
 < КОГДА	ADVB,Ques 

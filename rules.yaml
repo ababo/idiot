@@ -80,8 +80,16 @@ adverbial_modifier:
     - pat: "через {object_groups case=accs}"
     # у озера
     - pat: "у {object_groups case=gent}"
+    # с повидлом
+    - pat: "с {object_groups case=ablt}"
+    # от руки
+    - pat: "от {object_groups case=gent}"
+    # из ведра
+    - pat: "из {object_groups case=gent}"
 
 predicate:
+    # не поёт
+    - pat: "не {predicate !number !gender !person}"
     # висит
     - pat: "{pos=verb !number !gender !person}"
 
@@ -94,6 +102,8 @@ attribute_groups:
     - pat: "{attribute_group !number=@1 !gender=@2} и {attribute_groups number=@1 gender=@2}"
 
 attribute_group:
+    # не ясно
+    - pat: "не {attribute_group !number !gender}"
     # завершено
     - pat: "{pos=prts !number !gender}"
     # плотно закрыта
@@ -124,6 +134,8 @@ adverbials:
     - pat: "{adverbial} и {adverbials}"
 
 adverbial:
+    # не громко
+    - pat: "не {adverbial}"
     # наполовину
     - pat: "{pos=advb}"
 
@@ -144,10 +156,16 @@ object_groups:
     - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе и {object_groups case=@1 person=@2}"
 
 object_group:
+    # не военными
+    - pat: "не {object_group !number !case !gender !person}"
     # самолёта
     - pat: "{object !number !case !gender !person}"
     # красивых и уютных палатах
     - pat: "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3 !person}"
+    # стакан воды
+    - pat: "{object !number !case !gender !person} {object_groups case=gent}"
+    # эмпирический результат исследования
+    - pat: "{attributes number=@1 case=@2 gender=@3} {object !number=@1 !case=@2 !gender=@3 !person} {object_groups case=gent}"
 
 object:
     # банки
