@@ -1,4 +1,6 @@
 sentence:
+    # - Да, это я.
+    - pat: "- {sentence}"
     # Я люблю шоколад, но ненавижу пористый.
     - pat: "{compound_sentence}{sentence_ending}"
     # Я пошла на кухню, чтобы сделать маме чай.
@@ -56,6 +58,12 @@ predicate_group:
     - pat: "{adverbial_modifiers} {predicate !number !gender !person} {object_groups case=ablt}"
     # выставляются в основном
     - pat: "{predicate !number !gender !person} {adverbial_modifiers}"
+    # не поддавалось пониманию
+    - pat: "{predicate !number !gender !person} {object_groups case=datv}"
+    # в точности соответствует филогенетическому дереву
+    - pat: "{adverbial_modifiers} {predicate !number !gender !person} {object_groups case=datv}"
+    # нашли себе удобную тусовку
+    - pat: "{predicate !number !gender !person} {object_groups case=datv} {object_groups case=accs}"
 
 adverbial_modifiers:
     # модно, стильно, молодёжно
@@ -124,6 +132,10 @@ attribute_group:
     - pat: "{pos=prts !number case=nomn !gender} {object_groups case=ablt}"
     # аккуратно обмотана лентой
     - pat: "{adverbial_modifiers} {pos=prts !number case=nomn !gender} {object_groups case=ablt}"
+    # богата полезными ископаемыми
+    - pat: "{pos=adjs !number case=nomn !gender} {object_groups case=ablt}"
+    # слишком чревато задержками и осложнениями
+    - pat: "{adverbial_modifiers} {pos=adjs !number case=nomn !gender} {object_groups case=ablt}"
 
 adverbials:
     # грязно
