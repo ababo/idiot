@@ -162,7 +162,7 @@ func ParseCorpus(corpusFilename string, from, to int,
 	defer finalizeParser()
 
 	lastTime := time.Now()
-	succeeded, failed := 0, 0
+	succeeded, failed, index := 0, 0, from
 	for _, sentence := range sentences {
 		matches := Parse(strings.ToLower(sentence), "sentence", 0)
 		ClearCache()
@@ -175,7 +175,6 @@ func ParseCorpus(corpusFilename string, from, to int,
 			}
 		}
 
-		index := succeeded + failed
 		parsedBefore, err := readRecord(record, index)
 		if err != nil {
 			return fmt.Errorf("failed to read record file: %s\n", err)
@@ -195,6 +194,7 @@ func ParseCorpus(corpusFilename string, from, to int,
 		} else {
 			failed += 1
 		}
+		index += 1
 
 		if now := time.Now(); now.Sub(lastTime).Seconds() >= 1 {
 			statsCallback(succeeded, failed)

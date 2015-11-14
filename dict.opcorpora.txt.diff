@@ -306,3 +306,87 @@
 > #И	NOUN,anim,masc,Fixd,Abbr plur,accs
 > #И	NOUN,anim,masc,Fixd,Abbr plur,ablt
 > #И	NOUN,anim,masc,Fixd,Abbr plur,loct
+5871383,5871409c5871383,5871409
+< 390039
+< О	NOUN,inan,masc,Fixd,Abbr sing,nomn
+< О	NOUN,inan,masc,Fixd,Abbr sing,gent
+< О	NOUN,inan,masc,Fixd,Abbr sing,datv
+< О	NOUN,inan,masc,Fixd,Abbr sing,accs
+< О	NOUN,inan,masc,Fixd,Abbr sing,ablt
+< О	NOUN,inan,masc,Fixd,Abbr sing,loct
+< О	NOUN,inan,masc,Fixd,Abbr plur,nomn
+< О	NOUN,inan,masc,Fixd,Abbr plur,gent
+< О	NOUN,inan,masc,Fixd,Abbr plur,datv
+< О	NOUN,inan,masc,Fixd,Abbr plur,accs
+< О	NOUN,inan,masc,Fixd,Abbr plur,ablt
+< О	NOUN,inan,masc,Fixd,Abbr plur,loct
+< 
+< 390040
+< ОБ	NOUN,inan,masc,Fixd,Abbr sing,nomn
+< ОБ	NOUN,inan,masc,Fixd,Abbr sing,gent
+< ОБ	NOUN,inan,masc,Fixd,Abbr sing,datv
+< ОБ	NOUN,inan,masc,Fixd,Abbr sing,accs
+< ОБ	NOUN,inan,masc,Fixd,Abbr sing,ablt
+< ОБ	NOUN,inan,masc,Fixd,Abbr sing,loct
+< ОБ	NOUN,inan,masc,Fixd,Abbr plur,nomn
+< ОБ	NOUN,inan,masc,Fixd,Abbr plur,gent
+< ОБ	NOUN,inan,masc,Fixd,Abbr plur,datv
+< ОБ	NOUN,inan,masc,Fixd,Abbr plur,accs
+< ОБ	NOUN,inan,masc,Fixd,Abbr plur,ablt
+< ОБ	NOUN,inan,masc,Fixd,Abbr plur,loct
+---
+> #390039
+> #О	NOUN,inan,masc,Fixd,Abbr sing,nomn
+> #О	NOUN,inan,masc,Fixd,Abbr sing,gent
+> #О	NOUN,inan,masc,Fixd,Abbr sing,datv
+> #О	NOUN,inan,masc,Fixd,Abbr sing,accs
+> #О	NOUN,inan,masc,Fixd,Abbr sing,ablt
+> #О	NOUN,inan,masc,Fixd,Abbr sing,loct
+> #О	NOUN,inan,masc,Fixd,Abbr plur,nomn
+> #О	NOUN,inan,masc,Fixd,Abbr plur,gent
+> #О	NOUN,inan,masc,Fixd,Abbr plur,datv
+> #О	NOUN,inan,masc,Fixd,Abbr plur,accs
+> #О	NOUN,inan,masc,Fixd,Abbr plur,ablt
+> #О	NOUN,inan,masc,Fixd,Abbr plur,loct
+> 
+> #390040
+> #ОБ	NOUN,inan,masc,Fixd,Abbr sing,nomn
+> #ОБ	NOUN,inan,masc,Fixd,Abbr sing,gent
+> #ОБ	NOUN,inan,masc,Fixd,Abbr sing,datv
+> #ОБ	NOUN,inan,masc,Fixd,Abbr sing,accs
+> #ОБ	NOUN,inan,masc,Fixd,Abbr sing,ablt
+> #ОБ	NOUN,inan,masc,Fixd,Abbr sing,loct
+> #ОБ	NOUN,inan,masc,Fixd,Abbr plur,nomn
+> #ОБ	NOUN,inan,masc,Fixd,Abbr plur,gent
+> #ОБ	NOUN,inan,masc,Fixd,Abbr plur,datv
+> #ОБ	NOUN,inan,masc,Fixd,Abbr plur,accs
+> #ОБ	NOUN,inan,masc,Fixd,Abbr plur,ablt
+> #ОБ	NOUN,inan,masc,Fixd,Abbr plur,loct
+5872335,5872347c5872335,5872347
+< 390099
+< ОБО	NOUN,inan,neut,Fixd sing,nomn
+< ОБО	NOUN,inan,neut,Fixd sing,gent
+< ОБО	NOUN,inan,neut,Fixd sing,datv
+< ОБО	NOUN,inan,neut,Fixd sing,accs
+< ОБО	NOUN,inan,neut,Fixd sing,ablt
+< ОБО	NOUN,inan,neut,Fixd sing,loct
+< ОБО	NOUN,inan,neut,Fixd plur,nomn
+< ОБО	NOUN,inan,neut,Fixd plur,gent
+< ОБО	NOUN,inan,neut,Fixd plur,datv
+< ОБО	NOUN,inan,neut,Fixd plur,accs
+< ОБО	NOUN,inan,neut,Fixd plur,ablt
+< ОБО	NOUN,inan,neut,Fixd plur,loct
+---
+> #390099
+> #ОБО	NOUN,inan,neut,Fixd sing,nomn
+> #ОБО	NOUN,inan,neut,Fixd sing,gent
+> #ОБО	NOUN,inan,neut,Fixd sing,datv
+> #ОБО	NOUN,inan,neut,Fixd sing,accs
+> #ОБО	NOUN,inan,neut,Fixd sing,ablt
+> #ОБО	NOUN,inan,neut,Fixd sing,loct
+> #ОБО	NOUN,inan,neut,Fixd plur,nomn
+> #ОБО	NOUN,inan,neut,Fixd plur,gent
+> #ОБО	NOUN,inan,neut,Fixd plur,datv
+> #ОБО	NOUN,inan,neut,Fixd plur,accs
+> #ОБО	NOUN,inan,neut,Fixd plur,ablt
+> #ОБО	NOUN,inan,neut,Fixd plur,loct

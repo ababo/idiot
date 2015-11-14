@@ -38,6 +38,8 @@ simple_sentence:
     - pat: "{pos=prts number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
     # у них развито сильное территориальное поведение
     - pat: "{adverbial_modifiers} {pos=prts number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
+    # феминизм - не его компетенция
+    - pat: "{subject_groups} - {subject_groups}"
 
 predicate_groups:
     # весело прыгает по волнам
@@ -64,6 +66,8 @@ predicate_group:
     - pat: "{adverbial_modifiers} {predicate !number !gender !person} {object_groups case=datv}"
     # нашли себе удобную тусовку
     - pat: "{predicate !number !gender !person} {object_groups case=datv} {object_groups case=accs}"
+    # бросил жену
+    - pat: "{predicate !number !gender !person} {object_groups case=accs}"
 
 adverbial_modifiers:
     # модно, стильно, молодёжно
@@ -94,12 +98,27 @@ adverbial_modifier:
     - pat: "от {object_groups case=gent}"
     # из ведра
     - pat: "из {object_groups case=gent}"
+    # о любви
+    - pat: "о {object_groups case=loct}"
+    - pat: "о {object_groups case=loc1}"
+    - pat: "об {object_groups case=loct}"
+    - pat: "об {object_groups case=loc1}"
+    - pat: "обо {object_groups case=loct}"
+    - pat: "обо {object_groups case=loc1}"
+    # (ударился) о скамейку
+    - pat: "о {object_groups case=accs}"
+    - pat: "об {object_groups case=accs}"
+    - pat: "обо {object_groups case=accs}"
 
 predicate:
     # не поёт
     - pat: "не {predicate !number !gender !person}"
     # висит
     - pat: "{pos=verb !number !gender !person}"
+    # люблю спать
+    - pat: "{pos=verb !number !gender !person} {pos=infn}"
+    # привык не ужинать
+    - pat: "{pos=verb !number !gender !person} не {pos=infn}"
 
 attribute_groups:
     # сделан вчера
@@ -203,4 +222,14 @@ attribute:
     # очень красивая
     - pat: "{adverbials} {pos=adjf !number !case !gender}"
     # невероятно подвижный
-    - pat: "{adverbials} {pos=prts !number !case !gender}"
+    - pat: "{adverbials} {pos=prtf !number !case !gender}"
+    # сделанный вчера
+    - pat: "{pos=prtf !number !case !gender} {adverbial_modifiers}"
+    # подаренная мужем
+    - pat: "{pos=prtf !number !case !gender} {object_groups case=ablt}"
+    # данная богу
+    - pat: "{pos=prtf !number !case !gender} {object_groups case=datv}"
+    # бросившая мужа (много неверных разборов из-за неоднозначностей)
+    #- pat: "{pos=prtf !number !case !gender} {object_groups case=accs}"
+
+participial_phrase:
