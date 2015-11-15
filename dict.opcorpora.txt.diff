@@ -4,6 +4,16 @@
 ---
 > #67984
 > #ГДЕ	ADVB,Ques 
+1227667,1227670c1227667,1227670
+< 85026
+< ДЛЯ	GRND,impf,tran pres
+< ДЛИВ	GRND,impf,tran past
+< ДЛИВШИ	GRND,impf,tran past,V-sh
+---
+> #85026
+> #ДЛЯ	GRND,impf,tran pres
+> #ДЛИВ	GRND,impf,tran past
+> #ДЛИВШИ	GRND,impf,tran past,V-sh
 1639513,1639514c1639513,1639514
 < 113274
 < ЗАЧЕМ	ADVB,Ques,Prdx 

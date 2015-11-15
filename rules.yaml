@@ -50,11 +50,21 @@ predicate_groups:
     - pat: "{predicate_group !number=@1 !gender=@2 !person=@3} и {predicate_groups number=@1 gender=@2 person=@3}"
 
 predicate_group:
+    # танцует до утра
+    - pat: "{predicate_group_base !number !gender !person}"
+    # радуясь за него поздравляет всех с праздником
+    - pat: "{dangling_participle} {predicate_group_base !number !gender !person}"
+    # поздравляет всех с праздником, радуясь за него,
+    - pat: "{predicate_group_base !number !gender !person}, {dangling_participle},"
+    # красит забор, мягко водя кисточкой
+    - pat: "{predicate_group_base !number !gender !person}, {dangling_participle}"
+
+predicate_group_base:
     # прыгает
     - pat: "{predicate !number !gender !person}"
     # тяжело дышит
     - pat: "{adverbial_modifiers} {predicate !number !gender !person}"
-    # стучать кувалдой
+    # стучит кувалдой
     - pat: "{predicate !number !gender !person} {object_groups case=ablt}"
     # быстро прикрылся щитом
     - pat: "{adverbial_modifiers} {predicate !number !gender !person} {object_groups case=ablt}"
@@ -109,6 +119,13 @@ adverbial_modifier:
     - pat: "о {object_groups case=accs}"
     - pat: "об {object_groups case=accs}"
     - pat: "обо {object_groups case=accs}"
+    # к тебе
+    - pat: "к {object_groups case=datv}"
+    # для тебя
+    - pat: "для {object_groups case=gent}"
+    # перед домом
+    - pat: "перед {object_groups case=ablt}"
+    - pat: "передо {object_groups case=ablt}"
 
 predicate:
     # не поёт
@@ -187,8 +204,16 @@ object_groups:
     - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе и {object_groups case=@1 person=@2}"
 
 object_group:
-    # не военными
+    # не музыкальных канареек
     - pat: "не {object_group !number !case !gender !person}"
+    # весёлые песни
+    - pat: "{object_group_base !number !case !gender !person}"
+    # размер пенсии, положенной Рахимову,
+    - pat: "{object_group_base !number=@1 !case=@2 !gender=@3 !person}, {participial_phrase number=@1 case=@2},"
+    # соответствующего гормона, обладающего успокаивающим эффектом
+    - pat: "{object_group_base !number=@1 !case=@2 !gender=@3 !person}, {participial_phrase number=@1 case=@2}"
+
+object_group_base:
     # самолёта
     - pat: "{object !number !case !gender !person}"
     # красивых и уютных палатах
@@ -223,6 +248,10 @@ attribute:
     - pat: "{adverbials} {pos=adjf !number !case !gender}"
     # невероятно подвижный
     - pat: "{adverbials} {pos=prtf !number !case !gender}"
+    # случившаяся в четверг
+    - pat: "{participial_phrase !number !case}"
+
+participial_phrase:
     # сделанный вчера
     - pat: "{pos=prtf !number !case !gender} {adverbial_modifiers}"
     # подаренная мужем
@@ -232,4 +261,26 @@ attribute:
     # бросившая мужа (много неверных разборов из-за неоднозначностей)
     #- pat: "{pos=prtf !number !case !gender} {object_groups case=accs}"
 
-participial_phrase:
+dangling_participle:
+    # не играя в эту игру
+    - pat: "не {dangling_participle}"
+    # желая
+    - pat: "{pos=grnd}"
+    # очень боясь
+    - pat: "{adverbials} {pos=grnd}"
+    # убирая в своей комнате
+    - pat: "{pos=grnd} {adverbial_modifiers}"
+    # сильно страдая в этой семье
+    - pat: "{adverbials} {pos=grnd} {adverbial_modifiers}"
+    # стуча кувалдой
+    - pat: "{pos=grnd} {object_groups case=ablt}"
+    # быстро накрываясь одеялом
+    - pat: "{adverbial_modifiers} {pos=grnd} {object_groups case=ablt}"
+    # не поддаваясь пониманию
+    - pat: "{pos=grnd} {object_groups case=datv}"
+    # в точности соответствуя филогенетическому дереву
+    - pat: "{adverbial_modifiers} {pos=grnd} {object_groups case=datv}"
+    # найдя себе удобную тусовку
+    - pat: "{pos=grnd} {object_groups case=datv} {object_groups case=accs}"
+    # бросая жену
+    - pat: "{pos=grnd} {object_groups case=accs}"
