@@ -22,6 +22,10 @@ compound_sentence:
     - pat: "{simple_sentence}, а {compound_sentence}"
 
 complex_sentence:
+    # мы не сомневаемся, что эта тема ждёт своих исследователей
+    - pat: "{compound_sentence}, что {compound_sentence}"
+    # потом вектор поменялся, но принцип остался
+    - pat: "{compound_sentence}, но {compound_sentence}"
 
 simple_sentence:
     # толстый мальчик посмотрел на меня
@@ -40,6 +44,8 @@ simple_sentence:
     - pat: "{adverbial_modifiers} {pos=prts number=@1 gender=@2} {subject_groups number=@1 gender=@2}"
     # феминизм - не его компетенция
     - pat: "{subject_groups} - {subject_groups}"
+    # это важная и востребованная функциональность
+    - pat: "это {subject_groups}"
 
 predicate_groups:
     # весело прыгает по волнам
@@ -258,8 +264,8 @@ participial_phrase:
     - pat: "{pos=prtf !number !case !gender} {object_groups case=ablt}"
     # данная богу
     - pat: "{pos=prtf !number !case !gender} {object_groups case=datv}"
-    # бросившая мужа (много неверных разборов из-за неоднозначностей)
-    #- pat: "{pos=prtf !number !case !gender} {object_groups case=accs}"
+    # бросившая мужа
+    - pat: "{pos=prtf !number !case !gender} {object_groups case=accs}"
 
 dangling_participle:
     # не играя в эту игру

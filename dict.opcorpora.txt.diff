@@ -1,3 +1,31 @@
+589929,589941c589929,589941
+< 42157
+< ВЕСЬ	NOUN,inan,femn sing,nomn
+< ВЕСИ	NOUN,inan,femn sing,gent
+< ВЕСИ	NOUN,inan,femn sing,datv
+< ВЕСЬ	NOUN,inan,femn sing,accs
+< ВЕСЬЮ	NOUN,inan,femn sing,ablt
+< ВЕСИ	NOUN,inan,femn sing,loct
+< ВЕСИ	NOUN,inan,femn plur,nomn
+< ВЕСЕЙ	NOUN,inan,femn plur,gent
+< ВЕСЯМ	NOUN,inan,femn plur,datv
+< ВЕСИ	NOUN,inan,femn plur,accs
+< ВЕСЯМИ	NOUN,inan,femn plur,ablt
+< ВЕСЯХ	NOUN,inan,femn plur,loct
+---
+> #42157
+> #ВЕСЬ	NOUN,inan,femn sing,nomn
+> #ВЕСИ	NOUN,inan,femn sing,gent
+> #ВЕСИ	NOUN,inan,femn sing,datv
+> #ВЕСЬ	NOUN,inan,femn sing,accs
+> #ВЕСЬЮ	NOUN,inan,femn sing,ablt
+> #ВЕСИ	NOUN,inan,femn sing,loct
+> #ВЕСИ	NOUN,inan,femn plur,nomn
+> #ВЕСЕЙ	NOUN,inan,femn plur,gent
+> #ВЕСЯМ	NOUN,inan,femn plur,datv
+> #ВЕСИ	NOUN,inan,femn plur,accs
+> #ВЕСЯМИ	NOUN,inan,femn plur,ablt
+> #ВЕСЯХ	NOUN,inan,femn plur,loct
 978687,978688c978687,978688
 < 67984
 < ГДЕ	ADVB,Ques 
