@@ -10,6 +10,7 @@ sentence_ending:
     - pat: "."
     - pat: "?"
     - pat: "!"
+    - pat: "..."
 
 compound_sentence:
     # сегодня я поеду к бабушке
@@ -20,12 +21,16 @@ compound_sentence:
     - pat: "{simple_sentence}, и {compound_sentence}"
     # мы гуляли, а мама в это время была на работе
     - pat: "{simple_sentence}, а {compound_sentence}"
+    # душный жар внезапно сменился влажным холодом; тени быстро густели
+    - pat: "{simple_sentence}; {compound_sentence}"
 
 complex_sentence:
     # мы не сомневаемся, что эта тема ждёт своих исследователей
-    - pat: "{compound_sentence}, что {compound_sentence}"
-    # потом вектор поменялся, но принцип остался
-    - pat: "{compound_sentence}, но {compound_sentence}"
+    - pat: "{compound_sentence}, {pos=conj} {compound_sentence}"
+    # когда человек не сомневается, он не сможет стать журналистом
+    - pat: "{pos=conj} {compound_sentence}, {compound_sentence}"
+    # если ты дурак, то ты прыгнешь
+    - pat: "{pos=conj} {compound_sentence}, {pos=conj} {compound_sentence}"
 
 simple_sentence:
     # толстый мальчик посмотрел на меня
@@ -46,6 +51,12 @@ simple_sentence:
     - pat: "{subject_groups} - {subject_groups}"
     # это важная и востребованная функциональность
     - pat: "это {subject_groups}"
+    # верно, сказал я
+    - pat: "{parenthetic_word}, {simple_sentence}"
+    # этот вид бизнеса, похоже, неплохо развивается
+    - pat: "{subject_groups number=@1 gender=@2 person=@3}, {parenthetic_word}, {predicate_groups number=@1 gender=@2 person=@3}"
+    # положение, конечно, удручающее
+    - pat: "{subject_groups number=@1 gender=@2}, {parenthetic_word}, {attribute_groups number=@1 gender=@2}"
 
 predicate_groups:
     # весело прыгает по волнам
@@ -210,6 +221,8 @@ object_groups:
     - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе и {object_groups case=@1 person=@2}"
 
 object_group:
+    # «новой журналистики»
+    - pat: "«{object_group !number !case !gender !person}»"
     # не музыкальных канареек
     - pat: "не {object_group !number !case !gender !person}"
     # весёлые песни
@@ -290,3 +303,9 @@ dangling_participle:
     - pat: "{pos=grnd} {object_groups case=datv} {object_groups case=accs}"
     # бросая жену
     - pat: "{pos=grnd} {object_groups case=accs}"
+
+parenthetic_word:
+    # естественно
+    - pat: "{pos=conj}"
+    # в целом
+    - pat: "{adverbial_modifiers}"

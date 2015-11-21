@@ -22,7 +22,7 @@ type ParseMatch struct {
 	HypothesisCount uint
 }
 
-const TerminalSeparators = " ,."
+const TerminalSeparators = " ,.;»"
 
 func parseTerminal(pattern string) (string, string) {
 	var term string
