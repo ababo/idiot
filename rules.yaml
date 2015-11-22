@@ -17,10 +17,6 @@ compound_sentence:
     - pat: "{simple_sentence}"
     # воздух дышит весенним ароматом, вся природа оживляется
     - pat: "{simple_sentence}, {compound_sentence}"
-    # папа вышел на пробежку, и мы встретились
-    - pat: "{simple_sentence}, и {compound_sentence}"
-    # мы гуляли, а мама в это время была на работе
-    - pat: "{simple_sentence}, а {compound_sentence}"
     # душный жар внезапно сменился влажным холодом; тени быстро густели
     - pat: "{simple_sentence}; {compound_sentence}"
 
@@ -33,6 +29,10 @@ complex_sentence:
     - pat: "{pos=conj} {compound_sentence}, {pos=conj} {compound_sentence}"
 
 simple_sentence:
+    # и мы встретились
+    - pat: "и {compound_sentence}"
+    # а мама в это время была на работе
+    - pat: "а {compound_sentence}"
     # толстый мальчик посмотрел на меня
     - pat: "{subject_groups number=@1 gender=@2 person=@3} {predicate_groups number=@1 gender=@2 person=@3}"
     # в любом случае срединное земное измерение вытесняется
@@ -105,6 +105,8 @@ adverbial_modifiers:
     - pat: "{adverbial_modifier}, {adverbial_modifiers}"
     # по субботам и по воскресеньям
     - pat: "{adverbial_modifier} и {adverbial_modifiers}"
+    # в зависимости от выбранной системы штрафов
+    - pat: "{adverbial_modifier} {adverbial_modifiers}"
 
 adverbial_modifier:
     # в большом тереме
@@ -215,12 +217,12 @@ object_groups:
     - pat: "@{number=plur}{object_group !case=@1 !person=@2}, {object_groups case=@1 person=@2}"
     # маленьким ребёнком и седым стариком
     - pat: "@{number=plur}{object_group !case=@1 !person=@2} и {object_groups case=@1 person=@2}"
-    # рыбой, в том числе ценными промысловыми породами
-    - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе {object_groups case=@1 person=@2}"
-    # млекопитающим, в том числе и китообразным
-    - pat: "@{number=plur}{object_group !case=@1 !person=@2}, в том числе и {object_groups case=@1 person=@2}"
+    # одна дырка, а не вынос большей части стены
+    - pat: "@{number=plur}не {object_group !case=@1 !person=@2}, а {object_groups case=@1 person=@2}"
 
 object_group:
+    # и крупный издательский бизнес
+    - pat: "и {object_group !number !case !gender !person}"
     # «новой журналистики»
     - pat: "«{object_group !number !case !gender !person}»"
     # не музыкальных канареек
